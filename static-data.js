@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 4 with box scores",
+    "updatedLabel": "Updated through Week 5 with trades and player history",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -11,308 +11,439 @@ window.RUL_STATIC_DATA = {
   },
   "teams": [
     {
-      "id": "kitties",
       "name": "Kitties",
       "conference": "East",
       "record": "3-1",
       "conferenceRecord": "2-0",
       "totalUpvotes": 25030,
-      "gm": "TBD",
-      "accent": "#e8ff3c",
       "roster": [
         {
           "handle": "bryceyoungformvp",
-          "upvotes": 13331
+          "upvotes": 13331,
+          "currentTeam": "Kitties"
         },
         {
           "handle": "cardinalsred123",
-          "upvotes": 1850
+          "upvotes": 1850,
+          "currentTeam": "Kitties"
         },
         {
           "handle": "buxton_",
-          "upvotes": 2387
+          "upvotes": 2387,
+          "currentTeam": "Kitties"
         },
         {
           "handle": "supaboiiii",
-          "upvotes": 2618
+          "upvotes": 2618,
+          "currentTeam": "Kitties"
         },
         {
           "handle": "gfkmoney",
-          "upvotes": 2155
+          "upvotes": 2155,
+          "currentTeam": "Kitties"
         },
         {
           "handle": "mattymck11",
-          "upvotes": 185
+          "upvotes": 185,
+          "currentTeam": "Kitties"
         },
         {
-          "handle": "breens",
-          "upvotes": 1243
+          "handle": "msgbrunson",
+          "upvotes": 0,
+          "currentTeam": "Kitties"
         }
-      ]
+      ],
+      "officialTotalLocked": true,
+      "totalNote": "Official team total is locked from the Week 4 standings. Roster moves do not change past team totals."
     },
     {
-      "id": "voltage",
       "name": "Voltage",
       "conference": "East",
       "record": "1-3",
       "conferenceRecord": "0-3",
       "totalUpvotes": 13864,
-      "gm": "TBD",
-      "accent": "#38bdf8",
       "roster": [
         {
           "handle": "wilbus",
-          "upvotes": 2769
+          "upvotes": 2769,
+          "currentTeam": "Voltage"
         },
         {
-          "handle": "jaylen",
-          "upvotes": 1049
+          "handle": "ceedeelambfan",
+          "upvotes": 2178,
+          "currentTeam": "Voltage",
+          "previousTeam": "Reapers",
+          "history": [
+            {
+              "week": "Week 4",
+              "type": "Trade",
+              "from": "Reapers",
+              "to": "Voltage",
+              "title": "Voltage and Reapers trade"
+            }
+          ]
         },
         {
-          "handle": "notlikesosa",
-          "upvotes": 0
+          "handle": "flock.ravens",
+          "upvotes": 446,
+          "currentTeam": "Voltage",
+          "history": [
+            {
+              "week": "Recent",
+              "type": "Trade",
+              "from": "Phantoms",
+              "to": "Voltage",
+              "title": "Voltage and Phantoms trade"
+            }
+          ],
+          "previousTeam": "Phantoms"
         },
         {
           "handle": "masedog5111",
-          "upvotes": 173
+          "upvotes": 173,
+          "currentTeam": "Voltage"
         },
         {
           "handle": "akalegendd",
-          "upvotes": 90
+          "upvotes": 90,
+          "currentTeam": "Voltage"
         },
         {
-          "handle": "car.son",
-          "upvotes": 0
+          "handle": "notlikesosa",
+          "upvotes": 0,
+          "currentTeam": "Voltage"
         },
         {
-          "handle": "jet",
-          "upvotes": 736
+          "handle": "washington",
+          "upvotes": 0,
+          "currentTeam": "Voltage"
         }
-      ]
+      ],
+      "officialTotalLocked": true,
+      "totalNote": "Official team total is locked from the Week 4 standings. Roster moves do not change past team totals."
     },
     {
-      "id": "mammoths",
       "name": "Mammoths",
       "conference": "East",
       "record": "2-2",
       "conferenceRecord": "1-1",
       "totalUpvotes": 15871,
-      "gm": "TBD",
-      "accent": "#a78bfa",
       "roster": [
         {
           "handle": "realsabrinacarpenter",
-          "upvotes": 9986
-        },
-        {
-          "handle": "wmv0",
-          "upvotes": 1618
-        },
-        {
-          "handle": "taad",
-          "upvotes": 1668
+          "upvotes": 9986,
+          "currentTeam": "Mammoths"
         },
         {
           "handle": "andthatsallshewrote",
-          "upvotes": 2604
+          "upvotes": 2604,
+          "currentTeam": "Mammoths"
+        },
+        {
+          "handle": "taad",
+          "upvotes": 1668,
+          "currentTeam": "Mammoths"
+        },
+        {
+          "handle": "car.son",
+          "upvotes": 0,
+          "currentTeam": "Mammoths"
         },
         {
           "handle": "datboybubba",
-          "upvotes": 0
+          "upvotes": 0,
+          "currentTeam": "Mammoths"
         },
         {
           "handle": "luca",
-          "upvotes": 0
+          "upvotes": 0,
+          "currentTeam": "Mammoths",
+          "previousTeam": "Phantoms",
+          "history": [
+            {
+              "week": "Week 5",
+              "type": "Trade",
+              "from": "Phantoms",
+              "to": "Mammoths",
+              "title": "Phantoms and Mammoths trade"
+            }
+          ]
         },
         {
-          "handle": "mbell123",
-          "upvotes": 396
+          "handle": "mistermuyrico",
+          "upvotes": 0,
+          "currentTeam": "Mammoths"
         }
-      ]
+      ],
+      "officialTotalLocked": true,
+      "totalNote": "Official team total is locked from the Week 4 standings. Roster moves do not change past team totals."
     },
     {
-      "id": "phantoms",
       "name": "Phantoms",
       "conference": "East",
       "record": "2-2",
       "conferenceRecord": "1-0",
       "totalUpvotes": 13894,
-      "gm": "@malikwillis",
-      "accent": "#8b5cf6",
       "roster": [
         {
           "handle": "kenunderrated",
-          "upvotes": 4008
+          "upvotes": 4008,
+          "currentTeam": "Phantoms"
         },
         {
           "handle": "george",
-          "upvotes": 2955
+          "upvotes": 2955,
+          "currentTeam": "Phantoms"
+        },
+        {
+          "handle": "wmv0",
+          "upvotes": 1618,
+          "currentTeam": "Phantoms",
+          "previousTeam": "Mammoths",
+          "history": [
+            {
+              "week": "Week 5",
+              "type": "Trade",
+              "from": "Mammoths",
+              "to": "Phantoms",
+              "title": "Phantoms and Mammoths trade"
+            }
+          ]
+        },
+        {
+          "handle": "breens",
+          "upvotes": 1243,
+          "currentTeam": "Phantoms"
         },
         {
           "handle": "richer",
-          "upvotes": 1229
+          "upvotes": 1229,
+          "currentTeam": "Phantoms"
         },
         {
-          "handle": "flock.ravens",
-          "upvotes": 446
+          "handle": "jaylen",
+          "upvotes": 1049,
+          "currentTeam": "Phantoms",
+          "history": [
+            {
+              "week": "Recent",
+              "type": "Trade",
+              "from": "Voltage",
+              "to": "Phantoms",
+              "title": "Voltage and Phantoms trade"
+            }
+          ],
+          "previousTeam": "Voltage"
         },
         {
-          "handle": "arachnid",
-          "upvotes": 3617
+          "handle": "mbell123",
+          "upvotes": 396,
+          "currentTeam": "Phantoms"
         },
         {
-          "handle": "burden_",
-          "upvotes": 0
-        },
-        {
-          "handle": "washington",
-          "upvotes": 0
+          "handle": "finsup46",
+          "upvotes": 0,
+          "currentTeam": "Phantoms",
+          "previousTeam": "Bandits",
+          "history": [
+            {
+              "week": "Week 4",
+              "type": "Trade",
+              "from": "Bandits",
+              "to": "Phantoms",
+              "title": "Bandits and Phantoms trade"
+            }
+          ]
         }
-      ]
+      ],
+      "officialTotalLocked": true,
+      "totalNote": "Official team total is locked from the Week 4 standings. Roster moves do not change past team totals."
     },
     {
-      "id": "vampires",
       "name": "Vampires",
       "conference": "West",
       "record": "3-1",
       "conferenceRecord": "1-1",
       "totalUpvotes": 17998,
-      "gm": "TBD",
-      "accent": "#ef4444",
       "roster": [
         {
           "handle": "seahawksfan1",
-          "upvotes": 10389
+          "upvotes": 10389,
+          "currentTeam": "Vampires"
         },
         {
           "handle": "tase",
-          "upvotes": 8997
+          "upvotes": 8997,
+          "currentTeam": "Vampires"
+        },
+        {
+          "handle": "arachnid",
+          "upvotes": 3617,
+          "currentTeam": "Vampires",
+          "previousTeam": "Phantoms",
+          "history": [
+            {
+              "week": "Week 4",
+              "type": "Trade",
+              "from": "Phantoms",
+              "to": "Vampires",
+              "title": "Phantoms and Vampires trade"
+            }
+          ]
         },
         {
           "handle": "cowan",
-          "upvotes": 2126
+          "upvotes": 2126,
+          "currentTeam": "Vampires"
         },
         {
-          "handle": "glazerofdrakemaye",
-          "upvotes": 587
+          "handle": "jet",
+          "upvotes": 736,
+          "currentTeam": "Vampires"
+        },
+        {
+          "handle": "burden_",
+          "upvotes": 0,
+          "currentTeam": "Vampires"
         },
         {
           "handle": "levandro",
-          "upvotes": 0
-        },
-        {
-          "handle": "finsup46",
-          "upvotes": 0
+          "upvotes": 0,
+          "currentTeam": "Vampires"
         }
-      ]
+      ],
+      "officialTotalLocked": true,
+      "totalNote": "Official team total is locked from the Week 4 standings. Roster moves do not change past team totals."
     },
     {
-      "id": "bandits",
       "name": "Bandits",
       "conference": "West",
       "record": "4-0",
       "conferenceRecord": "2-0",
       "totalUpvotes": 22445,
-      "gm": "TBD",
-      "accent": "#f97316",
       "roster": [
         {
-          "handle": "superbowl",
-          "upvotes": 6899
-        },
-        {
-          "handle": "trentgrishamdadstrength",
-          "upvotes": 1988
-        },
-        {
           "handle": "sports",
-          "upvotes": 8029
+          "upvotes": 8029,
+          "currentTeam": "Bandits"
+        },
+        {
+          "handle": "superbowl",
+          "upvotes": 6899,
+          "currentTeam": "Bandits"
         },
         {
           "handle": "mclean26",
-          "upvotes": 5412
+          "upvotes": 5412,
+          "currentTeam": "Bandits"
+        },
+        {
+          "handle": "trentgrishamdadstrength",
+          "upvotes": 1988,
+          "currentTeam": "Bandits"
+        },
+        {
+          "handle": "glazerofdrakemaye",
+          "upvotes": 587,
+          "currentTeam": "Bandits",
+          "previousTeam": "Vampires",
+          "history": [
+            {
+              "week": "Week 4",
+              "type": "Trade",
+              "from": "Vampires",
+              "to": "Phantoms",
+              "title": "Phantoms and Vampires trade"
+            },
+            {
+              "week": "Week 4",
+              "type": "Trade",
+              "from": "Phantoms",
+              "to": "Bandits",
+              "title": "Bandits and Phantoms trade"
+            }
+          ]
         },
         {
           "handle": "i.love.vladdy",
-          "upvotes": 0
-        },
-        {
-          "handle": "tripleg",
-          "upvotes": 0
+          "upvotes": 0,
+          "currentTeam": "Bandits"
         }
-      ]
+      ],
+      "officialTotalLocked": true,
+      "totalNote": "Official team total is locked from the Week 4 standings. Roster moves do not change past team totals."
     },
     {
-      "id": "reapers",
       "name": "Reapers",
       "conference": "West",
       "record": "0-4",
       "conferenceRecord": "0-2",
       "totalUpvotes": 7621,
-      "gm": "TBD",
-      "accent": "#64748b",
       "roster": [
         {
-          "handle": "ceedeelambfan",
-          "upvotes": 2178
-        },
-        {
           "handle": "laddmcconkey15",
-          "upvotes": 1138
+          "upvotes": 1138,
+          "currentTeam": "Reapers"
         },
         {
           "handle": "derikqueenfan",
-          "upvotes": 3488
+          "upvotes": 3488,
+          "currentTeam": "Reapers"
         },
         {
           "handle": "young",
-          "upvotes": 727
+          "upvotes": 727,
+          "currentTeam": "Reapers"
         },
         {
           "handle": "sugashow_",
-          "upvotes": 0
-        },
-        {
-          "handle": "msgbrunson",
-          "upvotes": 0
+          "upvotes": 0,
+          "currentTeam": "Reapers"
         }
-      ]
+      ],
+      "officialTotalLocked": true,
+      "totalNote": "Official team total is locked from the Week 4 standings. Roster moves do not change past team totals."
     },
     {
-      "id": "angels",
       "name": "Angels",
       "conference": "West",
       "record": "2-2",
       "conferenceRecord": "1-1",
       "totalUpvotes": 17638,
-      "gm": "TBD",
-      "accent": "#f9a8d4",
       "roster": [
         {
           "handle": "prodraiders",
-          "upvotes": 1991
+          "upvotes": 1991,
+          "currentTeam": "Angels"
         },
         {
           "handle": "kenny",
-          "upvotes": 4672
+          "upvotes": 4672,
+          "currentTeam": "Angels"
         },
         {
           "handle": "epiikees",
-          "upvotes": 7814
+          "upvotes": 7814,
+          "currentTeam": "Angels"
         },
         {
           "handle": "67fan/meat",
-          "upvotes": 4451
+          "upvotes": 4451,
+          "currentTeam": "Angels"
         },
         {
           "handle": "damian",
-          "upvotes": 0
+          "upvotes": 0,
+          "currentTeam": "Angels"
         },
         {
-          "handle": "mistermuyrico",
-          "upvotes": 0
+          "handle": "tripleg",
+          "upvotes": 0,
+          "currentTeam": "Angels"
         }
-      ]
+      ],
+      "officialTotalLocked": true,
+      "totalNote": "Official team total is locked from the Week 4 standings. Roster moves do not change past team totals."
     }
   ],
   "games": [
@@ -1391,16 +1522,21 @@ window.RUL_STATIC_DATA = {
     "Voltage": [
       "Phantoms 2nd rd",
       "Phantoms 3rd rd",
-      "Reapers S2 2nd rd",
       "Phantoms S3 2nd rd",
-      "Phantoms S3 3rd rd"
+      "Phantoms S3 3rd rd",
+      "Reapers S2 2nd rd",
+      "Phantoms S2 3rd",
+      "Phantoms S3 2nd",
+      "Phantoms S3 3rd"
     ],
     "Mammoths": [
-      "Vampires 6th rd"
+      "Vampires 6th rd",
+      "Vampires S3 4th rd",
+      "Phantoms S3 5th rd"
     ],
     "Phantoms": [
-      "Phantoms S2 3rd rd",
-      "Vampires S3 4th rd"
+      "Mammoths S3 6th rd",
+      "Phantoms S2 3rd rd"
     ],
     "Vampires": [
       "Kitties 3rd rd",
@@ -1416,9 +1552,10 @@ window.RUL_STATIC_DATA = {
     "Reapers": [
       "Voltage 5th rd",
       "Mammoths 5th rd",
+      "Voltage S3 3rd rd",
       "Vampires S2 1st rd",
       "Mammoths S2 3rd rd",
-      "Voltage S3 3rd rd"
+      "Voltage S2 3rd rd"
     ],
     "Angels": [
       "Kitties 5th rd",
@@ -1629,10 +1766,252 @@ window.RUL_STATIC_DATA = {
   ],
   "transactions": [
     {
+      "week": "Recent",
+      "date": "Recent",
+      "type": "Trade",
+      "title": "Voltage and Phantoms trade",
+      "teams": [
+        "Voltage",
+        "Phantoms"
+      ],
+      "moves": [
+        {
+          "player": "flock.ravens",
+          "from": "Phantoms",
+          "to": "Voltage"
+        },
+        {
+          "player": "jaylen",
+          "from": "Voltage",
+          "to": "Phantoms"
+        }
+      ],
+      "assets": {
+        "Voltage receive": [
+          "@flock.ravens",
+          "Phantoms S2 3rd",
+          "Phantoms S3 2nd",
+          "Phantoms S3 3rd"
+        ],
+        "Phantoms receive": [
+          "@jaylen"
+        ]
+      },
+      "description": "Voltage receive @flock.ravens, Phantoms S2 3rd, Phantoms S3 2nd, and Phantoms S3 3rd. Phantoms receive @jaylen."
+    },
+    {
+      "week": "Week 5",
+      "date": "Week 5",
+      "type": "Trade",
+      "title": "Phantoms and Mammoths trade",
+      "teams": [
+        "Phantoms",
+        "Mammoths"
+      ],
+      "moves": [
+        {
+          "player": "wmv0",
+          "from": "Mammoths",
+          "to": "Phantoms"
+        },
+        {
+          "player": "luca",
+          "from": "Phantoms",
+          "to": "Mammoths"
+        }
+      ],
+      "assets": {
+        "Phantoms receive": [
+          "@wmv0",
+          "S3 Mammoths 6th"
+        ],
+        "Mammoths receive": [
+          "@luca",
+          "S3 Vampires 4th",
+          "S3 Phantoms 5th"
+        ]
+      },
+      "description": "Phantoms receive @wmv0 and S3 Mammoths 6th. Mammoths receive @luca, S3 Vampires 4th, and S3 Phantoms 5th."
+    },
+    {
+      "week": "Week 4",
+      "date": "Week 4",
+      "type": "Trade",
+      "title": "Phantoms and Vampires trade",
+      "teams": [
+        "Phantoms",
+        "Vampires"
+      ],
+      "moves": [
+        {
+          "player": "glazerofdrakemaye",
+          "from": "Vampires",
+          "to": "Phantoms"
+        },
+        {
+          "player": "arachnid",
+          "from": "Phantoms",
+          "to": "Vampires"
+        }
+      ],
+      "assets": {
+        "Phantoms receive": [
+          "@glazerofdrakemaye",
+          "Phantoms Season 2 3rd Rounder",
+          "Vampires Season 3 4th Rounder"
+        ],
+        "Vampires receive": [
+          "@arachnid"
+        ]
+      },
+      "description": "Phantoms receive @glazerofdrakemaye, Phantoms S2 3rd, and Vampires S3 4th. Vampires receive @arachnid."
+    },
+    {
+      "week": "Week 4",
+      "date": "Week 4",
+      "type": "Trade",
+      "title": "Bandits and Phantoms trade",
+      "teams": [
+        "Bandits",
+        "Phantoms"
+      ],
+      "moves": [
+        {
+          "player": "glazerofdrakemaye",
+          "from": "Phantoms",
+          "to": "Bandits"
+        },
+        {
+          "player": "finsup46",
+          "from": "Bandits",
+          "to": "Phantoms"
+        }
+      ],
+      "assets": {
+        "Bandits receive": [
+          "@glazerofdrakemaye"
+        ],
+        "Phantoms receive": [
+          "@finsup46"
+        ]
+      },
+      "description": "Bandits receive @glazerofdrakemaye. Phantoms receive @finsup46."
+    },
+    {
+      "week": "Week 4",
+      "date": "Week 4",
+      "type": "Trade",
+      "title": "Voltage and Reapers trade",
+      "teams": [
+        "Voltage",
+        "Reapers"
+      ],
+      "moves": [
+        {
+          "player": "ceedeelambfan",
+          "from": "Reapers",
+          "to": "Voltage"
+        }
+      ],
+      "assets": {
+        "Voltage receive": [
+          "@ceedeelambfan",
+          "Reapers S2 R2"
+        ],
+        "Reapers receive": [
+          "Vampires S2 1st",
+          "Mammoths S2 3rd",
+          "Voltage S2 3rd"
+        ]
+      },
+      "description": "Voltage receive @ceedeelambfan and Reapers S2 R2. Reapers receive Vampires S2 1st, Mammoths S2 3rd, and Voltage S2 3rd."
+    },
+    {
       "date": "Week 4",
       "type": "Site Update",
       "title": "RUL file updated through Week 4",
       "description": "Rosters, records, game history, future picks, and player upvotes were loaded into the league site."
     }
-  ]
+  ],
+  "playerHistory": {
+    "wmv0": [
+      {
+        "week": "Week 5",
+        "type": "Trade",
+        "from": "Mammoths",
+        "to": "Phantoms",
+        "title": "Phantoms and Mammoths trade"
+      }
+    ],
+    "luca": [
+      {
+        "week": "Week 5",
+        "type": "Trade",
+        "from": "Phantoms",
+        "to": "Mammoths",
+        "title": "Phantoms and Mammoths trade"
+      }
+    ],
+    "glazerofdrakemaye": [
+      {
+        "week": "Week 4",
+        "type": "Trade",
+        "from": "Vampires",
+        "to": "Phantoms",
+        "title": "Phantoms and Vampires trade"
+      },
+      {
+        "week": "Week 4",
+        "type": "Trade",
+        "from": "Phantoms",
+        "to": "Bandits",
+        "title": "Bandits and Phantoms trade"
+      }
+    ],
+    "arachnid": [
+      {
+        "week": "Week 4",
+        "type": "Trade",
+        "from": "Phantoms",
+        "to": "Vampires",
+        "title": "Phantoms and Vampires trade"
+      }
+    ],
+    "finsup46": [
+      {
+        "week": "Week 4",
+        "type": "Trade",
+        "from": "Bandits",
+        "to": "Phantoms",
+        "title": "Bandits and Phantoms trade"
+      }
+    ],
+    "ceedeelambfan": [
+      {
+        "week": "Week 4",
+        "type": "Trade",
+        "from": "Reapers",
+        "to": "Voltage",
+        "title": "Voltage and Reapers trade"
+      }
+    ],
+    "flock.ravens": [
+      {
+        "week": "Recent",
+        "type": "Trade",
+        "from": "Phantoms",
+        "to": "Voltage",
+        "title": "Voltage and Phantoms trade"
+      }
+    ],
+    "jaylen": [
+      {
+        "week": "Recent",
+        "type": "Trade",
+        "from": "Voltage",
+        "to": "Phantoms",
+        "title": "Voltage and Phantoms trade"
+      }
+    ]
+  }
 };

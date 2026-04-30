@@ -1,22 +1,46 @@
 loadLeagueData().then(data => {
-  pageHeader(data, 'transactions.html', 'League', 'Transactions', 'Trades, Adds & Drops');
+  pageHeader(data, 'transactions.html', 'League', 'Transactions', 'Trades, free agent moves, pick swaps, and commissioner notes');
   pageFooter(data);
-  const getLocal = () => JSON.parse(localStorage.getItem('rulTransactions') || '[]');
-  const allTx = () => [...data.transactions, ...getLocal()].reverse();
-  const render = (filter='All') => {
-    const tx = allTx().filter(item => filter === 'All' || item.type === filter);
-    $('#txList').innerHTML = `<h2 class="card-title">League Activity</h2>` + (tx.length ? tx.map(item => `<div class="row"><span><strong>${escapeHtml(item.title)}</strong><br><span class="muted">${escapeHtml(item.date)} • ${escapeHtml(item.type)} • ${escapeHtml(item.description)}</span></span></div>`).join('') : '<div class="empty">No transactions found.</div>');
-  };
-  $all('[data-filter]').forEach(button => button.addEventListener('click', () => render(button.dataset.filter)));
-  $('#openModal').addEventListener('click', () => $('#txModal').classList.add('open'));
-  document.addEventListener('click', event => { if(event.target.matches('[data-close="true"]')) $('#txModal').classList.remove('open'); });
-  $('#saveTx').addEventListener('click', () => {
-    if($('#pass').value !== 'rulcommish'){ alert('Wrong password. Default password is rulcommish.'); return; }
-    const tx = getLocal();
-    tx.push({date:new Date().toLocaleDateString(), type:$('#type').value, title:$('#title').value || 'Untitled transaction', description:$('#desc').value || 'No description'});
-    localStorage.setItem('rulTransactions', JSON.stringify(tx));
-    $('#txModal').classList.remove('open');
-    render('All');
-  });
-  render('All');
+
+  const target = $('#transactionsList') || $('#transactions-content') || $('#transactions');
+  if (!target) return;
+
+  const transactions = data.transactions || [];
+
+  target.innerHTML = transactions.length ? transactions.map(tx => `
+    <article class="card transaction-card">
+      <div class="label">${escapeHtml(tx.week || tx.date || 'Recent')} · ${escapeHtml(tx.type || 'Transaction')}</div>
+      <h2>${escapeHtml(tx.title || 'League Transaction')}</h2>
+      ${tx.assets ? `
+        <div class="grid two">
+          ${Object.entries(tx.assets).map(([side, assets]) => `
+            <div class="mini-card">
+              <h3>${escapeHtml(side)}</h3>
+              ${(assets || []).map(asset => `<div class="row"><span>${formatAsset(asset)}</span></div>`).join('')}
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
+      ${tx.moves && tx.moves.length ? `
+        <div style="margin-top:12px">
+          <h3>Player Movement</h3>
+          ${tx.moves.map(move => `
+            <div class="row">
+              <span>${playerLink(move.player)}</span>
+              <strong>${escapeHtml(move.from)} → ${escapeHtml(move.to)}</strong>
+            </div>
+          `).join('')}
+        </div>
+      ` : ''}
+      <p class="muted">${escapeHtml(tx.description || '')}</p>
+    </article>
+  `).join('') : '<div class="empty">No transactions entered yet.</div>';
 });
+
+function formatAsset(asset) {
+  const text = String(asset || '');
+  if (text.trim().startsWith('@')) {
+    return playerLink(text.trim());
+  }
+  return escapeHtml(text);
+}
