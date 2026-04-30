@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Real Upvote League</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
+<body class="home-body">
+<div class="hero"><div class="hero-top">Official RUL Home Page</div><h1>Real <span>Upvote</span> League</h1><div class="hero-sub">Upvote League Portal</div></div>
+<div class="nav-wrap">
+<a href="live.html" class="portal-box"><div class="portal-left"><div class="portal-title">Live Scores</div><div class="portal-sub">Official Match Center</div></div><div class="portal-arrow">→</div></a>
+<a href="draft.html" class="portal-box"><div class="portal-left"><div class="portal-title">Draft Capital</div><div class="portal-sub">Future Assets Tracker</div></div><div class="portal-arrow">→</div></a>
+<a href="standings.html" class="portal-box"><div class="portal-left"><div class="portal-title">Standings</div><div class="portal-sub">League Table & Rankings</div></div><div class="portal-arrow">→</div></a>
+<a href="transactions.html" class="portal-box"><div class="portal-left"><div class="portal-title">Transactions</div><div class="portal-sub">Trades, Adds & Drops</div></div><div class="portal-arrow">→</div></a>
+<a href="stats.html" class="portal-box"><div class="portal-left"><div class="portal-title">Player Stats</div><div class="portal-sub">Stats & Leaderboards</div></div><div class="portal-arrow">→</div></a>
+<a href="roster.html" class="portal-box"><div class="portal-left"><div class="portal-title">Roster</div><div class="portal-sub">Players & GMs</div></div><div class="portal-arrow">→</div></a>
+</div>
+<a href="gm.html" class="gm-btn">GM Login</a>
+<footer id="homeFooter">Made for RUL</footer>
+<script src="static-data.js"></script><script src="sheet-config.js"></script><script src="utils.js"></script><script src="data-service.js"></script><script>
+loadLeagueData().then(data => { document.getElementById('homeFooter').textContent = `Made for ${data.league.shortName} by ${data.league.madeBy}`; });
+</script></body></html>
