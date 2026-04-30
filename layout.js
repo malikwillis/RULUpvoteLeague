@@ -53,7 +53,7 @@ function renderGameCard(game, data){
         <div class="proj-label">${escapeHtml(game.week)} • ${escapeHtml(game.date)} • ${escapeHtml(game.type)}</div>
         <div class="bar-wrap"><div class="bar-fill" style="width:${leadPct}%"></div></div>
       </div>
-      <div class="mvp">${final ? `UPVOTE WINNER — ${escapeHtml(leader)}` : 'MATCHUP NOT PLAYED YET'}</div>
+      <div class="mvp">${final ? `UPVOTE WINNER — ${escapeHtml(leader)}${game.boxScore ? ' · CLICK FOR PLAYER UPVOTES' : ''}` : 'MATCHUP NOT PLAYED YET'}</div>
     </div>`;
 }
 function renderTeamMini(team){

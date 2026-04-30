@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 4",
+    "updatedLabel": "Updated through Week 4 with box scores",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -324,7 +324,46 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 8221,
       "teamBScore": 8751,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "tase",
+            "upvotes": 4862
+          },
+          {
+            "handle": "buxton_",
+            "upvotes": 1885
+          },
+          {
+            "handle": "dkbeefcake",
+            "upvotes": 307
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 1157
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "mclean26",
+            "upvotes": 1441
+          },
+          {
+            "handle": "superbowl",
+            "upvotes": 3077
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 1780
+          },
+          {
+            "handle": "sports",
+            "upvotes": 2453
+          }
+        ],
+        "note": "Bandits win by 530"
+      }
     },
     {
       "week": "Week 1",
@@ -334,7 +373,46 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 6715,
       "teamBScore": 1662,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "bryceyoungformvp",
+            "upvotes": 3606
+          },
+          {
+            "handle": "wilbus",
+            "upvotes": 2040
+          },
+          {
+            "handle": "67fan",
+            "upvotes": 150
+          },
+          {
+            "handle": "realbigyahu",
+            "upvotes": 919
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "ceedeelambfan",
+            "upvotes": 527
+          },
+          {
+            "handle": "laddmcconkey15",
+            "upvotes": 558
+          },
+          {
+            "handle": "j.hook",
+            "upvotes": 90
+          },
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 487
+          }
+        ],
+        "note": "Voltage win by 5,053"
+      }
     },
     {
       "week": "Week 1",
@@ -344,7 +422,46 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 6446,
       "teamBScore": 6172,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 4111
+          },
+          {
+            "handle": "wmv0",
+            "upvotes": 678
+          },
+          {
+            "handle": "taad",
+            "upvotes": 508
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 1169
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "epiikees",
+            "upvotes": 1570
+          },
+          {
+            "handle": "kenny",
+            "upvotes": 1972
+          },
+          {
+            "handle": "67fan",
+            "upvotes": 1675
+          },
+          {
+            "handle": "prodraiders",
+            "upvotes": 955
+          }
+        ],
+        "note": "Mammoths win by 274"
+      }
     },
     {
       "week": "Week 1",
@@ -354,7 +471,50 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 3894,
       "teamBScore": 3943,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "george",
+            "upvotes": 339
+          },
+          {
+            "handle": "kenunderrated",
+            "upvotes": 2259
+          },
+          {
+            "handle": "richer",
+            "upvotes": 850,
+            "note": "With penalty"
+          },
+          {
+            "handle": "flock.ravens",
+            "upvotes": 446
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "seahawksfan1",
+            "upvotes": 2831
+          },
+          {
+            "handle": "thebaltimoreravens",
+            "upvotes": 25,
+            "note": "With penalty"
+          },
+          {
+            "handle": "cowan",
+            "upvotes": 711,
+            "note": "With penalty"
+          },
+          {
+            "handle": "glazerofdrakemaye",
+            "upvotes": 376,
+            "note": "With penalty"
+          }
+        ],
+        "note": "Vampires win by 49"
+      }
     },
     {
       "week": "Week 2",
@@ -364,7 +524,46 @@ window.RUL_STATIC_DATA = {
       "type": "Conf East",
       "teamAScore": 3173,
       "teamBScore": 1916,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "buxton_",
+            "upvotes": 190
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 764
+          },
+          {
+            "handle": "gfkmoney",
+            "upvotes": 1039
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 1180
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 1328
+          },
+          {
+            "handle": "wmv0",
+            "upvotes": 94
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 309
+          },
+          {
+            "handle": "mattymck11",
+            "upvotes": 185
+          }
+        ],
+        "note": "Kitties win by 1,257"
+      }
     },
     {
       "week": "Week 2",
@@ -374,7 +573,47 @@ window.RUL_STATIC_DATA = {
       "type": "Conf East",
       "teamAScore": 2931,
       "teamBScore": 5646,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "bryceyoungformvp",
+            "upvotes": 1984,
+            "note": "-190"
+          },
+          {
+            "handle": "wilbus",
+            "upvotes": 571
+          },
+          {
+            "handle": "jaylen",
+            "upvotes": 375
+          },
+          {
+            "handle": "dkbeefcake",
+            "upvotes": 1
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 1749
+          },
+          {
+            "handle": "george",
+            "upvotes": 1188
+          },
+          {
+            "handle": "richer",
+            "upvotes": 379
+          },
+          {
+            "handle": "arachnid",
+            "upvotes": 2330
+          }
+        ],
+        "note": "Phantoms win by 2,715"
+      }
     },
     {
       "week": "Week 2",
@@ -384,7 +623,49 @@ window.RUL_STATIC_DATA = {
       "type": "Conf West",
       "teamAScore": 7252,
       "teamBScore": 4333,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "seahawksfan1",
+            "upvotes": 4223,
+            "note": "C"
+          },
+          {
+            "handle": "tase",
+            "upvotes": 2013,
+            "note": "A"
+          },
+          {
+            "handle": "cowan",
+            "upvotes": 805
+          },
+          {
+            "handle": "glazerofdrakemaye",
+            "upvotes": 211
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "prodraiders",
+            "upvotes": 1017,
+            "note": "C"
+          },
+          {
+            "handle": "epiikees",
+            "upvotes": 1364
+          },
+          {
+            "handle": "kenny",
+            "upvotes": 628
+          },
+          {
+            "handle": "67fan",
+            "upvotes": 1324
+          }
+        ],
+        "note": "Vampires win by 2,919"
+      }
     },
     {
       "week": "Week 2",
@@ -394,7 +675,46 @@ window.RUL_STATIC_DATA = {
       "type": "Conf West",
       "teamAScore": 4856,
       "teamBScore": 3581,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "sports",
+            "upvotes": 1968
+          },
+          {
+            "handle": "mclean26",
+            "upvotes": 2091
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 88
+          },
+          {
+            "handle": "superbowl",
+            "upvotes": 709
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "ceedeelambfan",
+            "upvotes": 1422
+          },
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 1627
+          },
+          {
+            "handle": "laddmcconkey15",
+            "upvotes": 201
+          },
+          {
+            "handle": "young",
+            "upvotes": 331
+          }
+        ],
+        "note": "Bandits win by 1,275"
+      }
     },
     {
       "week": "Week 3",
@@ -404,7 +724,49 @@ window.RUL_STATIC_DATA = {
       "type": "Conf West",
       "teamAScore": 6803,
       "teamBScore": 8838,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "seahawksfan1",
+            "upvotes": 3335,
+            "note": "C"
+          },
+          {
+            "handle": "tase",
+            "upvotes": 2122,
+            "note": "A"
+          },
+          {
+            "handle": "cowan",
+            "upvotes": 610
+          },
+          {
+            "handle": "jet",
+            "upvotes": 736
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "superbowl",
+            "upvotes": 3113,
+            "note": "C"
+          },
+          {
+            "handle": "sports",
+            "upvotes": 3608
+          },
+          {
+            "handle": "mclean26",
+            "upvotes": 1880
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 120
+          }
+        ],
+        "note": "Bandits win by 2,035"
+      }
     },
     {
       "week": "Week 3",
@@ -413,8 +775,47 @@ window.RUL_STATIC_DATA = {
       "teamB": "Angels",
       "type": "Non Conf",
       "teamAScore": 1170,
-      "teamBScore": 2298,
-      "note": "Final"
+      "teamBScore": 3468,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "buxton_",
+            "upvotes": 312
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 294
+          },
+          {
+            "handle": "gfkmoney",
+            "upvotes": 473
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 91
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenny",
+            "upvotes": 351
+          },
+          {
+            "handle": "prodraiders",
+            "upvotes": 9
+          },
+          {
+            "handle": "epiikees",
+            "upvotes": 3052
+          },
+          {
+            "handle": "67fan",
+            "upvotes": 1196
+          }
+        ],
+        "note": "Angels win by 2,298. Player lines were entered exactly as sent, but they sum higher than the official team total."
+      }
     },
     {
       "week": "Week 3",
@@ -424,7 +825,46 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 4354,
       "teamBScore": 911,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "george",
+            "upvotes": 1428
+          },
+          {
+            "handle": "arachnid",
+            "upvotes": 1287
+          },
+          {
+            "handle": "mbell123",
+            "upvotes": 396
+          },
+          {
+            "handle": "breens",
+            "upvotes": 1243
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "ceedeelambfan",
+            "upvotes": 112
+          },
+          {
+            "handle": "laddmcconkey15",
+            "upvotes": 264
+          },
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 322
+          },
+          {
+            "handle": "young",
+            "upvotes": 213
+          }
+        ],
+        "note": "Phantoms win by 3,443"
+      }
     },
     {
       "week": "Week 3",
@@ -434,7 +874,46 @@ window.RUL_STATIC_DATA = {
       "type": "Conf East",
       "teamAScore": 3971,
       "teamBScore": 7509,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "bryceyoungformvp",
+            "upvotes": 3133
+          },
+          {
+            "handle": "wilbus",
+            "upvotes": 12
+          },
+          {
+            "handle": "jaylen",
+            "upvotes": 655
+          },
+          {
+            "handle": "masedog5111",
+            "upvotes": 171
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 4547
+          },
+          {
+            "handle": "wmv0",
+            "upvotes": 940
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 1126
+          },
+          {
+            "handle": "taad",
+            "upvotes": 896
+          }
+        ],
+        "note": "Mammoths win by 3,592"
+      }
     },
     {
       "week": "Week 4",
@@ -444,7 +923,46 @@ window.RUL_STATIC_DATA = {
       "type": "Conf East",
       "teamAScore": 6233,
       "teamBScore": 247,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "bryceyoungformvp",
+            "upvotes": 4608
+          },
+          {
+            "handle": "gfkmoney",
+            "upvotes": 643
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 792
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 190
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "jaylen",
+            "upvotes": 19
+          },
+          {
+            "handle": "wilbus",
+            "upvotes": 146
+          },
+          {
+            "handle": "akalegendd",
+            "upvotes": 80
+          },
+          {
+            "handle": "masedog5111",
+            "upvotes": 2
+          }
+        ],
+        "note": "Kitties win by 5,986"
+      }
     },
     {
       "week": "Week 4",
@@ -454,7 +972,46 @@ window.RUL_STATIC_DATA = {
       "type": "Conf West",
       "teamAScore": 1467,
       "teamBScore": 3665,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "ceedeelambfan",
+            "upvotes": 117
+          },
+          {
+            "handle": "laddmcconkey15",
+            "upvotes": 115
+          },
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 1052
+          },
+          {
+            "handle": "young",
+            "upvotes": 183
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenny",
+            "upvotes": 1721
+          },
+          {
+            "handle": "epiikees",
+            "upvotes": 1828
+          },
+          {
+            "handle": "67fan",
+            "upvotes": 106
+          },
+          {
+            "handle": "prodraiders",
+            "upvotes": 10
+          }
+        ],
+        "note": "Angels win by 2,198"
+      }
     },
     {
       "week": "Week 4",
@@ -464,7 +1021,48 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 5095,
       "teamBScore": 5918,
-      "note": "Final"
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 3177
+          },
+          {
+            "handle": "george",
+            "upvotes": 1323
+          },
+          {
+            "handle": "richer",
+            "upvotes": 343,
+            "note": "-63"
+          },
+          {
+            "handle": "mbell123",
+            "upvotes": 271
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "superbowl",
+            "upvotes": 1559,
+            "note": "C"
+          },
+          {
+            "handle": "sports",
+            "upvotes": 2237
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 1670
+          },
+          {
+            "handle": "mclean26",
+            "upvotes": 452
+          }
+        ],
+        "note": "Bandits win by 823"
+      }
     },
     {
       "week": "Week 4",
@@ -472,9 +1070,50 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Vampires",
       "type": "Non Conf",
-      "teamAScore": 2561,
-      "teamBScore": 4653,
-      "note": "Final"
+      "teamAScore": 2560,
+      "teamBScore": 4657,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 1859
+          },
+          {
+            "handle": "scoot",
+            "upvotes": 74
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 429
+          },
+          {
+            "handle": "mistermuyrico",
+            "upvotes": 198
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "seahawksfan1",
+            "upvotes": 2637,
+            "note": "C"
+          },
+          {
+            "handle": "tase",
+            "upvotes": 788,
+            "note": "A"
+          },
+          {
+            "handle": "cowan",
+            "upvotes": 828
+          },
+          {
+            "handle": "arachnid",
+            "upvotes": 404
+          }
+        ],
+        "note": "Vampires win by 2,097"
+      }
     },
     {
       "week": "Week 5",
