@@ -1,5 +1,5 @@
 loadLeagueData().then(data => {
-  pageHeader(data, 'profile.html', 'Player', 'Profile', 'Current team, upvotes, previous teams, and trade history');
+  pageHeader(data, 'profile.html', 'Player', 'Profile', 'Current team, upvotes, previous teams, trade history, and game log');
   pageFooter(data);
 
   const root = $('#profileRoot') || $('#profileContent') || document.querySelector('main') || document.body;
@@ -93,6 +93,14 @@ function renderPlayerProfile(root, data, player, players) {
     ? Math.round((Number(player.upvotes || 0) / officialTotal) * 100)
     : 0;
 
+  const gameLog = getPlayerGameLog(data, player.handle);
+  const loggedGames = gameLog.length;
+  const loggedUpvotes = gameLog.reduce((sum, game) => sum + Number(game.upvotes || 0), 0);
+  const averageUpvotes = loggedGames ? Math.round(loggedUpvotes / loggedGames) : 0;
+  const bestGame = gameLog.length
+    ? [...gameLog].sort((a, b) => Number(b.upvotes || 0) - Number(a.upvotes || 0))[0]
+    : null;
+
   root.innerHTML = `
     <section class="profile-hero card">
       <div class="avatar">${escapeHtml(cleanHandle(player.handle).slice(0, 1).toUpperCase())}</div>
@@ -119,6 +127,26 @@ function renderPlayerProfile(root, data, player, players) {
       <article class="card">
         <div class="label">League Rank</div>
         <div class="kpi">#${rank}</div>
+      </article>
+    </section>
+
+    <section class="grid four">
+      <article class="card">
+        <div class="label">Logged Games</div>
+        <div class="kpi">${fmt(loggedGames)}</div>
+      </article>
+      <article class="card">
+        <div class="label">Game Log Upvotes</div>
+        <div class="kpi">${fmt(loggedUpvotes)}</div>
+      </article>
+      <article class="card">
+        <div class="label">Average</div>
+        <div class="kpi">${fmt(averageUpvotes)}</div>
+      </article>
+      <article class="card">
+        <div class="label">Best Game</div>
+        <div class="kpi">${bestGame ? fmt(bestGame.upvotes) : '0'}</div>
+        <p class="muted">${bestGame ? escapeHtml(bestGame.week + ' vs ' + bestGame.opponent) : 'No games logged'}</p>
       </article>
     </section>
 
@@ -151,8 +179,88 @@ function renderPlayerProfile(root, data, player, players) {
     </section>
 
     <section class="card">
+      <h2>Game Log</h2>
+      ${renderGameLog(gameLog)}
+    </section>
+
+    <section class="card">
       <a class="btn" href="profile.html">View All Players</a>
       <a class="btn" href="${teamUrl(player.team)}">View Team</a>
+      <a class="btn" href="live.html">View Scores</a>
     </section>
+  `;
+}
+
+function getPlayerGameLog(data, handle) {
+  const target = cleanHandle(handle).toLowerCase();
+  const games = data.games || [];
+
+  const log = [];
+
+  games.forEach(game => {
+    if (!game.boxScore) return;
+
+    const teamAPlayers = game.boxScore.teamA || [];
+    const teamBPlayers = game.boxScore.teamB || [];
+
+    const teamAPlayer = teamAPlayers.find(player => cleanHandle(player.handle).toLowerCase() === target);
+    const teamBPlayer = teamBPlayers.find(player => cleanHandle(player.handle).toLowerCase() === target);
+
+    if (!teamAPlayer && !teamBPlayer) return;
+
+    const side = teamAPlayer ? 'teamA' : 'teamB';
+    const entry = teamAPlayer || teamBPlayer;
+
+    const playerTeam = side === 'teamA' ? game.teamA : game.teamB;
+    const opponent = side === 'teamA' ? game.teamB : game.teamA;
+    const teamScore = side === 'teamA' ? Number(game.teamAScore || 0) : Number(game.teamBScore || 0);
+    const opponentScore = side === 'teamA' ? Number(game.teamBScore || 0) : Number(game.teamAScore || 0);
+
+    let result = 'T';
+    if (teamScore > opponentScore) result = 'W';
+    if (teamScore < opponentScore) result = 'L';
+
+    log.push({
+      week: game.week || '',
+      date: game.date || '',
+      type: game.type || '',
+      team: playerTeam,
+      opponent,
+      result,
+      teamScore,
+      opponentScore,
+      upvotes: Number(entry.upvotes || 0),
+      note: entry.note || '',
+      gameNote: game.boxScore.note || game.note || ''
+    });
+  });
+
+  return log.sort((a, b) => weekNumber(a.week) - weekNumber(b.week));
+}
+
+function weekNumber(week) {
+  const match = String(week || '').match(/\d+/);
+  return match ? Number(match[0]) : 999;
+}
+
+function renderGameLog(log) {
+  if (!log.length) {
+    return '<div class="empty">No game log has been entered for this player yet.</div>';
+  }
+
+  const rows = log.map(game => [
+    escapeHtml(game.week),
+    escapeHtml(game.date),
+    teamLink(game.team),
+    escapeHtml(game.result),
+    escapeHtml(game.opponent),
+    `${fmt(game.teamScore)} to ${fmt(game.opponentScore)}`,
+    fmt(game.upvotes),
+    game.note ? escapeHtml(game.note) : ''
+  ]);
+
+  return `
+    ${table(['Week', 'Date', 'Team', 'Result', 'Opponent', 'Score', 'Upvotes', 'Note'], rows)}
+    <p class="note">Game log only includes games where player box scores were entered in static-data.js.</p>
   `;
 }
