@@ -1,0 +1,910 @@
+{
+  "teams": [
+    {
+      "team": "Kitties",
+      "conference": "East",
+      "record": "3-1",
+      "conferenceRecord": "2-0",
+      "teamTotalUpvotes": 25030,
+      "players": [
+        [
+          "bryceyoungformvp",
+          13331
+        ],
+        [
+          "cardinalsred123",
+          1850
+        ],
+        [
+          "buxton_",
+          2387
+        ],
+        [
+          "supaboiiii",
+          2618
+        ],
+        [
+          "gfkmoney",
+          2155
+        ],
+        [
+          "mattymck11",
+          185
+        ],
+        [
+          "breens",
+          1243
+        ]
+      ]
+    },
+    {
+      "team": "Voltage",
+      "conference": "East",
+      "record": "1-3",
+      "conferenceRecord": "0-3",
+      "teamTotalUpvotes": 13864,
+      "players": [
+        [
+          "wilbus",
+          2769
+        ],
+        [
+          "jaylen",
+          1049
+        ],
+        [
+          "notlikesosa",
+          0
+        ],
+        [
+          "masedog5111",
+          173
+        ],
+        [
+          "akalegendd",
+          90
+        ],
+        [
+          "car.son",
+          0
+        ],
+        [
+          "jet",
+          736
+        ]
+      ]
+    },
+    {
+      "team": "Mammoths",
+      "conference": "East",
+      "record": "2-2",
+      "conferenceRecord": "1-1",
+      "teamTotalUpvotes": 15871,
+      "players": [
+        [
+          "realsabrinacarpenter",
+          9986
+        ],
+        [
+          "wmv0",
+          1618
+        ],
+        [
+          "taad",
+          1668
+        ],
+        [
+          "andthatsallshewrote",
+          2604
+        ],
+        [
+          "datboybubba",
+          0
+        ],
+        [
+          "luca",
+          0
+        ],
+        [
+          "mbell123",
+          396
+        ]
+      ]
+    },
+    {
+      "team": "Phantoms",
+      "conference": "East",
+      "record": "2-2",
+      "conferenceRecord": "1-0",
+      "teamTotalUpvotes": 13894,
+      "players": [
+        [
+          "kenunderrated",
+          4008
+        ],
+        [
+          "george",
+          2955
+        ],
+        [
+          "richer",
+          1229
+        ],
+        [
+          "flock.ravens",
+          446
+        ],
+        [
+          "arachnid",
+          3617
+        ],
+        [
+          "burden_",
+          0
+        ],
+        [
+          "washington",
+          0
+        ]
+      ]
+    },
+    {
+      "team": "Vampires",
+      "conference": "West",
+      "record": "3-1",
+      "conferenceRecord": "1-1",
+      "teamTotalUpvotes": 17998,
+      "players": [
+        [
+          "seahawksfan1",
+          10389
+        ],
+        [
+          "tase",
+          8997
+        ],
+        [
+          "cowan",
+          2126
+        ],
+        [
+          "glazerofdrakemaye",
+          587
+        ],
+        [
+          "levandro",
+          0
+        ],
+        [
+          "finsup46",
+          0
+        ]
+      ]
+    },
+    {
+      "team": "Bandits",
+      "conference": "West",
+      "record": "4-0",
+      "conferenceRecord": "2-0",
+      "teamTotalUpvotes": 22445,
+      "players": [
+        [
+          "superbowl",
+          6899
+        ],
+        [
+          "trentgrishamdadstrength",
+          1988
+        ],
+        [
+          "sports",
+          8029
+        ],
+        [
+          "mclean26",
+          5412
+        ],
+        [
+          "i.love.vladdy",
+          0
+        ],
+        [
+          "tripleg",
+          0
+        ]
+      ]
+    },
+    {
+      "team": "Reapers",
+      "conference": "West",
+      "record": "0-4",
+      "conferenceRecord": "0-2",
+      "teamTotalUpvotes": 7621,
+      "players": [
+        [
+          "ceedeelambfan",
+          2178
+        ],
+        [
+          "laddmcconkey15",
+          1138
+        ],
+        [
+          "derikqueenfan",
+          3488
+        ],
+        [
+          "young",
+          727
+        ],
+        [
+          "sugashow_",
+          0
+        ],
+        [
+          "msgbrunson",
+          0
+        ]
+      ]
+    },
+    {
+      "team": "Angels",
+      "conference": "West",
+      "record": "2-2",
+      "conferenceRecord": "1-1",
+      "teamTotalUpvotes": 17638,
+      "players": [
+        [
+          "prodraiders",
+          1991
+        ],
+        [
+          "kenny",
+          4672
+        ],
+        [
+          "epiikees",
+          7814
+        ],
+        [
+          "67fan/meat",
+          4451
+        ],
+        [
+          "damian",
+          0
+        ],
+        [
+          "mistermuyrico",
+          0
+        ]
+      ]
+    }
+  ],
+  "players": [
+    {
+      "Team": "Kitties",
+      "Conference": "East",
+      "Record": "3-1",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 25030,
+      "Player": "@bryceyoungformvp",
+      "Player Upvotes": 13331,
+      "Team Rank": 1,
+      "Profile Page": "profile.html?player=@bryceyoungformvp",
+      "Team Page": "team.html?team=Kitties"
+    },
+    {
+      "Team": "Kitties",
+      "Conference": "East",
+      "Record": "3-1",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 25030,
+      "Player": "@supaboiiii",
+      "Player Upvotes": 2618,
+      "Team Rank": 2,
+      "Profile Page": "profile.html?player=@supaboiiii",
+      "Team Page": "team.html?team=Kitties"
+    },
+    {
+      "Team": "Kitties",
+      "Conference": "East",
+      "Record": "3-1",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 25030,
+      "Player": "@buxton_",
+      "Player Upvotes": 2387,
+      "Team Rank": 3,
+      "Profile Page": "profile.html?player=@buxton_",
+      "Team Page": "team.html?team=Kitties"
+    },
+    {
+      "Team": "Kitties",
+      "Conference": "East",
+      "Record": "3-1",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 25030,
+      "Player": "@gfkmoney",
+      "Player Upvotes": 2155,
+      "Team Rank": 4,
+      "Profile Page": "profile.html?player=@gfkmoney",
+      "Team Page": "team.html?team=Kitties"
+    },
+    {
+      "Team": "Kitties",
+      "Conference": "East",
+      "Record": "3-1",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 25030,
+      "Player": "@cardinalsred123",
+      "Player Upvotes": 1850,
+      "Team Rank": 5,
+      "Profile Page": "profile.html?player=@cardinalsred123",
+      "Team Page": "team.html?team=Kitties"
+    },
+    {
+      "Team": "Kitties",
+      "Conference": "East",
+      "Record": "3-1",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 25030,
+      "Player": "@breens",
+      "Player Upvotes": 1243,
+      "Team Rank": 6,
+      "Profile Page": "profile.html?player=@breens",
+      "Team Page": "team.html?team=Kitties"
+    },
+    {
+      "Team": "Kitties",
+      "Conference": "East",
+      "Record": "3-1",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 25030,
+      "Player": "@mattymck11",
+      "Player Upvotes": 185,
+      "Team Rank": 7,
+      "Profile Page": "profile.html?player=@mattymck11",
+      "Team Page": "team.html?team=Kitties"
+    },
+    {
+      "Team": "Voltage",
+      "Conference": "East",
+      "Record": "1-3",
+      "Conference Record": "0-3",
+      "Team Total Upvotes": 13864,
+      "Player": "@wilbus",
+      "Player Upvotes": 2769,
+      "Team Rank": 1,
+      "Profile Page": "profile.html?player=@wilbus",
+      "Team Page": "team.html?team=Voltage"
+    },
+    {
+      "Team": "Voltage",
+      "Conference": "East",
+      "Record": "1-3",
+      "Conference Record": "0-3",
+      "Team Total Upvotes": 13864,
+      "Player": "@jaylen",
+      "Player Upvotes": 1049,
+      "Team Rank": 2,
+      "Profile Page": "profile.html?player=@jaylen",
+      "Team Page": "team.html?team=Voltage"
+    },
+    {
+      "Team": "Voltage",
+      "Conference": "East",
+      "Record": "1-3",
+      "Conference Record": "0-3",
+      "Team Total Upvotes": 13864,
+      "Player": "@jet",
+      "Player Upvotes": 736,
+      "Team Rank": 3,
+      "Profile Page": "profile.html?player=@jet",
+      "Team Page": "team.html?team=Voltage"
+    },
+    {
+      "Team": "Voltage",
+      "Conference": "East",
+      "Record": "1-3",
+      "Conference Record": "0-3",
+      "Team Total Upvotes": 13864,
+      "Player": "@masedog5111",
+      "Player Upvotes": 173,
+      "Team Rank": 4,
+      "Profile Page": "profile.html?player=@masedog5111",
+      "Team Page": "team.html?team=Voltage"
+    },
+    {
+      "Team": "Voltage",
+      "Conference": "East",
+      "Record": "1-3",
+      "Conference Record": "0-3",
+      "Team Total Upvotes": 13864,
+      "Player": "@akalegendd",
+      "Player Upvotes": 90,
+      "Team Rank": 5,
+      "Profile Page": "profile.html?player=@akalegendd",
+      "Team Page": "team.html?team=Voltage"
+    },
+    {
+      "Team": "Voltage",
+      "Conference": "East",
+      "Record": "1-3",
+      "Conference Record": "0-3",
+      "Team Total Upvotes": 13864,
+      "Player": "@notlikesosa",
+      "Player Upvotes": 0,
+      "Team Rank": 6,
+      "Profile Page": "profile.html?player=@notlikesosa",
+      "Team Page": "team.html?team=Voltage"
+    },
+    {
+      "Team": "Voltage",
+      "Conference": "East",
+      "Record": "1-3",
+      "Conference Record": "0-3",
+      "Team Total Upvotes": 13864,
+      "Player": "@car.son",
+      "Player Upvotes": 0,
+      "Team Rank": 7,
+      "Profile Page": "profile.html?player=@car.son",
+      "Team Page": "team.html?team=Voltage"
+    },
+    {
+      "Team": "Mammoths",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 15871,
+      "Player": "@realsabrinacarpenter",
+      "Player Upvotes": 9986,
+      "Team Rank": 1,
+      "Profile Page": "profile.html?player=@realsabrinacarpenter",
+      "Team Page": "team.html?team=Mammoths"
+    },
+    {
+      "Team": "Mammoths",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 15871,
+      "Player": "@andthatsallshewrote",
+      "Player Upvotes": 2604,
+      "Team Rank": 2,
+      "Profile Page": "profile.html?player=@andthatsallshewrote",
+      "Team Page": "team.html?team=Mammoths"
+    },
+    {
+      "Team": "Mammoths",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 15871,
+      "Player": "@taad",
+      "Player Upvotes": 1668,
+      "Team Rank": 3,
+      "Profile Page": "profile.html?player=@taad",
+      "Team Page": "team.html?team=Mammoths"
+    },
+    {
+      "Team": "Mammoths",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 15871,
+      "Player": "@wmv0",
+      "Player Upvotes": 1618,
+      "Team Rank": 4,
+      "Profile Page": "profile.html?player=@wmv0",
+      "Team Page": "team.html?team=Mammoths"
+    },
+    {
+      "Team": "Mammoths",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 15871,
+      "Player": "@mbell123",
+      "Player Upvotes": 396,
+      "Team Rank": 5,
+      "Profile Page": "profile.html?player=@mbell123",
+      "Team Page": "team.html?team=Mammoths"
+    },
+    {
+      "Team": "Mammoths",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 15871,
+      "Player": "@datboybubba",
+      "Player Upvotes": 0,
+      "Team Rank": 6,
+      "Profile Page": "profile.html?player=@datboybubba",
+      "Team Page": "team.html?team=Mammoths"
+    },
+    {
+      "Team": "Mammoths",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 15871,
+      "Player": "@luca",
+      "Player Upvotes": 0,
+      "Team Rank": 7,
+      "Profile Page": "profile.html?player=@luca",
+      "Team Page": "team.html?team=Mammoths"
+    },
+    {
+      "Team": "Phantoms",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-0",
+      "Team Total Upvotes": 13894,
+      "Player": "@kenunderrated",
+      "Player Upvotes": 4008,
+      "Team Rank": 1,
+      "Profile Page": "profile.html?player=@kenunderrated",
+      "Team Page": "team.html?team=Phantoms"
+    },
+    {
+      "Team": "Phantoms",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-0",
+      "Team Total Upvotes": 13894,
+      "Player": "@arachnid",
+      "Player Upvotes": 3617,
+      "Team Rank": 2,
+      "Profile Page": "profile.html?player=@arachnid",
+      "Team Page": "team.html?team=Phantoms"
+    },
+    {
+      "Team": "Phantoms",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-0",
+      "Team Total Upvotes": 13894,
+      "Player": "@george",
+      "Player Upvotes": 2955,
+      "Team Rank": 3,
+      "Profile Page": "profile.html?player=@george",
+      "Team Page": "team.html?team=Phantoms"
+    },
+    {
+      "Team": "Phantoms",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-0",
+      "Team Total Upvotes": 13894,
+      "Player": "@richer",
+      "Player Upvotes": 1229,
+      "Team Rank": 4,
+      "Profile Page": "profile.html?player=@richer",
+      "Team Page": "team.html?team=Phantoms"
+    },
+    {
+      "Team": "Phantoms",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-0",
+      "Team Total Upvotes": 13894,
+      "Player": "@flock.ravens",
+      "Player Upvotes": 446,
+      "Team Rank": 5,
+      "Profile Page": "profile.html?player=@flock.ravens",
+      "Team Page": "team.html?team=Phantoms"
+    },
+    {
+      "Team": "Phantoms",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-0",
+      "Team Total Upvotes": 13894,
+      "Player": "@burden_",
+      "Player Upvotes": 0,
+      "Team Rank": 6,
+      "Profile Page": "profile.html?player=@burden_",
+      "Team Page": "team.html?team=Phantoms"
+    },
+    {
+      "Team": "Phantoms",
+      "Conference": "East",
+      "Record": "2-2",
+      "Conference Record": "1-0",
+      "Team Total Upvotes": 13894,
+      "Player": "@washington",
+      "Player Upvotes": 0,
+      "Team Rank": 7,
+      "Profile Page": "profile.html?player=@washington",
+      "Team Page": "team.html?team=Phantoms"
+    },
+    {
+      "Team": "Vampires",
+      "Conference": "West",
+      "Record": "3-1",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17998,
+      "Player": "@seahawksfan1",
+      "Player Upvotes": 10389,
+      "Team Rank": 1,
+      "Profile Page": "profile.html?player=@seahawksfan1",
+      "Team Page": "team.html?team=Vampires"
+    },
+    {
+      "Team": "Vampires",
+      "Conference": "West",
+      "Record": "3-1",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17998,
+      "Player": "@tase",
+      "Player Upvotes": 8997,
+      "Team Rank": 2,
+      "Profile Page": "profile.html?player=@tase",
+      "Team Page": "team.html?team=Vampires"
+    },
+    {
+      "Team": "Vampires",
+      "Conference": "West",
+      "Record": "3-1",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17998,
+      "Player": "@cowan",
+      "Player Upvotes": 2126,
+      "Team Rank": 3,
+      "Profile Page": "profile.html?player=@cowan",
+      "Team Page": "team.html?team=Vampires"
+    },
+    {
+      "Team": "Vampires",
+      "Conference": "West",
+      "Record": "3-1",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17998,
+      "Player": "@glazerofdrakemaye",
+      "Player Upvotes": 587,
+      "Team Rank": 4,
+      "Profile Page": "profile.html?player=@glazerofdrakemaye",
+      "Team Page": "team.html?team=Vampires"
+    },
+    {
+      "Team": "Vampires",
+      "Conference": "West",
+      "Record": "3-1",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17998,
+      "Player": "@levandro",
+      "Player Upvotes": 0,
+      "Team Rank": 5,
+      "Profile Page": "profile.html?player=@levandro",
+      "Team Page": "team.html?team=Vampires"
+    },
+    {
+      "Team": "Vampires",
+      "Conference": "West",
+      "Record": "3-1",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17998,
+      "Player": "@finsup46",
+      "Player Upvotes": 0,
+      "Team Rank": 6,
+      "Profile Page": "profile.html?player=@finsup46",
+      "Team Page": "team.html?team=Vampires"
+    },
+    {
+      "Team": "Bandits",
+      "Conference": "West",
+      "Record": "4-0",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 22445,
+      "Player": "@sports",
+      "Player Upvotes": 8029,
+      "Team Rank": 1,
+      "Profile Page": "profile.html?player=@sports",
+      "Team Page": "team.html?team=Bandits"
+    },
+    {
+      "Team": "Bandits",
+      "Conference": "West",
+      "Record": "4-0",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 22445,
+      "Player": "@superbowl",
+      "Player Upvotes": 6899,
+      "Team Rank": 2,
+      "Profile Page": "profile.html?player=@superbowl",
+      "Team Page": "team.html?team=Bandits"
+    },
+    {
+      "Team": "Bandits",
+      "Conference": "West",
+      "Record": "4-0",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 22445,
+      "Player": "@mclean26",
+      "Player Upvotes": 5412,
+      "Team Rank": 3,
+      "Profile Page": "profile.html?player=@mclean26",
+      "Team Page": "team.html?team=Bandits"
+    },
+    {
+      "Team": "Bandits",
+      "Conference": "West",
+      "Record": "4-0",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 22445,
+      "Player": "@trentgrishamdadstrength",
+      "Player Upvotes": 1988,
+      "Team Rank": 4,
+      "Profile Page": "profile.html?player=@trentgrishamdadstrength",
+      "Team Page": "team.html?team=Bandits"
+    },
+    {
+      "Team": "Bandits",
+      "Conference": "West",
+      "Record": "4-0",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 22445,
+      "Player": "@i.love.vladdy",
+      "Player Upvotes": 0,
+      "Team Rank": 5,
+      "Profile Page": "profile.html?player=@i.love.vladdy",
+      "Team Page": "team.html?team=Bandits"
+    },
+    {
+      "Team": "Bandits",
+      "Conference": "West",
+      "Record": "4-0",
+      "Conference Record": "2-0",
+      "Team Total Upvotes": 22445,
+      "Player": "@tripleg",
+      "Player Upvotes": 0,
+      "Team Rank": 6,
+      "Profile Page": "profile.html?player=@tripleg",
+      "Team Page": "team.html?team=Bandits"
+    },
+    {
+      "Team": "Reapers",
+      "Conference": "West",
+      "Record": "0-4",
+      "Conference Record": "0-2",
+      "Team Total Upvotes": 7621,
+      "Player": "@derikqueenfan",
+      "Player Upvotes": 3488,
+      "Team Rank": 1,
+      "Profile Page": "profile.html?player=@derikqueenfan",
+      "Team Page": "team.html?team=Reapers"
+    },
+    {
+      "Team": "Reapers",
+      "Conference": "West",
+      "Record": "0-4",
+      "Conference Record": "0-2",
+      "Team Total Upvotes": 7621,
+      "Player": "@ceedeelambfan",
+      "Player Upvotes": 2178,
+      "Team Rank": 2,
+      "Profile Page": "profile.html?player=@ceedeelambfan",
+      "Team Page": "team.html?team=Reapers"
+    },
+    {
+      "Team": "Reapers",
+      "Conference": "West",
+      "Record": "0-4",
+      "Conference Record": "0-2",
+      "Team Total Upvotes": 7621,
+      "Player": "@laddmcconkey15",
+      "Player Upvotes": 1138,
+      "Team Rank": 3,
+      "Profile Page": "profile.html?player=@laddmcconkey15",
+      "Team Page": "team.html?team=Reapers"
+    },
+    {
+      "Team": "Reapers",
+      "Conference": "West",
+      "Record": "0-4",
+      "Conference Record": "0-2",
+      "Team Total Upvotes": 7621,
+      "Player": "@young",
+      "Player Upvotes": 727,
+      "Team Rank": 4,
+      "Profile Page": "profile.html?player=@young",
+      "Team Page": "team.html?team=Reapers"
+    },
+    {
+      "Team": "Reapers",
+      "Conference": "West",
+      "Record": "0-4",
+      "Conference Record": "0-2",
+      "Team Total Upvotes": 7621,
+      "Player": "@sugashow_",
+      "Player Upvotes": 0,
+      "Team Rank": 5,
+      "Profile Page": "profile.html?player=@sugashow_",
+      "Team Page": "team.html?team=Reapers"
+    },
+    {
+      "Team": "Reapers",
+      "Conference": "West",
+      "Record": "0-4",
+      "Conference Record": "0-2",
+      "Team Total Upvotes": 7621,
+      "Player": "@msgbrunson",
+      "Player Upvotes": 0,
+      "Team Rank": 6,
+      "Profile Page": "profile.html?player=@msgbrunson",
+      "Team Page": "team.html?team=Reapers"
+    },
+    {
+      "Team": "Angels",
+      "Conference": "West",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17638,
+      "Player": "@epiikees",
+      "Player Upvotes": 7814,
+      "Team Rank": 1,
+      "Profile Page": "profile.html?player=@epiikees",
+      "Team Page": "team.html?team=Angels"
+    },
+    {
+      "Team": "Angels",
+      "Conference": "West",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17638,
+      "Player": "@kenny",
+      "Player Upvotes": 4672,
+      "Team Rank": 2,
+      "Profile Page": "profile.html?player=@kenny",
+      "Team Page": "team.html?team=Angels"
+    },
+    {
+      "Team": "Angels",
+      "Conference": "West",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17638,
+      "Player": "@67fan/meat",
+      "Player Upvotes": 4451,
+      "Team Rank": 3,
+      "Profile Page": "profile.html?player=@67fan/meat",
+      "Team Page": "team.html?team=Angels"
+    },
+    {
+      "Team": "Angels",
+      "Conference": "West",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17638,
+      "Player": "@prodraiders",
+      "Player Upvotes": 1991,
+      "Team Rank": 4,
+      "Profile Page": "profile.html?player=@prodraiders",
+      "Team Page": "team.html?team=Angels"
+    },
+    {
+      "Team": "Angels",
+      "Conference": "West",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17638,
+      "Player": "@damian",
+      "Player Upvotes": 0,
+      "Team Rank": 5,
+      "Profile Page": "profile.html?player=@damian",
+      "Team Page": "team.html?team=Angels"
+    },
+    {
+      "Team": "Angels",
+      "Conference": "West",
+      "Record": "2-2",
+      "Conference Record": "1-1",
+      "Team Total Upvotes": 17638,
+      "Player": "@mistermuyrico",
+      "Player Upvotes": 0,
+      "Team Rank": 6,
+      "Profile Page": "profile.html?player=@mistermuyrico",
+      "Team Page": "team.html?team=Angels"
+    }
+  ]
+}
