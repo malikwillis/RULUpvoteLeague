@@ -1,9 +1,12 @@
-loadLeagueData().then(data => {
-  pageHeader(data, 'stats.html', 'Player', 'Stats', 'Upvote Leaderboards');
+loadLeagueData().then(originalData => {
+  const saved = localStorage.getItem('RUL_WORKING_DATA');
+  const data = saved ? JSON.parse(saved) : originalData;
+
+  pageHeader(data, 'stats.html', 'Player', 'Stats', 'Game Log Upvote Leaderboards');
   pageFooter(data);
 
-  const players = getCurrentPlayers(data);
-  const byUpvotes = [...players].sort((a, b) => Number(b.upvotes || 0) - Number(a.upvotes || 0));
+  const players = getCurrentPlayersWithGameStats(data);
+  const byGameUpvotes = [...players].sort((a, b) => Number(b.gameTotal || 0) - Number(a.gameTotal || 0));
   const teams = data.teams || [];
   const scheduleStats = getScheduleTeamStats(data);
 
@@ -26,9 +29,9 @@ loadLeagueData().then(data => {
           <div class="row">
             <span>
               <strong>${index + 1}. ${playerLink(player.handle)}</strong><br>
-              <span class="muted">${teamLink(player.team)} · ${escapeHtml(player.conference || '')}</span>
+              <span class="muted">${teamLink(player.team)} · ${escapeHtml(player.conference || '')} · ${player.liveGames ? 'Live now' : `${player.loggedGames} games`}</span>
             </span>
-            <strong>${fmt(player.upvotes)}</strong>
+            <strong>${fmt(player.gameTotal)}</strong>
           </div>
         `).join('') : '<div class="empty">No players found.</div>'}
       </article>
@@ -49,15 +52,14 @@ loadLeagueData().then(data => {
       escapeHtml(team.record || ''),
       fmt(team.scheduleUpvotes),
       team.gamesPlayed,
-      fmt(team.averageUpvotes),
-      fmt(team.officialTotal)
+      fmt(team.averageUpvotes)
     ]);
 
     return `
       <article class="card">
-        <h2 class="card-title">Team Upvotes From Schedule</h2>
-        <p class="muted">This only counts upvotes scored in completed games on the schedule. It does not use roster totals, so trades do not mess it up.</p>
-        ${table(['Rank', 'Team', 'Conf', 'Record', 'Schedule Upvotes', 'Games', 'Avg', 'Roster Total'], rows)}
+        <h2 class="card-title">Team Schedule Upvotes</h2>
+        <p class="muted">Team totals only count completed or live game scores from the schedule. Roster totals are not used.</p>
+        ${table(['Rank', 'Team', 'Conf', 'Record', 'Schedule Upvotes', 'Games', 'Avg'], rows)}
       </article>
     `;
   }
@@ -65,17 +67,19 @@ loadLeagueData().then(data => {
   function renderTeamLeaders() {
     return `
       <article class="card">
-        <h2 class="card-title">Current Roster Leaders</h2>
-        <p class="muted">Player leaders are based on current roster placement. Team upvote rankings above are schedule based.</p>
+        <h2 class="card-title">Team Game Log Leaders</h2>
+        <p class="muted">These use each current player’s game log upvotes, not the old roster upvote field.</p>
         ${teams.map(team => {
-          const leader = [...(team.roster || [])].sort((a, b) => Number(b.upvotes || 0) - Number(a.upvotes || 0))[0];
+          const teamPlayers = players.filter(player => player.team === team.name);
+          const leader = [...teamPlayers].sort((a, b) => Number(b.gameTotal || 0) - Number(a.gameTotal || 0))[0];
+
           return `
             <div class="row">
               <span>
                 <strong>${teamLink(team.name)}</strong><br>
                 <span class="muted">${escapeHtml(team.record || '')} · ${escapeHtml(team.conference || '')}</span>
               </span>
-              <strong>${leader ? `${playerLink(leader.handle)} · ${fmt(leader.upvotes)}` : 'None'}</strong>
+              <strong>${leader ? `${playerLink(leader.handle)} · ${fmt(leader.gameTotal)}` : 'None'}</strong>
             </div>
           `;
         }).join('')}
@@ -97,15 +101,12 @@ loadLeagueData().then(data => {
     if (sortValue === 'name') {
       filtered.sort((a, b) => cleanHandle(a.handle).localeCompare(cleanHandle(b.handle)));
     } else if (sortValue === 'team') {
-      filtered.sort((a, b) => String(a.team).localeCompare(String(b.team)) || Number(b.upvotes || 0) - Number(a.upvotes || 0));
+      filtered.sort((a, b) => String(a.team).localeCompare(String(b.team)) || Number(b.gameTotal || 0) - Number(a.gameTotal || 0));
     } else {
-      filtered.sort((a, b) => Number(b.upvotes || 0) - Number(a.upvotes || 0));
+      filtered.sort((a, b) => Number(b.gameTotal || 0) - Number(a.gameTotal || 0));
     }
 
     const rows = filtered.map((player, index) => {
-      const team = teams.find(t => t.name === player.team);
-      const officialTotal = Number(team?.totalUpvotes || 0);
-      const share = officialTotal ? Math.round((Number(player.upvotes || 0) / officialTotal) * 100) + '%' : '0%';
       const previous = getPreviousTeam(data, player.handle);
 
       return [
@@ -113,30 +114,33 @@ loadLeagueData().then(data => {
         playerLink(player.handle),
         teamLink(player.team),
         escapeHtml(player.conference || ''),
-        fmt(player.upvotes),
-        share,
+        fmt(player.gameTotal),
+        player.loggedGames,
+        player.liveGames ? 'Live now' : 'No',
         previous ? escapeHtml(previous) : 'None'
       ];
     });
 
     const tableTarget = $('#playersTable');
     if (tableTarget) {
-      tableTarget.innerHTML = `<h2 class="card-title">All Current Players</h2>` + table(['Rank', 'Player', 'Team', 'Conf', 'Upvotes', 'Roster Share', 'Previous Team'], rows);
+      tableTarget.innerHTML = `<h2 class="card-title">All Players</h2>` + table(['Rank', 'Player', 'Team', 'Conf', 'Game Log Upvotes', 'Games', 'Live', 'Previous Team'], rows);
     }
   }
 
   function renderRecords() {
-    const eastPlayers = byUpvotes.filter(player => String(player.conference).toLowerCase() === 'east');
-    const westPlayers = byUpvotes.filter(player => String(player.conference).toLowerCase() === 'west');
+    const eastPlayers = byGameUpvotes.filter(player => String(player.conference).toLowerCase() === 'east');
+    const westPlayers = byGameUpvotes.filter(player => String(player.conference).toLowerCase() === 'west');
+    const livePlayers = byGameUpvotes.filter(player => player.liveGames);
 
     const recordsTarget = $('#recordsGrid');
     if (!recordsTarget) return;
 
     recordsTarget.innerHTML = `
       ${renderScheduleTeamStats()}
-      ${renderPlayerList('Top 10 Current Player Upvotes', byUpvotes, 10)}
-      ${renderPlayerList('East Conference Player Leaders', eastPlayers, 8)}
-      ${renderPlayerList('West Conference Player Leaders', westPlayers, 8)}
+      ${livePlayers.length ? renderPlayerList('Live Player Upvotes', livePlayers, 12) : ''}
+      ${renderPlayerList('Top 10 Game Log Upvotes', byGameUpvotes, 10)}
+      ${renderPlayerList('East Game Log Leaders', eastPlayers, 8)}
+      ${renderPlayerList('West Game Log Leaders', westPlayers, 8)}
       ${renderTeamLeaders()}
     `;
   }
@@ -144,16 +148,16 @@ loadLeagueData().then(data => {
   const leadersTarget = $('#leaders');
   if (leadersTarget) {
     const totalPlayers = players.length;
-    const totalRosterUpvotes = players.reduce((sum, player) => sum + Number(player.upvotes || 0), 0);
-    const totalScheduleUpvotes = scheduleStats.reduce((sum, team) => sum + Number(team.scheduleUpvotes || 0), 0);
-    const topPlayer = byUpvotes[0];
+    const totalGameUpvotes = players.reduce((sum, player) => sum + Number(player.gameTotal || 0), 0);
+    const livePlayers = players.filter(player => player.liveGames).length;
+    const topPlayer = byGameUpvotes[0];
     const topScheduleTeam = [...scheduleStats].sort((a, b) => Number(b.scheduleUpvotes || 0) - Number(a.scheduleUpvotes || 0))[0];
 
     leadersTarget.innerHTML = `
-      ${renderStatCard('Top Player', topPlayer ? `@${escapeHtml(cleanHandle(topPlayer.handle))}` : 'None', topPlayer ? `${fmt(topPlayer.upvotes)} current roster upvotes · ${topPlayer.team}` : '')}
-      ${renderStatCard('Top Schedule Team', topScheduleTeam ? escapeHtml(topScheduleTeam.name) : 'None', topScheduleTeam ? `${fmt(topScheduleTeam.scheduleUpvotes)} upvotes from completed games` : '')}
+      ${renderStatCard('Top Player', topPlayer ? `@${escapeHtml(cleanHandle(topPlayer.handle))}` : 'None', topPlayer ? `${fmt(topPlayer.gameTotal)} game log upvotes · ${topPlayer.team}` : '')}
+      ${renderStatCard('Top Schedule Team', topScheduleTeam ? escapeHtml(topScheduleTeam.name) : 'None', topScheduleTeam ? `${fmt(topScheduleTeam.scheduleUpvotes)} schedule upvotes` : '')}
       ${renderStatCard('Current Players', totalPlayers, 'Players on current rosters')}
-      ${renderStatCard('Schedule Upvotes', fmt(totalScheduleUpvotes), 'Sum of completed game scores only')}
+      ${renderStatCard('Live Players', fmt(livePlayers), 'Players currently in live box scores')}
     `;
   }
 
@@ -175,16 +179,54 @@ loadLeagueData().then(data => {
   `;
 });
 
-function getCurrentPlayers(data) {
+function getCurrentPlayersWithGameStats(data) {
   return (data.teams || []).flatMap(team => {
-    return (team.roster || []).map(player => ({
-      ...player,
-      handle: cleanHandle(player.handle),
-      team: team.name,
-      conference: team.conference,
-      teamTotal: team.totalUpvotes
-    }));
+    return (team.roster || []).map(player => {
+      const handle = cleanHandle(player.handle);
+      const log = getPlayerGameLog(data, handle);
+      const gameTotal = log.reduce((sum, game) => sum + Number(game.upvotes || 0), 0);
+      const loggedGames = log.length;
+      const liveGames = log.filter(game => game.status === 'Live').length;
+
+      return {
+        ...player,
+        handle,
+        team: team.name,
+        conference: team.conference,
+        gameTotal,
+        loggedGames,
+        liveGames
+      };
+    });
   });
+}
+
+function getPlayerGameLog(data, handle) {
+  const target = cleanHandle(handle).toLowerCase();
+  const log = [];
+
+  (data.games || []).forEach(game => {
+    if (!game.boxScore) return;
+
+    const teamAPlayers = game.boxScore.teamA || [];
+    const teamBPlayers = game.boxScore.teamB || [];
+
+    const teamAPlayer = teamAPlayers.find(player => cleanHandle(player.handle).toLowerCase() === target);
+    const teamBPlayer = teamBPlayers.find(player => cleanHandle(player.handle).toLowerCase() === target);
+
+    if (!teamAPlayer && !teamBPlayer) return;
+
+    const side = teamAPlayer ? 'teamA' : 'teamB';
+    const entry = teamAPlayer || teamBPlayer;
+
+    log.push({
+      status: getGameStatus(game),
+      upvotes: Number(entry.upvotes || 0),
+      week: game.week || ''
+    });
+  });
+
+  return log;
 }
 
 function getPreviousTeam(data, handle) {
@@ -192,6 +234,13 @@ function getPreviousTeam(data, handle) {
   const history = data.playerHistory?.[key];
   if (!history || !history.length) return '';
   return history[0]?.from || '';
+}
+
+function getGameStatus(game) {
+  const note = String(game.note || '').trim().toLowerCase();
+  if (note === 'final') return 'Final';
+  if (note === 'live') return 'Live';
+  return 'Upcoming';
 }
 
 function getScheduleTeamStats(data) {
@@ -203,7 +252,6 @@ function getScheduleTeamStats(data) {
       name: team.name,
       conference: team.conference || '',
       record: team.record || '',
-      officialTotal: Number(team.totalUpvotes || 0),
       scheduleUpvotes: 0,
       gamesPlayed: 0,
       wins: 0,
@@ -213,24 +261,28 @@ function getScheduleTeamStats(data) {
   });
 
   (data.games || []).forEach(game => {
+    const status = getGameStatus(game);
     const aScore = Number(game.teamAScore || 0);
     const bScore = Number(game.teamBScore || 0);
-    const completed = aScore > 0 || bScore > 0 || String(game.note || '').toLowerCase() === 'final';
 
-    if (!completed) return;
+    if (status !== 'Final' && status !== 'Live') return;
 
     if (stats[game.teamA]) {
       stats[game.teamA].scheduleUpvotes += aScore;
       stats[game.teamA].gamesPlayed += 1;
-      if (aScore > bScore) stats[game.teamA].wins += 1;
-      if (aScore < bScore) stats[game.teamA].losses += 1;
+      if (status === 'Final') {
+        if (aScore > bScore) stats[game.teamA].wins += 1;
+        if (aScore < bScore) stats[game.teamA].losses += 1;
+      }
     }
 
     if (stats[game.teamB]) {
       stats[game.teamB].scheduleUpvotes += bScore;
       stats[game.teamB].gamesPlayed += 1;
-      if (bScore > aScore) stats[game.teamB].wins += 1;
-      if (bScore < aScore) stats[game.teamB].losses += 1;
+      if (status === 'Final') {
+        if (bScore > aScore) stats[game.teamB].wins += 1;
+        if (bScore < aScore) stats[game.teamB].losses += 1;
+      }
     }
   });
 
