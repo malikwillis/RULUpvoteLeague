@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 5 with corrected records",
+    "updatedLabel": "Week 5 live scoring",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -1254,7 +1254,54 @@ window.RUL_STATIC_DATA = {
       "type": "Conf West",
       "teamAScore": 0,
       "teamBScore": 0,
-      "note": "Upcoming"
+      "note": "Live",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "tase",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "cowan",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "arachnid",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "jet",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "laddmcconkey15",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "young",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "sugashow_",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "note": "Live game is tied"
+      }
     },
     {
       "week": "Week 5",
