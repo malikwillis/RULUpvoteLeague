@@ -427,7 +427,7 @@ window.RUL_STATIC_DATA = {
           "currentTeam": "Angels"
         },
         {
-          "handle": "67fan",
+          "handle": "67fan/meat",
           "upvotes": 4451,
           "currentTeam": "Angels"
         },
@@ -1252,55 +1252,55 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Reapers",
       "type": "Conf West",
-      "teamAScore": 0,
-      "teamBScore": 0,
+      "teamAScore": 170,
+      "teamBScore": 54,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "tase",
-            "upvotes": 0,
+            "upvotes": 40,
             "note": ""
           },
           {
             "handle": "cowan",
-            "upvotes": 0,
+            "upvotes": 83,
             "note": ""
           },
           {
             "handle": "arachnid",
-            "upvotes": 0,
+            "upvotes": 31,
             "note": ""
           },
           {
             "handle": "jet",
-            "upvotes": 0,
+            "upvotes": 16,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "derikqueenfan",
-            "upvotes": 0,
+            "upvotes": 46,
             "note": ""
           },
           {
             "handle": "laddmcconkey15",
-            "upvotes": 0,
+            "upvotes": 1,
             "note": ""
           },
           {
             "handle": "young",
-            "upvotes": 0,
+            "upvotes": 6,
             "note": ""
           },
           {
             "handle": "sugashow_",
-            "upvotes": 0,
+            "upvotes": 1,
             "note": ""
           }
         ],
-        "note": "Live game is tied"
+        "note": "Vampires currently leads by 116"
       }
     },
     {
@@ -1785,7 +1785,7 @@ window.RUL_STATIC_DATA = {
       "items": [
         {
           "rank": 1,
-          "player": "67fan",
+          "player": "67fan/meat",
           "value": "4 Games"
         },
         {
