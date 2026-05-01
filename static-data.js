@@ -1252,36 +1252,36 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Reapers",
       "type": "Conf West",
-      "teamAScore": 170,
-      "teamBScore": 54,
+      "teamAScore": 458,
+      "teamBScore": 222,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "tase",
-            "upvotes": 40,
+            "upvotes": 98,
             "note": ""
           },
           {
             "handle": "cowan",
-            "upvotes": 83,
+            "upvotes": 109,
             "note": ""
           },
           {
             "handle": "arachnid",
-            "upvotes": 31,
+            "upvotes": 247,
             "note": ""
           },
           {
             "handle": "jet",
-            "upvotes": 16,
+            "upvotes": 4,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "derikqueenfan",
-            "upvotes": 46,
+            "upvotes": 214,
             "note": ""
           },
           {
@@ -1300,7 +1300,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           }
         ],
-        "note": "Vampires currently leads by 116"
+        "note": "Vampires currently leads by 236"
       }
     },
     {
