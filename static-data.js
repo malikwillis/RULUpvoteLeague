@@ -1252,7 +1252,7 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Reapers",
       "type": "Conf West",
-      "teamAScore": 1914,
+      "teamAScore": 1894,
       "teamBScore": 1407,
       "note": "Live",
       "boxScore": {
@@ -1269,7 +1269,7 @@ window.RUL_STATIC_DATA = {
           },
           {
             "handle": "arachnid",
-            "upvotes": 857,
+            "upvotes": 837,
             "note": ""
           },
           {
@@ -1300,7 +1300,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           }
         ],
-        "note": "Vampires currently leads by 507"
+        "note": "Vampires currently leads by 487"
       }
     },
     {
