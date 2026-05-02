@@ -1319,36 +1319,36 @@ window.RUL_STATIC_DATA = {
       "teamA": "Kitties",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
+      "teamAScore": 452,
+      "teamBScore": 40,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "bryceyoungformvp",
-            "upvotes": 0,
+            "upvotes": 54,
             "note": ""
           },
           {
             "handle": "gfkmoney",
-            "upvotes": 0,
+            "upvotes": 238,
             "note": ""
           },
           {
             "handle": "supaboiiii",
-            "upvotes": 0,
+            "upvotes": 140,
             "note": ""
           },
           {
             "handle": "cardinalsred123",
-            "upvotes": 0,
+            "upvotes": 20,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "kenunderrated",
-            "upvotes": 0,
+            "upvotes": 40,
             "note": ""
           },
           {
@@ -1367,7 +1367,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           }
         ],
-        "note": "Live game is tied"
+        "note": "Kitties currently leads by 412"
       }
     },
     {
