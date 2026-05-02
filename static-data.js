@@ -1314,46 +1314,46 @@ window.RUL_STATIC_DATA = {
       "teamA": "Voltage",
       "teamB": "Angels",
       "type": "Non Conf",
-      "teamAScore": 0,
-      "teamBScore": 0,
+      "teamAScore": 355,
+      "teamBScore": 858,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "ceedeelambfan",
-            "upvotes": 0,
+            "upvotes": 31,
             "note": ""
           },
           {
             "handle": "wilbus",
-            "upvotes": 0,
+            "upvotes": 109,
             "note": ""
           },
           {
             "handle": "flock.ravens",
-            "upvotes": 0,
+            "upvotes": 159,
             "note": ""
           },
           {
             "handle": "wembyglazer9",
-            "upvotes": 0,
+            "upvotes": 56,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "epiikees",
-            "upvotes": 0,
+            "upvotes": 662,
             "note": ""
           },
           {
             "handle": "kenny",
-            "upvotes": 0,
+            "upvotes": 195,
             "note": ""
           },
           {
             "handle": "67fan",
-            "upvotes": 0,
+            "upvotes": 1,
             "note": ""
           },
           {
@@ -1362,7 +1362,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           }
         ],
-        "note": "Live game is tied"
+        "note": "Angels currently leads by 503"
       }
     },
     {
