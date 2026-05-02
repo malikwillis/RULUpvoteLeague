@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 5",
+    "updatedLabel": "Week 5 live scoring",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -1321,7 +1321,54 @@ window.RUL_STATIC_DATA = {
       "type": "Conf East",
       "teamAScore": 0,
       "teamBScore": 0,
-      "note": "Upcoming"
+      "note": "Live",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "bryceyoungformvp",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "gfkmoney",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "finsup46",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "jaylen",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "wmv0",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "note": "Live game is tied"
+      }
     },
     {
       "week": "Week 5",
