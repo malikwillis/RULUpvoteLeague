@@ -1371,55 +1371,55 @@ window.RUL_STATIC_DATA = {
       "teamA": "Kitties",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 452,
-      "teamBScore": 40,
+      "teamAScore": 786,
+      "teamBScore": 642,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "bryceyoungformvp",
-            "upvotes": 54,
+            "upvotes": 267,
             "note": ""
           },
           {
             "handle": "gfkmoney",
-            "upvotes": 238,
+            "upvotes": 240,
             "note": ""
           },
           {
             "handle": "supaboiiii",
-            "upvotes": 140,
+            "upvotes": 156,
             "note": ""
           },
           {
             "handle": "cardinalsred123",
-            "upvotes": 20,
+            "upvotes": 123,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "kenunderrated",
-            "upvotes": 40,
+            "upvotes": 576,
             "note": ""
           },
           {
             "handle": "finsup46",
-            "upvotes": 0,
+            "upvotes": 53,
             "note": ""
           },
           {
             "handle": "jaylen",
-            "upvotes": 0,
+            "upvotes": 1,
             "note": ""
           },
           {
             "handle": "wmv0",
-            "upvotes": 0,
+            "upvotes": 12,
             "note": ""
           }
         ],
-        "note": "Kitties currently leads by 412"
+        "note": "Kitties currently leads by 144"
       }
     },
     {
