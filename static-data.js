@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Week 5 live scoring",
+    "updatedLabel": "Updated through Week 5",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -262,8 +262,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Vampires",
       "conference": "West",
-      "record": "3-1",
-      "conferenceRecord": "1-1",
+      "record": "4-1",
+      "conferenceRecord": "2-1",
       "totalUpvotes": 17998,
       "roster": [
         {
@@ -376,8 +376,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Reapers",
       "conference": "West",
-      "record": "0-4",
-      "conferenceRecord": "0-2",
+      "record": "0-5",
+      "conferenceRecord": "0-3",
       "totalUpvotes": 7621,
       "roster": [
         {
@@ -1252,41 +1252,41 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Reapers",
       "type": "Conf West",
-      "teamAScore": 1894,
-      "teamBScore": 1407,
-      "note": "Live",
+      "teamAScore": 3019,
+      "teamBScore": 2060,
+      "note": "Final",
       "boxScore": {
         "teamA": [
           {
             "handle": "tase",
-            "upvotes": 148,
+            "upvotes": 169,
             "note": ""
           },
           {
             "handle": "cowan",
-            "upvotes": 550,
+            "upvotes": 1025,
             "note": ""
           },
           {
             "handle": "arachnid",
-            "upvotes": 837,
+            "upvotes": 1062,
             "note": ""
           },
           {
             "handle": "jet",
-            "upvotes": 359,
+            "upvotes": 763,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "derikqueenfan",
-            "upvotes": 956,
+            "upvotes": 1592,
             "note": ""
           },
           {
             "handle": "laddmcconkey15",
-            "upvotes": 247,
+            "upvotes": 249,
             "note": ""
           },
           {
@@ -1296,11 +1296,11 @@ window.RUL_STATIC_DATA = {
           },
           {
             "handle": "sugashow_",
-            "upvotes": 193,
+            "upvotes": 208,
             "note": ""
           }
         ],
-        "note": "Vampires currently leads by 487"
+        "note": "Vampires win by 959"
       }
     },
     {
