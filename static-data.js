@@ -1316,7 +1316,54 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 0,
       "teamBScore": 0,
-      "note": "Upcoming"
+      "note": "Live",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "ceedeelambfan",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "wilbus",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "flock.ravens",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "wembyglazer9",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "epiikees",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "kenny",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "67fan",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "damian",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "note": "Live game is tied"
+      }
     },
     {
       "week": "Week 5",
