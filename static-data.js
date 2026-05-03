@@ -13,8 +13,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Kitties",
       "conference": "East",
-      "record": "2-2",
-      "conferenceRecord": "2-0",
+      "record": "3-2",
+      "conferenceRecord": "3-0",
       "totalUpvotes": 25030,
       "roster": [
         {
@@ -186,8 +186,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "2-2",
-      "conferenceRecord": "1-0",
+      "record": "2-3",
+      "conferenceRecord": "1-1",
       "totalUpvotes": 13894,
       "roster": [
         {
@@ -1371,55 +1371,55 @@ window.RUL_STATIC_DATA = {
       "teamA": "Kitties",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 2330,
-      "teamBScore": 1555,
-      "note": "Live",
+      "teamAScore": 9600,
+      "teamBScore": 5476,
+      "note": "Final",
       "boxScore": {
         "teamA": [
           {
             "handle": "bryceyoungformvp",
-            "upvotes": 485,
+            "upvotes": 4520,
             "note": ""
           },
           {
             "handle": "gfkmoney",
-            "upvotes": 1063,
+            "upvotes": 2436,
             "note": ""
           },
           {
             "handle": "supaboiiii",
-            "upvotes": 337,
+            "upvotes": 1095,
             "note": ""
           },
           {
             "handle": "cardinalsred123",
-            "upvotes": 445,
+            "upvotes": 1549,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "kenunderrated",
-            "upvotes": 902,
+            "upvotes": 3323,
             "note": ""
           },
           {
             "handle": "finsup46",
-            "upvotes": 77,
+            "upvotes": 159,
             "note": ""
           },
           {
             "handle": "jaylen",
-            "upvotes": 417,
+            "upvotes": 1324,
             "note": ""
           },
           {
             "handle": "wmv0",
-            "upvotes": 159,
+            "upvotes": 670,
             "note": ""
           }
         ],
-        "note": "Kitties currently leads by 775"
+        "note": "Kitties win by 4,124"
       }
     },
     {
