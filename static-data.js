@@ -1447,7 +1447,54 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 0,
       "teamBScore": 0,
-      "note": "Upcoming"
+      "note": "Live",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "luca",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "mistermuyrico",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "superbowl",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "sports",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "j3",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "note": "Live game is tied"
+      }
     },
     {
       "week": "All Star Break",
