@@ -1314,46 +1314,46 @@ window.RUL_STATIC_DATA = {
       "teamA": "Voltage",
       "teamB": "Angels",
       "type": "Non Conf",
-      "teamAScore": 2320,
-      "teamBScore": 2106,
+      "teamAScore": 2592,
+      "teamBScore": 2184,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "ceedeelambfan",
-            "upvotes": 975,
+            "upvotes": 1186,
             "note": ""
           },
           {
             "handle": "wilbus",
-            "upvotes": 319,
+            "upvotes": 344,
             "note": ""
           },
           {
             "handle": "flock.ravens",
-            "upvotes": 692,
+            "upvotes": 701,
             "note": ""
           },
           {
             "handle": "wembyglazer9",
-            "upvotes": 334,
+            "upvotes": 361,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "epiikees",
-            "upvotes": 992,
+            "upvotes": 1014,
             "note": ""
           },
           {
             "handle": "kenny",
-            "upvotes": 949,
+            "upvotes": 976,
             "note": ""
           },
           {
             "handle": "67fan",
-            "upvotes": 149,
+            "upvotes": 178,
             "note": ""
           },
           {
@@ -1362,7 +1362,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           }
         ],
-        "note": "Voltage currently leads by 214"
+        "note": "Voltage currently leads by 408"
       }
     },
     {
