@@ -1314,55 +1314,55 @@ window.RUL_STATIC_DATA = {
       "teamA": "Voltage",
       "teamB": "Angels",
       "type": "Non Conf",
-      "teamAScore": 767,
-      "teamBScore": 1484,
+      "teamAScore": 2320,
+      "teamBScore": 2106,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "ceedeelambfan",
-            "upvotes": 95,
+            "upvotes": 975,
             "note": ""
           },
           {
             "handle": "wilbus",
-            "upvotes": 170,
+            "upvotes": 319,
             "note": ""
           },
           {
             "handle": "flock.ravens",
-            "upvotes": 296,
+            "upvotes": 692,
             "note": ""
           },
           {
             "handle": "wembyglazer9",
-            "upvotes": 206,
+            "upvotes": 334,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "epiikees",
-            "upvotes": 833,
+            "upvotes": 992,
             "note": ""
           },
           {
             "handle": "kenny",
-            "upvotes": 648,
+            "upvotes": 949,
             "note": ""
           },
           {
             "handle": "67fan",
-            "upvotes": 1,
+            "upvotes": 149,
             "note": ""
           },
           {
             "handle": "damian",
-            "upvotes": 2,
+            "upvotes": 16,
             "note": ""
           }
         ],
-        "note": "Angels currently leads by 717"
+        "note": "Voltage currently leads by 214"
       }
     },
     {
