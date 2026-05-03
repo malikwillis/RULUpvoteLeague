@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Week 5 live scoring",
+    "updatedLabel": "Updated through Week 5",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -59,7 +59,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Voltage",
       "conference": "East",
-      "record": "1-3",
+      "record": "2-3",
       "conferenceRecord": "0-3",
       "totalUpvotes": 13864,
       "roster": [
@@ -412,7 +412,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Angels",
       "conference": "West",
-      "record": "2-2",
+      "record": "2-3",
       "conferenceRecord": "1-1",
       "totalUpvotes": 17638,
       "roster": [
@@ -1314,46 +1314,46 @@ window.RUL_STATIC_DATA = {
       "teamA": "Voltage",
       "teamB": "Angels",
       "type": "Non Conf",
-      "teamAScore": 2592,
-      "teamBScore": 2184,
-      "note": "Live",
+      "teamAScore": 4489,
+      "teamBScore": 3353,
+      "note": "Final",
       "boxScore": {
         "teamA": [
           {
             "handle": "ceedeelambfan",
-            "upvotes": 1186,
+            "upvotes": 2759,
             "note": ""
           },
           {
             "handle": "wilbus",
-            "upvotes": 344,
+            "upvotes": 592,
             "note": ""
           },
           {
             "handle": "flock.ravens",
-            "upvotes": 701,
+            "upvotes": 730,
             "note": ""
           },
           {
             "handle": "wembyglazer9",
-            "upvotes": 361,
-            "note": ""
+            "upvotes": 408,
+            "note": "With Penalty"
           }
         ],
         "teamB": [
           {
             "handle": "epiikees",
-            "upvotes": 1014,
+            "upvotes": 1466,
             "note": ""
           },
           {
             "handle": "kenny",
-            "upvotes": 976,
+            "upvotes": 1144,
             "note": ""
           },
           {
             "handle": "67fan",
-            "upvotes": 178,
+            "upvotes": 727,
             "note": ""
           },
           {
@@ -1362,7 +1362,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           }
         ],
-        "note": "Voltage currently leads by 408"
+        "note": "Voltage win by 1,136"
       }
     },
     {
