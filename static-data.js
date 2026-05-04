@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Week 5 live scoring",
+    "updatedLabel": "Updated through Week 5",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -130,7 +130,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "2-2",
+      "record": "3-2",
       "conferenceRecord": "1-1",
       "totalUpvotes": 15871,
       "roster": [
@@ -318,7 +318,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Bandits",
       "conference": "West",
-      "record": "4-0",
+      "record": "4-1",
       "conferenceRecord": "2-0",
       "totalUpvotes": 22445,
       "roster": [
@@ -1445,55 +1445,55 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Bandits",
       "type": "Non Conf",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Live",
+      "teamAScore": 5472,
+      "teamBScore": 1828,
+      "note": "Final",
       "boxScore": {
         "teamA": [
           {
             "handle": "realsabrinacarpenter",
-            "upvotes": 0,
+            "upvotes": 3156,
             "note": ""
           },
           {
             "handle": "andthatsallshewrote",
-            "upvotes": 0,
+            "upvotes": 1898,
             "note": ""
           },
           {
             "handle": "luca",
-            "upvotes": 0,
+            "upvotes": 361,
             "note": ""
           },
           {
             "handle": "mistermuyrico",
-            "upvotes": 0,
+            "upvotes": 57,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "superbowl",
-            "upvotes": 0,
+            "upvotes": 155,
             "note": ""
           },
           {
             "handle": "trentgrishamdadstrength",
-            "upvotes": 0,
+            "upvotes": 413,
             "note": ""
           },
           {
             "handle": "sports",
-            "upvotes": 0,
+            "upvotes": 643,
             "note": ""
           },
           {
             "handle": "j3",
-            "upvotes": 0,
+            "upvotes": 617,
             "note": ""
           }
         ],
-        "note": "Live game is tied"
+        "note": "Mammoths win by 3,644"
       }
     },
     {
