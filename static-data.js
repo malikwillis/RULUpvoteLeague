@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 6",
+    "updatedLabel": "Updated with upcoming matchup",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -1522,9 +1522,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Kitties",
       "teamB": "Vampires",
       "type": "Non Conf",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 12780,
+      "teamBScore": 12329,
+      "note": "Upcoming",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "bryceyoungformvp",
+            "upvotes": 5906,
+            "note": ""
+          },
+          {
+            "handle": "gfkmoney",
+            "upvotes": 1809,
+            "note": ""
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 3259,
+            "note": ""
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 1806,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "seahawksfan1",
+            "upvotes": 6082,
+            "note": ""
+          },
+          {
+            "handle": "tase",
+            "upvotes": 2612,
+            "note": ""
+          },
+          {
+            "handle": "arachnid",
+            "upvotes": 3208,
+            "note": ""
+          },
+          {
+            "handle": "cowan",
+            "upvotes": 427,
+            "note": ""
+          }
+        ],
+        "note": "Kitties currently leads by 451"
+      }
     },
     {
       "week": "Week 6",
