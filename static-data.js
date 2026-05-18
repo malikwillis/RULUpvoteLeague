@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 5",
+    "updatedLabel": "Updated through Week 6",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -186,7 +186,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "2-3",
+      "record": "2-4",
       "conferenceRecord": "1-1",
       "totalUpvotes": 13894,
       "roster": [
@@ -429,7 +429,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Angels",
       "conference": "West",
-      "record": "2-3",
+      "record": "3-3",
       "conferenceRecord": "1-1",
       "totalUpvotes": 17638,
       "roster": [
@@ -1532,9 +1532,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Phantoms",
       "teamB": "Angels",
       "type": "Non Conf",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 1172,
+      "teamBScore": 1865,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 523,
+            "note": ""
+          },
+          {
+            "handle": "george",
+            "upvotes": 445,
+            "note": ""
+          },
+          {
+            "handle": "jaylen",
+            "upvotes": 161,
+            "note": ""
+          },
+          {
+            "handle": "richer",
+            "upvotes": 43,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenny",
+            "upvotes": 515,
+            "note": ""
+          },
+          {
+            "handle": "67fan",
+            "upvotes": 134,
+            "note": ""
+          },
+          {
+            "handle": "epiikees",
+            "upvotes": 1180,
+            "note": ""
+          },
+          {
+            "handle": "prodraiders",
+            "upvotes": 36,
+            "note": ""
+          }
+        ],
+        "note": "Angels win by 693"
+      }
     },
     {
       "week": "Week 6",
