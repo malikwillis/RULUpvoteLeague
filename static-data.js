@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated with upcoming matchup",
+    "updatedLabel": "Updated through Week 6",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -13,7 +13,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Kitties",
       "conference": "East",
-      "record": "3-2",
+      "record": "4-2",
       "conferenceRecord": "3-0",
       "totalUpvotes": 25030,
       "roster": [
@@ -267,7 +267,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Vampires",
       "conference": "West",
-      "record": "4-1",
+      "record": "4-2",
       "conferenceRecord": "2-1",
       "totalUpvotes": 17998,
       "roster": [
@@ -1524,7 +1524,7 @@ window.RUL_STATIC_DATA = {
       "type": "Non Conf",
       "teamAScore": 12780,
       "teamBScore": 12329,
-      "note": "Upcoming",
+      "note": "Final",
       "boxScore": {
         "teamA": [
           {
@@ -1570,7 +1570,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           }
         ],
-        "note": "Kitties currently leads by 451"
+        "note": "Kitties win by 451"
       }
     },
     {
