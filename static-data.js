@@ -59,7 +59,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Voltage",
       "conference": "East",
-      "record": "2-3",
+      "record": "2-4",
       "conferenceRecord": "0-3",
       "totalUpvotes": 13864,
       "roster": [
@@ -318,7 +318,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Bandits",
       "conference": "West",
-      "record": "4-1",
+      "record": "5-1",
       "conferenceRecord": "2-0",
       "totalUpvotes": 22445,
       "roster": [
@@ -1646,9 +1646,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Voltage",
       "teamB": "Bandits",
       "type": "Non Conf",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 1867,
+      "teamBScore": 5246,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "ceedeelambfan",
+            "upvotes": 318,
+            "note": ""
+          },
+          {
+            "handle": "wilbus",
+            "upvotes": 734,
+            "note": ""
+          },
+          {
+            "handle": "flock.ravens",
+            "upvotes": 409,
+            "note": ""
+          },
+          {
+            "handle": "wembyglazer9",
+            "upvotes": 406,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "superbowl",
+            "upvotes": 582,
+            "note": ""
+          },
+          {
+            "handle": "mclean26",
+            "upvotes": 1382,
+            "note": ""
+          },
+          {
+            "handle": "j3",
+            "upvotes": 2552,
+            "note": ""
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 730,
+            "note": ""
+          }
+        ],
+        "note": "Bandits win by 3,379"
+      }
     },
     {
       "week": "Week 7",
