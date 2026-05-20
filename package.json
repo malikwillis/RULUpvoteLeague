@@ -1,0 +1,12 @@
+{
+  "name": "rul-upvote-league",
+  "version": "1.0.0",
+  "description": "Real Upvote League Portal",
+  "scripts": {
+    "build": "echo 'No build step required for static HTML'",
+    "test": "echo 'No tests configured'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  }
+}
