@@ -1737,19 +1737,19 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
+      "teamAScore": 380,
+      "teamBScore": 162,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "realsabrinacarpenter",
-            "upvotes": 0,
+            "upvotes": 56,
             "note": ""
           },
           {
             "handle": "andthatsallshewrote",
-            "upvotes": 0,
+            "upvotes": 317,
             "note": ""
           },
           {
@@ -1759,33 +1759,33 @@ window.RUL_STATIC_DATA = {
           },
           {
             "handle": "mistermuyrico",
-            "upvotes": 0,
+            "upvotes": 7,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "kenunderrated",
-            "upvotes": 0,
+            "upvotes": 6,
             "note": ""
           },
           {
             "handle": "george",
-            "upvotes": 0,
+            "upvotes": 22,
             "note": ""
           },
           {
             "handle": "jaylen",
-            "upvotes": 0,
+            "upvotes": 14,
             "note": ""
           },
           {
             "handle": "breens",
-            "upvotes": 0,
+            "upvotes": 120,
             "note": ""
           }
         ],
-        "note": "Live game is tied"
+        "note": "Mammoths currently leads by 218"
       }
     },
     {
