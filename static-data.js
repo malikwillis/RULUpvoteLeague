@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 6",
+    "updatedLabel": "Week 7 live scoring",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -1739,7 +1739,54 @@ window.RUL_STATIC_DATA = {
       "type": "Conf East",
       "teamAScore": 0,
       "teamBScore": 0,
-      "note": "Upcoming"
+      "note": "Live",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "luca",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "mistermuyrico",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "george",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "jaylen",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "breens",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "note": "Live game is tied"
+      }
     },
     {
       "week": "Week 7",
