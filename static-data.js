@@ -1737,55 +1737,55 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 380,
-      "teamBScore": 162,
+      "teamAScore": 1093,
+      "teamBScore": 979,
       "note": "Live",
       "boxScore": {
         "teamA": [
           {
             "handle": "realsabrinacarpenter",
-            "upvotes": 56,
+            "upvotes": 265,
             "note": ""
           },
           {
             "handle": "andthatsallshewrote",
-            "upvotes": 317,
+            "upvotes": 658,
             "note": ""
           },
           {
             "handle": "luca",
-            "upvotes": 0,
+            "upvotes": 135,
             "note": ""
           },
           {
             "handle": "mistermuyrico",
-            "upvotes": 7,
+            "upvotes": 35,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "kenunderrated",
-            "upvotes": 6,
+            "upvotes": 294,
             "note": ""
           },
           {
             "handle": "george",
-            "upvotes": 22,
+            "upvotes": 45,
             "note": ""
           },
           {
             "handle": "jaylen",
-            "upvotes": 14,
+            "upvotes": 235,
             "note": ""
           },
           {
             "handle": "breens",
-            "upvotes": 120,
+            "upvotes": 405,
             "note": ""
           }
         ],
-        "note": "Mammoths currently leads by 218"
+        "note": "Mammoths currently leads by 114"
       }
     },
     {
