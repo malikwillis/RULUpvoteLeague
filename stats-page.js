@@ -9,18 +9,19 @@ loadLeagueData().then(originalData => {
   let players = buildAdvancedPlayerStats(data);
   let currentSort = 'gameLogUpvotes';
   let currentSearch = '';
+  let currentTeamFilter = '';
 
   const categoryList = [
-    { key: 'gameLogUpvotes', label: 'Game Log Upvotes', note: 'Total box score upvotes' },
-    { key: 'average', label: 'Average', note: 'Upvotes per logged game' },
-    { key: 'gamesLogged', label: 'Games Logged', note: 'Games played' },
-    { key: 'bestGame', label: 'Best Game', note: 'Highest single game' },
-    { key: 'worstGame', label: 'Floor', note: 'Lowest logged game' },
-    { key: 'boomGames', label: '2K Games', note: 'Games with 2,000 plus' },
-    { key: 'teamShare', label: 'Team Share', note: 'Share of team game log upvotes' },
-    { key: 'playerOfGameCount', label: 'POTG Count', note: 'Led all players in a game' },
-    { key: 'teamLeaderCount', label: 'Team Leads', note: 'Led own team in a game' },
-    { key: 'lastGame', label: 'Last Game', note: 'Most recent logged score' }
+    { key: 'gameLogUpvotes', label: 'Game Log Upvotes', short: 'Game Log', note: 'Total box score upvotes' },
+    { key: 'average', label: 'Average', short: 'Avg', note: 'Upvotes per logged game' },
+    { key: 'gamesLogged', label: 'Games Logged', short: 'Games', note: 'Games played' },
+    { key: 'bestGame', label: 'Best Game', short: 'Best', note: 'Highest single game' },
+    { key: 'worstGame', label: 'Floor', short: 'Floor', note: 'Lowest logged game' },
+    { key: 'boomGames', label: '2K Games', short: '2K', note: 'Games with 2,000 plus' },
+    { key: 'teamShare', label: 'Team Share', short: 'Share', note: 'Share of team game log upvotes' },
+    { key: 'playerOfGameCount', label: 'POTG Count', short: 'POTG', note: 'Led all players in a game' },
+    { key: 'teamLeaderCount', label: 'Team Leads', short: 'Leads', note: 'Led own team in a game' },
+    { key: 'lastGame', label: 'Last Game', short: 'Last', note: 'Most recent logged score' }
   ];
 
   root.innerHTML = `
@@ -31,7 +32,7 @@ loadLeagueData().then(originalData => {
         <div class="row">
           <span>
             <h2 class="card-title">Sortable Player Rankings</h2>
-            <p class="muted">Click any category to rank players best to worst. Player numbers are calculated only from game logs.</p>
+            <p class="muted">Tap any category card or table column title to rank players best to worst.</p>
           </span>
           <span class="pill">${fmt(players.length)} Players</span>
         </div>
@@ -58,6 +59,7 @@ loadLeagueData().then(originalData => {
           </span>
           <span class="pill" id="activeRankingCount"></span>
         </div>
+        <p class="muted">Tap column headers like Game Log, Avg, Games, Best, Share, POTG, or Last to sort.</p>
         <div id="rankingTable"></div>
       </section>
 
@@ -110,7 +112,16 @@ loadLeagueData().then(originalData => {
     renderMainRanking();
   });
 
-  $('#statsTeamFilter')?.addEventListener('change', renderMainRanking);
+  $('#statsTeamFilter')?.addEventListener('change', event => {
+    currentTeamFilter = event.target.value || '';
+    renderMainRanking();
+  });
+
+  function setSort(key) {
+    currentSort = key;
+    renderCategories();
+    renderMainRanking();
+  }
 
   function renderSummary() {
     const ranked = sortPlayers(players, 'gameLogUpvotes');
@@ -142,17 +153,13 @@ loadLeagueData().then(originalData => {
     }).join('');
 
     $all('.stat-category').forEach(button => {
-      button.addEventListener('click', () => {
-        currentSort = button.dataset.sortKey;
-        renderCategories();
-        renderMainRanking();
-      });
+      button.addEventListener('click', () => setSort(button.dataset.sortKey));
     });
   }
 
   function renderMainRanking() {
-    const teamFilter = $('#statsTeamFilter')?.value || '';
     const category = categoryList.find(item => item.key === currentSort) || categoryList[0];
+
     let filtered = players.filter(player => {
       const search = normalize(currentSearch);
       const matchesSearch = !search
@@ -160,7 +167,7 @@ loadLeagueData().then(originalData => {
         || normalize(player.team).includes(search)
         || normalize(player.conference).includes(search);
 
-      const matchesTeam = !teamFilter || player.team === teamFilter;
+      const matchesTeam = !currentTeamFilter || player.team === currentTeamFilter;
 
       return matchesSearch && matchesTeam;
     });
@@ -171,23 +178,11 @@ loadLeagueData().then(originalData => {
     $('#activeRankingNote').textContent = category.note;
     $('#activeRankingCount').textContent = `${filtered.length} Players`;
 
-    const rows = filtered.map((player, index) => [
-      index + 1,
-      playerLink(player.handle),
-      teamLink(player.team),
-      escapeHtml(player.conference || ''),
-      formatCategoryValue(player, currentSort),
-      fmt(player.gameLogUpvotes),
-      fmt(player.average),
-      fmt(player.gamesLogged),
-      fmt(player.bestGame),
-      `${fmt(player.teamShare)}%`
-    ]);
+    $('#rankingTable').innerHTML = sortableStatsTable(filtered, currentSort, category.label);
 
-    $('#rankingTable').innerHTML = table(
-      ['#', 'Player', 'Team', 'Conf', category.label, 'Total', 'Avg', 'Games', 'Best', 'Team Share'],
-      rows
-    );
+    $all('[data-stat-sort]').forEach(button => {
+      button.addEventListener('click', () => setSort(button.dataset.statSort));
+    });
   }
 
   function renderHotPlayers() {
@@ -241,6 +236,67 @@ function summaryCard(label, value, subtext) {
       <div class="kpi">${value}</div>
       <p class="muted">${escapeHtml(subtext || '')}</p>
     </article>
+  `;
+}
+
+function sortableStatsTable(players, currentSort, currentLabel) {
+  const headers = [
+    { label: '#', key: null },
+    { label: 'Player', key: null },
+    { label: 'Team', key: null },
+    { label: 'Conf', key: null },
+    { label: 'Game Log', key: 'gameLogUpvotes' },
+    { label: 'Avg', key: 'average' },
+    { label: 'Games', key: 'gamesLogged' },
+    { label: 'Best', key: 'bestGame' },
+    { label: 'Floor', key: 'worstGame' },
+    { label: '2K', key: 'boomGames' },
+    { label: 'Share', key: 'teamShare' },
+    { label: 'POTG', key: 'playerOfGameCount' },
+    { label: 'Leads', key: 'teamLeaderCount' },
+    { label: 'Last', key: 'lastGame' }
+  ];
+
+  return `
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            ${headers.map(header => {
+              if (!header.key) return `<th>${escapeHtml(header.label)}</th>`;
+              const active = header.key === currentSort ? ' active-sort' : '';
+              return `
+                <th>
+                  <button class="stat-sort-btn${active}" data-stat-sort="${escapeHtml(header.key)}" type="button">
+                    ${escapeHtml(header.label)}${header.key === currentSort ? ' ↓' : ''}
+                  </button>
+                </th>
+              `;
+            }).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          ${players.map((player, index) => `
+            <tr>
+              <td>${index + 1}</td>
+              <td>${playerLink(player.handle)}</td>
+              <td>${teamLink(player.team)}</td>
+              <td>${escapeHtml(player.conference || '')}</td>
+              <td>${fmt(player.gameLogUpvotes)}</td>
+              <td>${fmt(player.average)}</td>
+              <td>${fmt(player.gamesLogged)}</td>
+              <td>${fmt(player.bestGame)}</td>
+              <td>${fmt(player.worstGame)}</td>
+              <td>${fmt(player.boomGames)}</td>
+              <td>${fmt(player.teamShare)}%</td>
+              <td>${fmt(player.playerOfGameCount)}</td>
+              <td>${fmt(player.teamLeaderCount)}</td>
+              <td>${fmt(player.lastGame)}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
   `;
 }
 
