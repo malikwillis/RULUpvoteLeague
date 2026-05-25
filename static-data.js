@@ -363,9 +363,9 @@ window.RUL_STATIC_DATA = {
             {
               "week": "Rename",
               "type": "Username Change",
-              "from": "j3",
+              "from": "jet",
               "to": "jet",
-              "title": "@j3 is now @jet"
+              "title": "@jet is now @jet"
             }
           ]
         }
@@ -2405,9 +2405,9 @@ window.RUL_STATIC_DATA = {
       {
         "week": "Rename",
         "type": "Username Change",
-        "from": "j3",
+        "from": "jet",
         "to": "jet",
-        "title": "@j3 is now @jet"
+        "title": "@jet is now @jet"
       }
     ]
   }
