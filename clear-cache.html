@@ -3,27 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RUL Repair</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>RUL Hard Reset</title>
+  <style>
+    body {
+      margin: 0;
+      background: #05060a;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    .card {
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 22px;
+      padding: 22px;
+      background: rgba(255,255,255,.05);
+      max-width: 680px;
+      margin: 40px auto;
+    }
+
+    button, a {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 14px 18px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: #e0ff2b;
+      color: black;
+      font-weight: 900;
+      text-decoration: none;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: #a9adbd;
+      line-height: 1.45;
+    }
+  </style>
 </head>
 <body>
-<main class="shell">
-  <section class="card">
-    <h1>RUL Site Repair</h1>
-    <p class="muted">This clears bad local preview data from this device.</p>
-    <button class="btn" id="clearBtn">Clear Local Preview Data</button>
-    <a class="btn" href="index.html">Go Home</a>
-    <p class="muted" id="status"></p>
-  </section>
-</main>
+  <div class="card">
+    <h1>RUL Hard Reset</h1>
+    <p>This clears broken saved preview data on this device.</p>
+    <button id="clearBtn">Clear Broken Data</button>
+    <a href="index.html">Go Home</a>
+    <p id="status"></p>
+  </div>
 
-<script>
-document.getElementById('clearBtn').addEventListener('click', () => {
-  ['RUL_WORKING_DATA', 'RUL_LOCAL_DATA', 'RUL_PREVIEW_DATA'].forEach(key => localStorage.removeItem(key));
-  document.getElementById('status').textContent = 'Cleared. Tap Go Home.';
-});
-</script>
+  <script>
+    const keys = [
+      'RUL_WORKING_DATA',
+      'RUL_LOCAL_DATA',
+      'RUL_PREVIEW_DATA'
+    ];
+
+    function clearIt() {
+      keys.forEach(key => localStorage.removeItem(key));
+      document.getElementById('status').textContent = 'Cleared. Tap Go Home.';
+    }
+
+    document.getElementById('clearBtn').addEventListener('click', clearIt);
+    clearIt();
+  </script>
 </body>
 </html>

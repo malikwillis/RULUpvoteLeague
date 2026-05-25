@@ -1,84 +1,163 @@
-function parseCSV(text){
-  const rows = [];
-  let row = [], value = '', inQuotes = false;
-  for(let i = 0; i < text.length; i++){
-    const char = text[i], next = text[i + 1];
-    if(char === '"'){
-      if(inQuotes && next === '"'){ value += '"'; i++; }
-      else inQuotes = !inQuotes;
-      continue;
-    }
-    if(char === ',' && !inQuotes){ row.push(value.trim()); value = ''; continue; }
-    if((char === '\n' || char === '\r') && !inQuotes){
-      if(char === '\r' && next === '\n') i++;
-      row.push(value.trim());
-      if(row.some(cell => cell !== '')) rows.push(row);
-      row = []; value = '';
-      continue;
-    }
-    value += char;
+/*
+  RUL nuclear JSON repair
+
+  This file fixes site-wide breakage from bad saved local preview data.
+  It must load before each page file, which your HTML pages already do:
+  static-data.js -> sheet-config.js -> utils.js -> data-service.js -> layout.js -> page file
+*/
+
+(function () {
+  const BAD_RUL_KEYS = [
+    'RUL_WORKING_DATA',
+    'RUL_LOCAL_DATA',
+    'RUL_PREVIEW_DATA'
+  ];
+
+  function isBadSavedValue(value) {
+    if (value === undefined || value === null) return false;
+
+    const text = String(value).trim();
+
+    return (
+      text === '' ||
+      text === 'undefined' ||
+      text === 'null' ||
+      text === '[object Object]' ||
+      text === '"undefined"' ||
+      text === '"null"'
+    );
   }
-  if(value.length || row.length){ row.push(value.trim()); if(row.some(cell => cell !== '')) rows.push(row); }
-  return rows;
-}
-async function fetchCSV(url){
-  const res = await fetch(url + (url.includes('?') ? '&' : '?') + 't=' + Date.now(), {cache:'no-store'});
-  if(!res.ok) throw new Error('CSV fetch failed');
-  return parseCSV(await res.text());
-}
-function clone(obj){ return JSON.parse(JSON.stringify(obj)); }
-function rowsToObjects(rows){
-  if(!rows.length) return [];
-  const headers = rows[0].map(h => h.trim());
-  return rows.slice(1).map(row => Object.fromEntries(headers.map((h,i) => [h, row[i] ?? ''])));
-}
-function applySheetData(base, sheetData){
-  const data = clone(base);
-  if(sheetData.teams?.length){
-    const objects = rowsToObjects(sheetData.teams);
-    const map = new Map();
-    objects.forEach(r => {
-      const teamName = r.team || r.Team;
-      const handle = cleanHandle(r.handle || r.player || r.Player || r.Handle);
-      if(!teamName || !handle) return;
-      if(!map.has(teamName)) map.set(teamName, {
-        id: teamName.toLowerCase().replace(/[^a-z0-9]+/g,''),
-        name: teamName,
-        conference: r.conference || r.Conf || '',
-        record: r.record || r.Record || '0-0',
-        conferenceRecord: r.conferenceRecord || r['conference record'] || r['Conf Record'] || '0-0',
-        totalUpvotes: Number(String(r.totalUpvotes || r.total || r.Total || 0).replace(/,/g,'')) || 0,
-        gm: r.gm || r.GM || 'TBD',
-        accent: r.accent || '#e8ff3c',
-        roster: []
-      });
-      map.get(teamName).roster.push({handle, upvotes: Number(String(r.upvotes || r.Upvotes || 0).replace(/,/g,'')) || 0});
+
+  function clearBadRulStorage() {
+    BAD_RUL_KEYS.forEach(key => {
+      try {
+        const value = window.localStorage.getItem(key);
+
+        if (isBadSavedValue(value)) {
+          window.localStorage.removeItem(key);
+          return;
+        }
+
+        if (value) {
+          JSON.parse(value);
+        }
+      } catch (error) {
+        try {
+          window.localStorage.removeItem(key);
+        } catch (_) {}
+      }
     });
-    if(map.size) data.teams = Array.from(map.values());
   }
-  if(sheetData.games?.length){
-    const objects = rowsToObjects(sheetData.games);
-    const games = objects.map(r => ({
-      week: r.week || r.Week || '', date: r.date || r.Date || '', teamA: r.teamA || r.TeamA || r.home || r.Home || '', teamB: r.teamB || r.TeamB || r.away || r.Away || '', type: r.type || r.Type || '', teamAScore: Number(String(r.teamAScore || r.homeScore || r.TeamAScore || 0).replace(/,/g,'')) || 0, teamBScore: Number(String(r.teamBScore || r.awayScore || r.TeamBScore || 0).replace(/,/g,'')) || 0, note: r.note || r.Note || ''
-    })).filter(g => g.teamA && g.teamB);
-    if(games.length) data.games = games;
+
+  clearBadRulStorage();
+
+  const originalGetItem = Storage.prototype.getItem;
+  const originalSetItem = Storage.prototype.setItem;
+
+  Storage.prototype.getItem = function (key) {
+    const value = originalGetItem.call(this, key);
+
+    if (BAD_RUL_KEYS.includes(key) && isBadSavedValue(value)) {
+      try {
+        this.removeItem(key);
+      } catch (_) {}
+
+      return null;
+    }
+
+    if (BAD_RUL_KEYS.includes(key) && value) {
+      try {
+        JSON.parse(value);
+      } catch (error) {
+        try {
+          this.removeItem(key);
+        } catch (_) {}
+
+        return null;
+      }
+    }
+
+    return value;
+  };
+
+  Storage.prototype.setItem = function (key, value) {
+    if (BAD_RUL_KEYS.includes(key) && isBadSavedValue(value)) {
+      try {
+        this.removeItem(key);
+      } catch (_) {}
+
+      return;
+    }
+
+    return originalSetItem.call(this, key, value);
+  };
+
+  const originalParse = JSON.parse.bind(JSON);
+
+  JSON.parse = function (value, reviver) {
+    if (isBadSavedValue(value)) {
+      return window.RUL_STATIC_DATA || null;
+    }
+
+    return originalParse(value, reviver);
+  };
+
+  window.rulClearLocalPreview = function () {
+    BAD_RUL_KEYS.forEach(key => {
+      try {
+        window.localStorage.removeItem(key);
+      } catch (_) {}
+    });
+  };
+})();
+
+async function loadLeagueData() {
+  if (window.RUL_STATIC_DATA && typeof window.RUL_STATIC_DATA === 'object') {
+    return window.RUL_STATIC_DATA;
   }
-  if(sheetData.transactions?.length){
-    const tx = rowsToObjects(sheetData.transactions).map(r => ({date:r.date || r.Date || '', type:r.type || r.Type || '', title:r.title || r.Title || '', description:r.description || r.Description || ''})).filter(x => x.title);
-    if(tx.length) data.transactions = tx;
-  }
-  return data;
+
+  throw new Error('RUL_STATIC_DATA was not found. Check static-data.js is uploaded before data-service.js.');
 }
-async function loadLeagueData(){
-  const base = clone(window.RUL_STATIC_DATA);
-  const config = window.RUL_SHEET_CONFIG || {mode:'static'};
-  if(config.mode !== 'sheets') return base;
-  try{
-    const entries = Object.entries(config.csv || {}).filter(([,url]) => url);
-    const results = await Promise.all(entries.map(async ([name,url]) => [name, await fetchCSV(url)]));
-    return applySheetData(base, Object.fromEntries(results));
-  }catch(error){
-    console.warn('Sheet mode failed, using static data.', error);
-    return base;
+
+function getWorkingLeagueData() {
+  try {
+    const saved = localStorage.getItem('RUL_WORKING_DATA');
+
+    if (!saved) {
+      return window.RUL_STATIC_DATA;
+    }
+
+    const parsed = JSON.parse(saved);
+
+    if (!parsed || typeof parsed !== 'object' || !parsed.teams || !parsed.games) {
+      localStorage.removeItem('RUL_WORKING_DATA');
+      return window.RUL_STATIC_DATA;
+    }
+
+    return parsed;
+  } catch (error) {
+    localStorage.removeItem('RUL_WORKING_DATA');
+    return window.RUL_STATIC_DATA;
+  }
+}
+
+function saveWorkingLeagueData(data) {
+  if (!data || typeof data !== 'object') return false;
+
+  try {
+    localStorage.setItem('RUL_WORKING_DATA', JSON.stringify(data));
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function clearWorkingLeagueData() {
+  if (typeof window.rulClearLocalPreview === 'function') {
+    window.rulClearLocalPreview();
+  } else {
+    localStorage.removeItem('RUL_WORKING_DATA');
+    localStorage.removeItem('RUL_LOCAL_DATA');
+    localStorage.removeItem('RUL_PREVIEW_DATA');
   }
 }
