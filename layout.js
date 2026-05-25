@@ -1,3 +1,44 @@
+/*
+  RUL emergency layout repair
+
+  This file fixes the site-wide JSON Parse error caused by bad saved local preview data.
+  It keeps the centered header and removes GM from the top nav.
+*/
+
+function rulRepairBadLocalPreviewData() {
+  const keys = [
+    'RUL_WORKING_DATA',
+    'RUL_LOCAL_DATA',
+    'RUL_PREVIEW_DATA'
+  ];
+
+  keys.forEach(key => {
+    try {
+      const value = localStorage.getItem(key);
+
+      if (!value) return;
+
+      const trimmed = String(value).trim().toLowerCase();
+
+      if (
+        trimmed === 'undefined' ||
+        trimmed === 'null' ||
+        trimmed === '[object object]' ||
+        trimmed === ''
+      ) {
+        localStorage.removeItem(key);
+        return;
+      }
+
+      JSON.parse(value);
+    } catch (error) {
+      localStorage.removeItem(key);
+    }
+  });
+}
+
+rulRepairBadLocalPreviewData();
+
 function ensureRulHeaderStyle() {
   if (document.getElementById('rulHeaderCenterFix')) return;
 
@@ -110,6 +151,7 @@ function ensureRulHeaderStyle() {
 }
 
 function pageHeader(data, activePage, eyebrow, title, subtitle) {
+  rulRepairBadLocalPreviewData();
   ensureRulHeaderStyle();
 
   const league = data?.league || {};

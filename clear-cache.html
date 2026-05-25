@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUL Repair</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main class="shell">
+  <section class="card">
+    <h1>RUL Site Repair</h1>
+    <p class="muted">This clears bad local preview data from this device.</p>
+    <button class="btn" id="clearBtn">Clear Local Preview Data</button>
+    <a class="btn" href="index.html">Go Home</a>
+    <p class="muted" id="status"></p>
+  </section>
+</main>
+
+<script>
+document.getElementById('clearBtn').addEventListener('click', () => {
+  ['RUL_WORKING_DATA', 'RUL_LOCAL_DATA', 'RUL_PREVIEW_DATA'].forEach(key => localStorage.removeItem(key));
+  document.getElementById('status').textContent = 'Cleared. Tap Go Home.';
+});
+</script>
+</body>
+</html>
