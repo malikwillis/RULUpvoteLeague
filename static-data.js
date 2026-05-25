@@ -318,8 +318,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Bandits",
       "conference": "West",
-      "record": "5-1",
-      "conferenceRecord": "2-0",
+      "record": "6-1",
+      "conferenceRecord": "3-0",
       "totalUpvotes": 22445,
       "roster": [
         {
@@ -436,8 +436,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Angels",
       "conference": "West",
-      "record": "3-3",
-      "conferenceRecord": "1-1",
+      "record": "3-4",
+      "conferenceRecord": "1-2",
       "totalUpvotes": 17638,
       "roster": [
         {
@@ -1804,9 +1804,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Bandits",
       "teamB": "Angels",
       "type": "Conf West",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 7036,
+      "teamBScore": 601,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "superbowl",
+            "upvotes": 1136,
+            "note": ""
+          },
+          {
+            "handle": "mclean26",
+            "upvotes": 3268,
+            "note": ""
+          },
+          {
+            "handle": "j3",
+            "upvotes": 2620,
+            "note": ""
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 12,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "67fan",
+            "upvotes": 224,
+            "note": ""
+          },
+          {
+            "handle": "epiikees",
+            "upvotes": 274,
+            "note": ""
+          },
+          {
+            "handle": "kenny",
+            "upvotes": 79,
+            "note": ""
+          },
+          {
+            "handle": "prodraiders",
+            "upvotes": 24,
+            "note": ""
+          }
+        ],
+        "note": "Bandits win by 6,435"
+      }
     },
     {
       "week": "Week 8",
