@@ -267,8 +267,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Vampires",
       "conference": "West",
-      "record": "4-2",
-      "conferenceRecord": "2-1",
+      "record": "5-2",
+      "conferenceRecord": "3-1",
       "totalUpvotes": 17998,
       "roster": [
         {
@@ -376,8 +376,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Reapers",
       "conference": "West",
-      "record": "0-6",
-      "conferenceRecord": "0-3",
+      "record": "0-7",
+      "conferenceRecord": "0-4",
       "totalUpvotes": 7621,
       "roster": [
         {
@@ -1794,9 +1794,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Reapers",
       "type": "Conf West",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 2464,
+      "teamBScore": 945,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "seahawksfan1",
+            "upvotes": 1429,
+            "note": ""
+          },
+          {
+            "handle": "tase",
+            "upvotes": 447,
+            "note": ""
+          },
+          {
+            "handle": "arachnid",
+            "upvotes": 305,
+            "note": ""
+          },
+          {
+            "handle": "burden_",
+            "upvotes": 283,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 727,
+            "note": ""
+          },
+          {
+            "handle": "glazerofdrakemaye",
+            "upvotes": 8,
+            "note": ""
+          },
+          {
+            "handle": "sugashow_",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "young",
+            "upvotes": 210,
+            "note": ""
+          }
+        ],
+        "note": "Vampires win by 1,519"
+      }
     },
     {
       "week": "Week 7",
