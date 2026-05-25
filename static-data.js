@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 7",
+    "updatedLabel": "Updated through Week 6",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -130,8 +130,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "5-2",
-      "conferenceRecord": "2-1",
+      "record": "3-2",
+      "conferenceRecord": "1-1",
       "totalUpvotes": 15871,
       "roster": [
         {
@@ -186,8 +186,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "2-5",
-      "conferenceRecord": "1-2",
+      "record": "2-4",
+      "conferenceRecord": "1-1",
       "totalUpvotes": 13894,
       "roster": [
         {
@@ -267,8 +267,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Vampires",
       "conference": "West",
-      "record": "5-2",
-      "conferenceRecord": "3-1",
+      "record": "4-2",
+      "conferenceRecord": "2-1",
       "totalUpvotes": 17998,
       "roster": [
         {
@@ -318,8 +318,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Bandits",
       "conference": "West",
-      "record": "6-1",
-      "conferenceRecord": "3-0",
+      "record": "5-1",
+      "conferenceRecord": "2-0",
       "totalUpvotes": 22445,
       "roster": [
         {
@@ -348,7 +348,7 @@ window.RUL_STATIC_DATA = {
           "currentTeam": "Bandits"
         },
         {
-          "handle": "j3",
+          "handle": "jet",
           "upvotes": 1499,
           "currentTeam": "Bandits",
           "previousTeam": "Vampires",
@@ -363,9 +363,9 @@ window.RUL_STATIC_DATA = {
             {
               "week": "Rename",
               "type": "Username Change",
-              "from": "jet",
-              "to": "j3",
-              "title": "@jet is now @j3"
+              "from": "j3",
+              "to": "jet",
+              "title": "@j3 is now @jet"
             }
           ]
         }
@@ -376,8 +376,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Reapers",
       "conference": "West",
-      "record": "0-7",
-      "conferenceRecord": "0-4",
+      "record": "0-5",
+      "conferenceRecord": "0-3",
       "totalUpvotes": 7621,
       "roster": [
         {
@@ -436,8 +436,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Angels",
       "conference": "West",
-      "record": "3-4",
-      "conferenceRecord": "1-2",
+      "record": "3-3",
+      "conferenceRecord": "1-1",
       "totalUpvotes": 17638,
       "roster": [
         {
@@ -902,7 +902,7 @@ window.RUL_STATIC_DATA = {
             "upvotes": 610
           },
           {
-            "handle": "j3",
+            "handle": "jet",
             "upvotes": 736
           }
         ],
@@ -1302,7 +1302,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           },
           {
-            "handle": "j3",
+            "handle": "jet",
             "upvotes": 763,
             "note": ""
           }
@@ -1495,7 +1495,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           },
           {
-            "handle": "j3",
+            "handle": "jet",
             "upvotes": 617,
             "note": ""
           }
@@ -1623,56 +1623,9 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Reapers",
       "type": "Non Conf",
-      "teamAScore": 3256,
-      "teamBScore": 1191,
-      "note": "Final",
-      "boxScore": {
-        "teamA": [
-          {
-            "handle": "realsabrinacarpenter",
-            "upvotes": 1894,
-            "note": ""
-          },
-          {
-            "handle": "andthatsallshewrote",
-            "upvotes": 1293,
-            "note": ""
-          },
-          {
-            "handle": "luca",
-            "upvotes": 1,
-            "note": ""
-          },
-          {
-            "handle": "mistermuyrico",
-            "upvotes": 68,
-            "note": ""
-          }
-        ],
-        "teamB": [
-          {
-            "handle": "derikqueenfan",
-            "upvotes": 1056,
-            "note": ""
-          },
-          {
-            "handle": "young",
-            "upvotes": 53,
-            "note": ""
-          },
-          {
-            "handle": "sugashow_",
-            "upvotes": 57,
-            "note": ""
-          },
-          {
-            "handle": "glazerofdrakemaye",
-            "upvotes": 25,
-            "note": ""
-          }
-        ],
-        "note": "Mammoths win by 2,065"
-      }
+      "teamAScore": 0,
+      "teamBScore": 0,
+      "note": "Upcoming"
     },
     {
       "week": "Week 6",
@@ -1718,7 +1671,7 @@ window.RUL_STATIC_DATA = {
             "note": ""
           },
           {
-            "handle": "j3",
+            "handle": "jet",
             "upvotes": 2552,
             "note": ""
           },
@@ -1737,56 +1690,9 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 3986,
-      "teamBScore": 2651,
-      "note": "Final",
-      "boxScore": {
-        "teamA": [
-          {
-            "handle": "realsabrinacarpenter",
-            "upvotes": 2405,
-            "note": ""
-          },
-          {
-            "handle": "andthatsallshewrote",
-            "upvotes": 1285,
-            "note": ""
-          },
-          {
-            "handle": "luca",
-            "upvotes": 138,
-            "note": ""
-          },
-          {
-            "handle": "mistermuyrico",
-            "upvotes": 158,
-            "note": ""
-          }
-        ],
-        "teamB": [
-          {
-            "handle": "kenunderrated",
-            "upvotes": 1559,
-            "note": ""
-          },
-          {
-            "handle": "george",
-            "upvotes": 50,
-            "note": ""
-          },
-          {
-            "handle": "jaylen",
-            "upvotes": 238,
-            "note": ""
-          },
-          {
-            "handle": "breens",
-            "upvotes": 804,
-            "note": ""
-          }
-        ],
-        "note": "Mammoths win by 1,335"
-      }
+      "teamAScore": 0,
+      "teamBScore": 0,
+      "note": "Upcoming"
     },
     {
       "week": "Week 7",
@@ -1794,56 +1700,9 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Reapers",
       "type": "Conf West",
-      "teamAScore": 2464,
-      "teamBScore": 945,
-      "note": "Final",
-      "boxScore": {
-        "teamA": [
-          {
-            "handle": "seahawksfan1",
-            "upvotes": 1429,
-            "note": ""
-          },
-          {
-            "handle": "tase",
-            "upvotes": 447,
-            "note": ""
-          },
-          {
-            "handle": "arachnid",
-            "upvotes": 305,
-            "note": ""
-          },
-          {
-            "handle": "burden_",
-            "upvotes": 283,
-            "note": ""
-          }
-        ],
-        "teamB": [
-          {
-            "handle": "derikqueenfan",
-            "upvotes": 727,
-            "note": ""
-          },
-          {
-            "handle": "glazerofdrakemaye",
-            "upvotes": 8,
-            "note": ""
-          },
-          {
-            "handle": "sugashow_",
-            "upvotes": 0,
-            "note": ""
-          },
-          {
-            "handle": "young",
-            "upvotes": 210,
-            "note": ""
-          }
-        ],
-        "note": "Vampires win by 1,519"
-      }
+      "teamAScore": 0,
+      "teamBScore": 0,
+      "note": "Upcoming"
     },
     {
       "week": "Week 7",
@@ -1851,56 +1710,9 @@ window.RUL_STATIC_DATA = {
       "teamA": "Bandits",
       "teamB": "Angels",
       "type": "Conf West",
-      "teamAScore": 7036,
-      "teamBScore": 601,
-      "note": "Final",
-      "boxScore": {
-        "teamA": [
-          {
-            "handle": "superbowl",
-            "upvotes": 1136,
-            "note": ""
-          },
-          {
-            "handle": "mclean26",
-            "upvotes": 3268,
-            "note": ""
-          },
-          {
-            "handle": "j3",
-            "upvotes": 2620,
-            "note": ""
-          },
-          {
-            "handle": "trentgrishamdadstrength",
-            "upvotes": 12,
-            "note": ""
-          }
-        ],
-        "teamB": [
-          {
-            "handle": "67fan",
-            "upvotes": 224,
-            "note": ""
-          },
-          {
-            "handle": "epiikees",
-            "upvotes": 274,
-            "note": ""
-          },
-          {
-            "handle": "kenny",
-            "upvotes": 79,
-            "note": ""
-          },
-          {
-            "handle": "prodraiders",
-            "upvotes": 24,
-            "note": ""
-          }
-        ],
-        "note": "Bandits win by 6,435"
-      }
+      "teamAScore": 0,
+      "teamBScore": 0,
+      "note": "Upcoming"
     },
     {
       "week": "Week 8",
@@ -2313,19 +2125,19 @@ window.RUL_STATIC_DATA = {
       "week": "Week 5",
       "date": "Week 5",
       "type": "Trade",
-      "title": "Bandits acquire @j3",
+      "title": "Bandits acquire @jet",
       "teams": [
         "Bandits",
         "Vampires"
       ],
       "moves": [
         {
-          "player": "j3",
+          "player": "jet",
           "from": "Vampires",
           "to": "Bandits"
         }
       ],
-      "description": "Bandits acquire @j3 from the Vampires. @jet has been renamed to @j3, and all @jet game log stats now count under @j3."
+      "description": "Bandits acquire @jet from the Vampires. @jet has been renamed to @jet, and all @jet game log stats now count under @jet."
     },
     {
       "week": "Recent",
@@ -2582,7 +2394,7 @@ window.RUL_STATIC_DATA = {
         "title": "Voltage and Phantoms trade"
       }
     ],
-    "j3": [
+    "jet": [
       {
         "week": "Week 5",
         "type": "Trade",
@@ -2593,9 +2405,9 @@ window.RUL_STATIC_DATA = {
       {
         "week": "Rename",
         "type": "Username Change",
-        "from": "jet",
-        "to": "j3",
-        "title": "@jet is now @j3"
+        "from": "j3",
+        "to": "jet",
+        "title": "@j3 is now @jet"
       }
     ]
   }
