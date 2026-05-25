@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Week 7 live scoring",
+    "updatedLabel": "Updated through Week 7",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -130,8 +130,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "4-2",
-      "conferenceRecord": "1-1",
+      "record": "5-2",
+      "conferenceRecord": "2-1",
       "totalUpvotes": 15871,
       "roster": [
         {
@@ -186,8 +186,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "2-4",
-      "conferenceRecord": "1-1",
+      "record": "2-5",
+      "conferenceRecord": "1-2",
       "totalUpvotes": 13894,
       "roster": [
         {
@@ -1737,55 +1737,55 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 1093,
-      "teamBScore": 979,
-      "note": "Live",
+      "teamAScore": 3986,
+      "teamBScore": 2651,
+      "note": "Final",
       "boxScore": {
         "teamA": [
           {
             "handle": "realsabrinacarpenter",
-            "upvotes": 265,
+            "upvotes": 2405,
             "note": ""
           },
           {
             "handle": "andthatsallshewrote",
-            "upvotes": 658,
+            "upvotes": 1285,
             "note": ""
           },
           {
             "handle": "luca",
-            "upvotes": 135,
+            "upvotes": 138,
             "note": ""
           },
           {
             "handle": "mistermuyrico",
-            "upvotes": 35,
+            "upvotes": 158,
             "note": ""
           }
         ],
         "teamB": [
           {
             "handle": "kenunderrated",
-            "upvotes": 294,
+            "upvotes": 1559,
             "note": ""
           },
           {
             "handle": "george",
-            "upvotes": 45,
+            "upvotes": 50,
             "note": ""
           },
           {
             "handle": "jaylen",
-            "upvotes": 235,
+            "upvotes": 238,
             "note": ""
           },
           {
             "handle": "breens",
-            "upvotes": 405,
+            "upvotes": 804,
             "note": ""
           }
         ],
-        "note": "Mammoths currently leads by 114"
+        "note": "Mammoths win by 1,335"
       }
     },
     {
