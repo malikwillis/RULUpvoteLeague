@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 6",
+    "updatedLabel": "Updated through Week 7",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -130,8 +130,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "4-2",
-      "conferenceRecord": "1-1",
+      "record": "5-2",
+      "conferenceRecord": "2-1",
       "totalUpvotes": 15871,
       "roster": [
         {
@@ -186,8 +186,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "2-4",
-      "conferenceRecord": "1-1",
+      "record": "2-5",
+      "conferenceRecord": "1-2",
       "totalUpvotes": 13894,
       "roster": [
         {
@@ -1737,9 +1737,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 3986,
+      "teamBScore": 2651,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 2405,
+            "note": ""
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 1285,
+            "note": ""
+          },
+          {
+            "handle": "luca",
+            "upvotes": 138,
+            "note": ""
+          },
+          {
+            "handle": "mistermuyrico",
+            "upvotes": 158,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 1559,
+            "note": ""
+          },
+          {
+            "handle": "george",
+            "upvotes": 50,
+            "note": ""
+          },
+          {
+            "handle": "jaylen",
+            "upvotes": 238,
+            "note": ""
+          },
+          {
+            "handle": "breens",
+            "upvotes": 804,
+            "note": ""
+          }
+        ],
+        "note": "Mammoths win by 1,335"
+      }
     },
     {
       "week": "Week 7",
