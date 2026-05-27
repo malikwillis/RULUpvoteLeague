@@ -1,1 +1,339 @@
-loadLeagueData().then(originalData=>{const saved=localStorage.getItem('RUL_WORKING_DATA');const data=saved?JSON.parse(saved):originalData;pageHeader(data,'draft-capital.html','League','Draft Capital','Season 2 and Season 3 pick ownership');pageFooter(data);const root=document.getElementById('draftCapitalRoot')||document.querySelector('main')||document.body;const cap=data.draftCapital||{teams:{},summary:{}};const teams=Object.keys(cap.teams||{});let teamFilter='',seasonFilter='';root.innerHTML=`<section class="grid four" id="draftSummary"></section><section class="card" style="margin-top:16px"><div class="row"><span><h2 class="card-title">Draft Capital Board</h2><p class="muted">Every owned pick split by team, season, original team, and round.</p></span><span class="pill">${escapeHtml(cap.updatedLabel||'Updated')}</span></div><div class="draft-filter-row" style="margin-top:14px"><select id="draftTeamFilter"><option value="">All teams</option>${teams.map(t=>`<option value="${escapeHtml(t)}">${escapeHtml(t)}</option>`).join('')}</select><select id="draftSeasonFilter"><option value="">All seasons</option><option value="S2">Season 2</option><option value="S3">Season 3</option></select></div></section><section class="grid two" style="margin-top:16px"><article class="card"><h2 class="card-title">Best Draft Capital</h2><div id="draftRankings"></div></article><article class="card"><h2 class="card-title">Premium Pick Leaders</h2><p class="muted">Firsts and seconds only.</p><div id="premiumRankings"></div></article></section><section id="draftTeamCards" class="grid two" style="margin-top:16px"></section><section class="card" style="margin-top:16px"><h2 class="card-title">Original Pick Tracker</h2><p class="muted">Shows where each team's own picks currently sit by season.</p><div id="originalPickTracker"></div></section>`;renderAll();document.getElementById('draftTeamFilter').addEventListener('change',e=>{teamFilter=e.target.value||'';renderCards()});document.getElementById('draftSeasonFilter').addEventListener('change',e=>{seasonFilter=e.target.value||'';renderCards()});function renderAll(){renderSummary();renderRanks();renderCards();renderOriginal()}function renderSummary(){const s=cap.summary||{};const ranked=Object.keys(s).sort((a,b)=>(s[b].valueScore||0)-(s[a].valueScore||0));const best=ranked[0];const firsts=[...ranked].sort((a,b)=>(s[b].firsts||0)-(s[a].firsts||0)||(s[b].valueScore||0)-(s[a].valueScore||0))[0];const total=Object.values(s).reduce((n,x)=>n+(x.totalPicks||0),0);const totalFirsts=Object.values(s).reduce((n,x)=>n+(x.firsts||0),0);document.getElementById('draftSummary').innerHTML=[card('Best Capital',best||'None',best?`${fmt(s[best].valueScore)} value score`:''),card('Most Firsts',firsts||'None',firsts?`${fmt(s[firsts].firsts)} firsts`:''),card('Total Picks',fmt(total),'S2 and S3 combined'),card('Total Firsts',fmt(totalFirsts),'Owned first round picks')].join('')}function renderRanks(){const s=cap.summary||{};const ranked=Object.keys(s).sort((a,b)=>(s[b].valueScore||0)-(s[a].valueScore||0));const prem=[...ranked].sort((a,b)=>(s[b].premiumPicks||0)-(s[a].premiumPicks||0)||(s[b].valueScore||0)-(s[a].valueScore||0));document.getElementById('draftRankings').innerHTML=ranked.map((t,i)=>rank(i,t,`${fmt(s[t].valueScore)} value`,`${fmt(s[t].totalPicks)} picks`)).join('');document.getElementById('premiumRankings').innerHTML=prem.map((t,i)=>rank(i,t,`${fmt(s[t].premiumPicks)} premium`,`${fmt(s[t].firsts)} firsts · ${fmt(s[t].seconds)} seconds`)).join('')}function renderCards(){let list=teams.filter(t=>!teamFilter||t===teamFilter);document.getElementById('draftTeamCards').innerHTML=list.map(t=>{const tc=cap.teams[t]||{S2:[],S3:[]};const ss=['S2','S3'].filter(s=>!seasonFilter||s===seasonFilter);const sm=(cap.summary||{})[t]||{};return `<article class="card"><div class="row"><span><div class="label">Draft Room</div><h2 class="card-title">${teamLink(t)}</h2></span><span class="pill">${fmt(sm.totalPicks||0)} Picks</span></div><div class="grid three" style="margin-top:14px"><div class="mini-card"><div class="label">Value</div><div class="kpi">${fmt(sm.valueScore||0)}</div></div><div class="mini-card"><div class="label">Firsts</div><div class="kpi">${fmt(sm.firsts||0)}</div></div><div class="mini-card"><div class="label">Premium</div><div class="kpi">${fmt(sm.premiumPicks||0)}</div></div></div>${ss.map(s=>seasonBlock(t,s,tc[s]||[])).join('')}</article>`}).join('')}function renderOriginal(){const rows=[];['S2','S3'].forEach(s=>teams.forEach(orig=>{const owned=[];teams.forEach(owner=>((cap.teams[owner]||{})[s]||[]).filter(p=>p.originalTeam===orig).forEach(p=>owned.push({...p,owner})));rows.push([s,orig,owned.sort((a,b)=>a.round-b.round).map(p=>`R${p.round}: ${p.owner}`).join(', ')||'None'])}));document.getElementById('originalPickTracker').innerHTML=table(['Season','Original Team','Current Owner By Round'],rows)}function seasonBlock(team,season,picks){const sorted=[...picks].sort((a,b)=>a.round-b.round||a.originalTeam.localeCompare(b.originalTeam));return `<div class="draft-season-block"><div class="row"><h3>${season}</h3><span class="pill">${fmt(sorted.length)} Picks</span></div>${sorted.length?`<div class="draft-pick-grid">${sorted.map(p=>`<div class="draft-pick${p.originalTeam===team?' own':''}${p.round<=2?' premium':''}"><div class="draft-round">R${fmt(p.round)}</div><div class="draft-original">${escapeHtml(p.originalTeam)}</div></div>`).join('')}</div>`:'<div class="draft-empty">No picks currently listed.</div>'}</div>`}function card(label,value,sub){return `<article class="card"><div class="label">${escapeHtml(label)}</div><div class="kpi">${value}</div><p class="muted">${escapeHtml(sub||'')}</p></article>`}function rank(i,t,val,note){return `<div class="draft-rank-row"><span class="draft-rank-badge">${i+1}</span><span><strong>${teamLink(t)}</strong><br><span class="muted">${escapeHtml(note)}</span></span><strong>${escapeHtml(val)}</strong></div>`}}).catch(e=>{console.error(e);const r=document.getElementById('draftCapitalRoot')||document.querySelector('main')||document.body;r.innerHTML=`<section class="card"><h2>Draft capital failed to load</h2><p class="muted">${escapeHtml(e.message||'Check files')}</p></section>`})
+const RUL_DRAFT_FALLBACK = {
+  teams: ["Kitties", "Phantoms", "Vampires", "Bandits", "Angels", "Reapers", "Mammoths", "Voltage"],
+  roundValue: {1:100,2:70,3:45,4:28,5:16,6:8},
+  seasons: {
+    S2: {
+      Kitties: {Kitties:[4], Phantoms:[1], Angels:[1,2,3,4], Mammoths:[2], Vampires:[2], Voltage:[6]},
+      Phantoms: {},
+      Vampires: {Vampires:[3,4,5], Kitties:[2], Phantoms:[6], Voltage:[2]},
+      Bandits: {Bandits:[1,2,3,4,5,6], Voltage:[4], Angels:[6], Phantoms:[5], Kitties:[3]},
+      Angels: {Angels:[5], Voltage:[3], Kitties:[5]},
+      Reapers: {Reapers:[1,3,4,5,6], Voltage:[5], Mammoths:[4,5], Vampires:[1], Phantoms:[4]},
+      Mammoths: {Mammoths:[1,3,6], Vampires:[6]},
+      Voltage: {Voltage:[1], Phantoms:[2,3], Kitties:[1,6], Reapers:[2]}
+    },
+    S3: {
+      Kitties: {Kitties:[1,2,3,4,5,6]},
+      Phantoms: {Phantoms:[1,2,6], Vampires:[4], Mammoths:[6]},
+      Vampires: {Vampires:[1,2,3,5,6]},
+      Bandits: {Bandits:[1,2,4,5,6]},
+      Angels: {Angels:[1,2,3,4,5,6]},
+      Reapers: {Reapers:[1,2,3,4,5,6], Bandits:[3], Voltage:[3]},
+      Mammoths: {Mammoths:[1,2,3,4,5], Vampires:[4], Phantoms:[5]},
+      Voltage: {Voltage:[1,2,4,5,6], Phantoms:[3,4]}
+    }
+  }
+};
+
+loadLeagueData().then(originalData => {
+  let data = originalData || window.RUL_STATIC_DATA || {};
+
+  try {
+    const saved = localStorage.getItem('RUL_WORKING_DATA');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed && parsed.teams && parsed.games) data = parsed;
+    }
+  } catch (error) {
+    localStorage.removeItem('RUL_WORKING_DATA');
+  }
+
+  pageHeader(data, 'draft-capital.html', 'Draft Capital', 'RUL Draft Capital', 'Season 2 and Season 3 pick ownership');
+  pageFooter(data);
+
+  const root = document.getElementById('draftCapitalRoot') || document.querySelector('main') || document.body;
+  const capital = normalizeCapital(data);
+  const standingsOrder = projectedBaseOrder(data);
+  let selectedSeason = new URLSearchParams(location.search).get('season') || 'S2';
+
+  root.innerHTML = `
+    <section class="draft-tabs">
+      <button class="btn" type="button" data-season="S2">S2 Draft</button>
+      <button class="btn" type="button" data-season="S3">S3 Draft</button>
+    </section>
+
+    <section id="draftSummary" class="grid four" style="margin-top:16px"></section>
+
+    <section class="grid two" style="margin-top:16px">
+      <article class="card">
+        <h2 class="card-title" id="bestCapitalTitle"></h2>
+        <div id="draftRankings"></div>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title" id="premiumTitle"></h2>
+        <p class="muted">Firsts and seconds only.</p>
+        <div id="premiumRankings"></div>
+      </article>
+    </section>
+
+    <section class="card projected-order-card" style="margin-top:16px">
+      <div class="row">
+        <span>
+          <h2 class="card-title" id="projectedTitle"></h2>
+          <p class="muted">Projected by current standings. Worst team starts round 1, then the order snakes back the other way each round.</p>
+        </span>
+        <span class="pill">Snake Draft</span>
+      </div>
+      <div id="projectedOrder"></div>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <div class="row">
+        <span>
+          <h2 class="card-title" id="teamBoardTitle"></h2>
+          <p class="muted">Each card shows the picks that team owns. Yellow tinted picks are first or second rounders. Outlined picks are the team's own original picks.</p>
+        </span>
+        <span class="pill" id="teamBoardCount"></span>
+      </div>
+    </section>
+
+    <section id="draftTeamCards" class="grid two" style="margin-top:16px"></section>
+
+    <section class="card" style="margin-top:16px">
+      <h2 class="card-title" id="trackerTitle"></h2>
+      <p class="muted">Shows who owns each original team's picks by round.</p>
+      <div id="originalPickTracker"></div>
+    </section>
+  `;
+
+  document.querySelectorAll('[data-season]').forEach(button => {
+    button.addEventListener('click', () => {
+      selectedSeason = button.dataset.season;
+      const url = new URL(location.href);
+      url.searchParams.set('season', selectedSeason);
+      history.replaceState(null, '', url.toString());
+      renderSeason();
+    });
+  });
+
+  renderSeason();
+
+  function renderSeason() {
+    document.querySelectorAll('[data-season]').forEach(button => {
+      button.classList.toggle('active', button.dataset.season === selectedSeason);
+    });
+
+    const seasonTeams = buildSeasonTeams(capital, selectedSeason);
+    const ranked = [...seasonTeams].sort((a, b) => b.valueScore - a.valueScore || b.firsts - a.firsts || b.totalPicks - a.totalPicks);
+    const premium = [...seasonTeams].sort((a, b) => b.premiumPicks - a.premiumPicks || b.valueScore - a.valueScore);
+    const totalPicks = seasonTeams.reduce((sum, team) => sum + team.totalPicks, 0);
+    const totalFirsts = seasonTeams.reduce((sum, team) => sum + team.firsts, 0);
+
+    document.getElementById('draftSummary').innerHTML = `
+      ${statCard('Best Capital', ranked[0]?.team || 'None', ranked[0] ? `${fmt(ranked[0].valueScore)} value score` : '')}
+      ${statCard('Most Firsts', premium[0]?.team || 'None', premium[0] ? `${fmt(premium[0].firsts)} firsts` : '')}
+      ${statCard('Total Picks', fmt(totalPicks), `${selectedSeason} picks listed`)}
+      ${statCard('Total Firsts', fmt(totalFirsts), 'Owned first round picks')}
+    `;
+
+    document.getElementById('bestCapitalTitle').textContent = `Best ${selectedSeason} Draft Capital`;
+    document.getElementById('premiumTitle').textContent = `${selectedSeason} Premium Pick Leaders`;
+    document.getElementById('projectedTitle').textContent = `${selectedSeason} Projected Snake Draft Order`;
+    document.getElementById('teamBoardTitle').textContent = `${selectedSeason} Team Pick Boards`;
+    document.getElementById('teamBoardCount').textContent = `${seasonTeams.length} Teams`;
+    document.getElementById('trackerTitle').textContent = `${selectedSeason} Original Pick Tracker`;
+
+    document.getElementById('draftRankings').innerHTML = ranked.map((team, index) => rankRow(index, team.team, `${fmt(team.valueScore)} value`, `${fmt(team.totalPicks)} picks · ${fmt(team.firsts)} firsts`)).join('');
+    document.getElementById('premiumRankings').innerHTML = premium.map((team, index) => rankRow(index, team.team, `${fmt(team.premiumPicks)} premium`, `${fmt(team.firsts)} firsts · ${fmt(team.seconds)} seconds`)).join('');
+
+    document.getElementById('projectedOrder').innerHTML = projectedOrderTable(capital, selectedSeason, standingsOrder);
+    document.getElementById('draftTeamCards').innerHTML = ranked.map(renderTeamCard).join('');
+    document.getElementById('originalPickTracker').innerHTML = originalTracker(capital, selectedSeason);
+  }
+}).catch(error => {
+  console.error(error);
+  const root = document.getElementById('draftCapitalRoot') || document.querySelector('main') || document.body;
+  root.innerHTML = `<section class="card"><h2>Draft capital failed to load</h2><p class="muted">${escapeHtml(error.message || 'Check draft files.')}</p></section>`;
+});
+
+function normalizeCapital(data) {
+  const teams = RUL_DRAFT_FALLBACK.teams;
+  const roundValue = RUL_DRAFT_FALLBACK.roundValue;
+  const capital = { teams: {} };
+
+  teams.forEach(team => {
+    capital.teams[team] = { S2: [], S3: [] };
+  });
+
+  if (data.draftCapital && data.draftCapital.teams) {
+    teams.forEach(team => {
+      ['S2', 'S3'].forEach(season => {
+        const picks = ((data.draftCapital.teams[team] || {})[season] || []);
+        capital.teams[team][season] = picks.map(pick => ({
+          owner: team,
+          season,
+          originalTeam: pick.originalTeam,
+          round: Number(pick.round),
+          value: Number(pick.value || roundValue[Number(pick.round)] || 0)
+        })).filter(pick => pick.originalTeam && pick.round);
+      });
+    });
+
+    const hasAny = teams.some(team => capital.teams[team].S2.length || capital.teams[team].S3.length);
+    if (hasAny) return capital;
+  }
+
+  ['S2', 'S3'].forEach(season => {
+    teams.forEach(owner => {
+      const groups = RUL_DRAFT_FALLBACK.seasons[season][owner] || {};
+      Object.keys(groups).forEach(originalTeam => {
+        groups[originalTeam].forEach(round => {
+          capital.teams[owner][season].push({
+            owner,
+            season,
+            originalTeam,
+            round,
+            value: roundValue[round] || 0
+          });
+        });
+      });
+    });
+  });
+
+  return capital;
+}
+
+function buildSeasonTeams(capital, season) {
+  return Object.keys(capital.teams).map(team => {
+    const picks = [...((capital.teams[team] || {})[season] || [])].sort((a, b) => a.round - b.round || a.originalTeam.localeCompare(b.originalTeam));
+
+    return {
+      team,
+      season,
+      picks,
+      totalPicks: picks.length,
+      firsts: picks.filter(pick => pick.round === 1).length,
+      seconds: picks.filter(pick => pick.round === 2).length,
+      premiumPicks: picks.filter(pick => pick.round <= 2).length,
+      valueScore: picks.reduce((sum, pick) => sum + Number(pick.value || 0), 0)
+    };
+  });
+}
+
+function projectedBaseOrder(data) {
+  const teams = (data.teams || []).map(team => {
+    const record = localParseRecord(team.record || '0-0');
+    const games = record.wins + record.losses;
+    const pct = games ? record.wins / games : 0;
+
+    return {
+      name: team.name,
+      wins: record.wins,
+      losses: record.losses,
+      pct,
+      totalUpvotes: Number(team.totalUpvotes || 0)
+    };
+  });
+
+  if (!teams.length) return RUL_DRAFT_FALLBACK.teams;
+
+  return teams.sort((a, b) => {
+    return a.pct - b.pct
+      || b.losses - a.losses
+      || a.totalUpvotes - b.totalUpvotes
+      || a.name.localeCompare(b.name);
+  }).map(team => team.name);
+}
+
+function projectedOrderTable(capital, season, baseOrder) {
+  const rows = [];
+  const ownerMap = {};
+
+  Object.keys(capital.teams).forEach(owner => {
+    ((capital.teams[owner] || {})[season] || []).forEach(pick => {
+      ownerMap[`${pick.originalTeam}-${pick.round}`] = owner;
+    });
+  });
+
+  for (let round = 1; round <= 6; round++) {
+    const order = round % 2 === 1 ? baseOrder : [...baseOrder].reverse();
+
+    order.forEach((originalTeam, index) => {
+      const pickNumber = (round - 1) * baseOrder.length + index + 1;
+      const owner = ownerMap[`${originalTeam}-${round}`] || 'Unknown';
+
+      rows.push([
+        pickNumber,
+        `R${round}.${index + 1}`,
+        originalTeam,
+        owner
+      ]);
+    });
+  }
+
+  return table(['Pick', 'Slot', 'Original Team', 'Current Owner'], rows);
+}
+
+function originalTracker(capital, season) {
+  const rows = [];
+
+  Object.keys(capital.teams).forEach(originalTeam => {
+    const owned = [];
+
+    Object.keys(capital.teams).forEach(owner => {
+      ((capital.teams[owner] || {})[season] || []).filter(pick => pick.originalTeam === originalTeam).forEach(pick => {
+        owned.push({ round: pick.round, owner });
+      });
+    });
+
+    rows.push([
+      originalTeam,
+      owned.sort((a, b) => a.round - b.round).map(pick => `R${pick.round}: ${pick.owner}`).join(', ') || 'None'
+    ]);
+  });
+
+  return table(['Original Team', 'Current Owner By Round'], rows);
+}
+
+function renderTeamCard(team) {
+  return `
+    <article class="card">
+      <div class="row">
+        <span>
+          <div class="label">${escapeHtml(team.season)}</div>
+          <h2 class="card-title">${teamLink(team.team)}</h2>
+        </span>
+        <span class="pill">${fmt(team.totalPicks)} Picks</span>
+      </div>
+
+      <div class="grid three" style="margin-top:14px">
+        <div class="mini-card"><div class="label">Value</div><div class="kpi">${fmt(team.valueScore)}</div></div>
+        <div class="mini-card"><div class="label">Firsts</div><div class="kpi">${fmt(team.firsts)}</div></div>
+        <div class="mini-card"><div class="label">Premium</div><div class="kpi">${fmt(team.premiumPicks)}</div></div>
+      </div>
+
+      ${team.picks.length ? `
+        <div class="draft-pick-grid" style="margin-top:16px">
+          ${team.picks.map(pick => `
+            <div class="draft-pick${pick.originalTeam === team.team ? ' own' : ''}${pick.round <= 2 ? ' premium' : ''}">
+              <div class="draft-round">R${fmt(pick.round)}</div>
+              <div class="draft-original">${escapeHtml(pick.originalTeam)}</div>
+            </div>
+          `).join('')}
+        </div>
+      ` : `<div class="draft-empty" style="margin-top:16px">No picks currently listed.</div>`}
+    </article>
+  `;
+}
+
+function statCard(label, value, subtext) {
+  return `<article class="card"><div class="label">${escapeHtml(label)}</div><div class="kpi">${escapeHtml(value)}</div><p class="muted">${escapeHtml(subtext || '')}</p></article>`;
+}
+
+function rankRow(index, team, value, note) {
+  return `<div class="draft-rank-row"><span class="draft-rank-badge">${index + 1}</span><span><strong>${teamLink(team)}</strong><br><span class="muted">${escapeHtml(note)}</span></span><strong>${escapeHtml(value)}</strong></div>`;
+}
+
+function localParseRecord(record) {
+  const match = String(record || '0-0').match(/(\d+)\s*-\s*(\d+)/);
+
+  if (!match) {
+    return { wins: 0, losses: 0 };
+  }
+
+  return {
+    wins: Number(match[1]),
+    losses: Number(match[2])
+  };
+}
