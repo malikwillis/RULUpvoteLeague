@@ -52,6 +52,17 @@ loadLeagueData().then(originalData => {
       <button class="btn" type="button" data-season="S3">S3 Draft</button>
     </section>
 
+    <section class="card projected-order-card" style="margin-top:16px">
+      <div class="row">
+        <span>
+          <h2 class="card-title" id="projectedTitle"></h2>
+          <p class="muted">Projected by current standings. Worst team starts round 1, then the order snakes back the other way each round.</p>
+        </span>
+        <span class="pill">Snake Draft</span>
+      </div>
+      <div id="projectedOrder"></div>
+    </section>
+
     <section id="draftSummary" class="grid four" style="margin-top:16px"></section>
 
     <section class="grid two" style="margin-top:16px">
@@ -65,17 +76,6 @@ loadLeagueData().then(originalData => {
         <p class="muted">Firsts and seconds only.</p>
         <div id="premiumRankings"></div>
       </article>
-    </section>
-
-    <section class="card projected-order-card" style="margin-top:16px">
-      <div class="row">
-        <span>
-          <h2 class="card-title" id="projectedTitle"></h2>
-          <p class="muted">Projected by current standings. Worst team starts round 1, then the order snakes back the other way each round.</p>
-        </span>
-        <span class="pill">Snake Draft</span>
-      </div>
-      <div id="projectedOrder"></div>
     </section>
 
     <section class="card" style="margin-top:16px">
@@ -120,6 +120,8 @@ loadLeagueData().then(originalData => {
     const totalPicks = seasonTeams.reduce((sum, team) => sum + team.totalPicks, 0);
     const totalFirsts = seasonTeams.reduce((sum, team) => sum + team.firsts, 0);
 
+    document.getElementById('projectedTitle').textContent = `${selectedSeason} Projected Snake Draft Order`;
+
     document.getElementById('draftSummary').innerHTML = `
       ${statCard('Best Capital', ranked[0]?.team || 'None', ranked[0] ? `${fmt(ranked[0].valueScore)} value score` : '')}
       ${statCard('Most Firsts', premium[0]?.team || 'None', premium[0] ? `${fmt(premium[0].firsts)} firsts` : '')}
@@ -129,15 +131,13 @@ loadLeagueData().then(originalData => {
 
     document.getElementById('bestCapitalTitle').textContent = `Best ${selectedSeason} Draft Capital`;
     document.getElementById('premiumTitle').textContent = `${selectedSeason} Premium Pick Leaders`;
-    document.getElementById('projectedTitle').textContent = `${selectedSeason} Projected Snake Draft Order`;
     document.getElementById('teamBoardTitle').textContent = `${selectedSeason} Team Pick Boards`;
     document.getElementById('teamBoardCount').textContent = `${seasonTeams.length} Teams`;
     document.getElementById('trackerTitle').textContent = `${selectedSeason} Original Pick Tracker`;
 
+    document.getElementById('projectedOrder').innerHTML = projectedOrderTable(capital, selectedSeason, standingsOrder);
     document.getElementById('draftRankings').innerHTML = ranked.map((team, index) => rankRow(index, team.team, `${fmt(team.valueScore)} value`, `${fmt(team.totalPicks)} picks · ${fmt(team.firsts)} firsts`)).join('');
     document.getElementById('premiumRankings').innerHTML = premium.map((team, index) => rankRow(index, team.team, `${fmt(team.premiumPicks)} premium`, `${fmt(team.firsts)} firsts · ${fmt(team.seconds)} seconds`)).join('');
-
-    document.getElementById('projectedOrder').innerHTML = projectedOrderTable(capital, selectedSeason, standingsOrder);
     document.getElementById('draftTeamCards').innerHTML = ranked.map(renderTeamCard).join('');
     document.getElementById('originalPickTracker').innerHTML = originalTracker(capital, selectedSeason);
   }
@@ -256,13 +256,13 @@ function projectedOrderTable(capital, season, baseOrder) {
       rows.push([
         pickNumber,
         `R${round}.${index + 1}`,
-        originalTeam,
-        owner
+        owner,
+        originalTeam
       ]);
     });
   }
 
-  return table(['Pick', 'Slot', 'Original Team', 'Current Owner'], rows);
+  return table(['Pick', 'Slot', 'Current Owner', 'Original Team'], rows);
 }
 
 function originalTracker(capital, season) {
