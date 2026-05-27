@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 7",
+    "updatedLabel": "Updated through Week 6",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -130,8 +130,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "5-2",
-      "conferenceRecord": "2-1",
+      "record": "3-2",
+      "conferenceRecord": "1-1",
       "totalUpvotes": 15871,
       "roster": [
         {
@@ -186,8 +186,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "2-5",
-      "conferenceRecord": "1-2",
+      "record": "2-4",
+      "conferenceRecord": "1-1",
       "totalUpvotes": 13894,
       "roster": [
         {
@@ -267,8 +267,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Vampires",
       "conference": "West",
-      "record": "5-2",
-      "conferenceRecord": "3-1",
+      "record": "4-2",
+      "conferenceRecord": "2-1",
       "totalUpvotes": 17998,
       "roster": [
         {
@@ -318,8 +318,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Bandits",
       "conference": "West",
-      "record": "6-1",
-      "conferenceRecord": "3-0",
+      "record": "5-1",
+      "conferenceRecord": "2-0",
       "totalUpvotes": 22445,
       "roster": [
         {
@@ -363,9 +363,9 @@ window.RUL_STATIC_DATA = {
             {
               "week": "Rename",
               "type": "Username Change",
-              "from": "jet",
+              "from": "j3",
               "to": "jet",
-              "title": "@jet is now @jet"
+              "title": "@j3 is now @jet"
             }
           ]
         }
@@ -376,8 +376,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Reapers",
       "conference": "West",
-      "record": "0-7",
-      "conferenceRecord": "0-4",
+      "record": "0-5",
+      "conferenceRecord": "0-3",
       "totalUpvotes": 7621,
       "roster": [
         {
@@ -436,8 +436,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Angels",
       "conference": "West",
-      "record": "3-4",
-      "conferenceRecord": "1-2",
+      "record": "3-3",
+      "conferenceRecord": "1-1",
       "totalUpvotes": 17638,
       "roster": [
         {
@@ -1623,56 +1623,9 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Reapers",
       "type": "Non Conf",
-      "teamAScore": 3256,
-      "teamBScore": 1191,
-      "note": "Final",
-      "boxScore": {
-        "teamA": [
-          {
-            "handle": "realsabrinacarpenter",
-            "upvotes": 1894,
-            "note": ""
-          },
-          {
-            "handle": "andthatsallshewrote",
-            "upvotes": 1293,
-            "note": ""
-          },
-          {
-            "handle": "luca",
-            "upvotes": 1,
-            "note": ""
-          },
-          {
-            "handle": "mistermuyrico",
-            "upvotes": 68,
-            "note": ""
-          }
-        ],
-        "teamB": [
-          {
-            "handle": "derikqueenfan",
-            "upvotes": 1056,
-            "note": ""
-          },
-          {
-            "handle": "young",
-            "upvotes": 53,
-            "note": ""
-          },
-          {
-            "handle": "sugashow_",
-            "upvotes": 57,
-            "note": ""
-          },
-          {
-            "handle": "glazerofdrakemaye",
-            "upvotes": 25,
-            "note": ""
-          }
-        ],
-        "note": "Mammoths win by 2,065"
-      }
+      "teamAScore": 0,
+      "teamBScore": 0,
+      "note": "Upcoming"
     },
     {
       "week": "Week 6",
@@ -1737,56 +1690,9 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 3986,
-      "teamBScore": 2651,
-      "note": "Final",
-      "boxScore": {
-        "teamA": [
-          {
-            "handle": "realsabrinacarpenter",
-            "upvotes": 2405,
-            "note": ""
-          },
-          {
-            "handle": "andthatsallshewrote",
-            "upvotes": 1285,
-            "note": ""
-          },
-          {
-            "handle": "luca",
-            "upvotes": 138,
-            "note": ""
-          },
-          {
-            "handle": "mistermuyrico",
-            "upvotes": 158,
-            "note": ""
-          }
-        ],
-        "teamB": [
-          {
-            "handle": "kenunderrated",
-            "upvotes": 1559,
-            "note": ""
-          },
-          {
-            "handle": "george",
-            "upvotes": 50,
-            "note": ""
-          },
-          {
-            "handle": "jaylen",
-            "upvotes": 238,
-            "note": ""
-          },
-          {
-            "handle": "breens",
-            "upvotes": 804,
-            "note": ""
-          }
-        ],
-        "note": "Mammoths win by 1,335"
-      }
+      "teamAScore": 0,
+      "teamBScore": 0,
+      "note": "Upcoming"
     },
     {
       "week": "Week 7",
@@ -1794,56 +1700,9 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Reapers",
       "type": "Conf West",
-      "teamAScore": 2464,
-      "teamBScore": 945,
-      "note": "Final",
-      "boxScore": {
-        "teamA": [
-          {
-            "handle": "seahawksfan1",
-            "upvotes": 1429,
-            "note": ""
-          },
-          {
-            "handle": "tase",
-            "upvotes": 447,
-            "note": ""
-          },
-          {
-            "handle": "arachnid",
-            "upvotes": 305,
-            "note": ""
-          },
-          {
-            "handle": "burden_",
-            "upvotes": 283,
-            "note": ""
-          }
-        ],
-        "teamB": [
-          {
-            "handle": "derikqueenfan",
-            "upvotes": 727,
-            "note": ""
-          },
-          {
-            "handle": "glazerofdrakemaye",
-            "upvotes": 8,
-            "note": ""
-          },
-          {
-            "handle": "sugashow_",
-            "upvotes": 0,
-            "note": ""
-          },
-          {
-            "handle": "young",
-            "upvotes": 210,
-            "note": ""
-          }
-        ],
-        "note": "Vampires win by 1,519"
-      }
+      "teamAScore": 0,
+      "teamBScore": 0,
+      "note": "Upcoming"
     },
     {
       "week": "Week 7",
@@ -1851,56 +1710,9 @@ window.RUL_STATIC_DATA = {
       "teamA": "Bandits",
       "teamB": "Angels",
       "type": "Conf West",
-      "teamAScore": 7036,
-      "teamBScore": 601,
-      "note": "Final",
-      "boxScore": {
-        "teamA": [
-          {
-            "handle": "superbowl",
-            "upvotes": 1136,
-            "note": ""
-          },
-          {
-            "handle": "mclean26",
-            "upvotes": 3268,
-            "note": ""
-          },
-          {
-            "handle": "jet",
-            "upvotes": 2620,
-            "note": ""
-          },
-          {
-            "handle": "trentgrishamdadstrength",
-            "upvotes": 12,
-            "note": ""
-          }
-        ],
-        "teamB": [
-          {
-            "handle": "67fan",
-            "upvotes": 224,
-            "note": ""
-          },
-          {
-            "handle": "epiikees",
-            "upvotes": 274,
-            "note": ""
-          },
-          {
-            "handle": "kenny",
-            "upvotes": 79,
-            "note": ""
-          },
-          {
-            "handle": "prodraiders",
-            "upvotes": 24,
-            "note": ""
-          }
-        ],
-        "note": "Bandits win by 6,435"
-      }
+      "teamAScore": 0,
+      "teamBScore": 0,
+      "note": "Upcoming"
     },
     {
       "week": "Week 8",
@@ -2035,58 +1847,117 @@ window.RUL_STATIC_DATA = {
   ],
   "futurePicks": {
     "Kitties": [
-      "Phantoms 6th rd",
-      "Angels 1st rd",
-      "Angels 2nd rd",
-      "Angels 4th rd",
-      "Mammoths 2nd rd",
-      "Phantoms 5th rd",
-      "Phantoms 1st rd",
-      "Angels 3rd rd",
-      "Vampires 2nd rd"
-    ],
-    "Voltage": [
-      "Phantoms 2nd rd",
-      "Phantoms 3rd rd",
-      "Phantoms S3 2nd rd",
-      "Phantoms S3 3rd rd",
-      "Reapers S2 2nd rd",
-      "Phantoms S2 3rd",
-      "Phantoms S3 2nd",
-      "Phantoms S3 3rd"
-    ],
-    "Mammoths": [
-      "Vampires 6th rd",
-      "Vampires S3 4th rd",
-      "Phantoms S3 5th rd"
+      "Angels S2 1st",
+      "Phantoms S2 1st",
+      "Angels S2 2nd",
+      "Mammoths S2 2nd",
+      "Vampires S2 2nd",
+      "Angels S2 3rd",
+      "Angels S2 4th",
+      "Kitties S2 4th",
+      "Voltage S2 6th",
+      "Kitties S3 1st",
+      "Kitties S3 2nd",
+      "Kitties S3 3rd",
+      "Kitties S3 4th",
+      "Kitties S3 5th",
+      "Kitties S3 6th"
     ],
     "Phantoms": [
-      "Mammoths S3 6th rd",
-      "Phantoms S2 3rd rd"
+      "Phantoms S3 1st",
+      "Phantoms S3 2nd",
+      "Vampires S3 4th",
+      "Mammoths S3 6th",
+      "Phantoms S3 6th"
     ],
     "Vampires": [
-      "Kitties 3rd rd",
-      "Kitties 4th rd",
-      "Compensation 3rd rd"
+      "Kitties S2 2nd",
+      "Voltage S2 2nd",
+      "Vampires S2 3rd",
+      "Vampires S2 4th",
+      "Vampires S2 5th",
+      "Phantoms S2 6th",
+      "Vampires S3 1st",
+      "Vampires S3 2nd",
+      "Vampires S3 3rd",
+      "Vampires S3 5th",
+      "Vampires S3 6th"
     ],
     "Bandits": [
-      "Angels 6th rd",
-      "Voltage 4th rd",
-      "Vampires 3rd rd",
-      "Phantoms 4th rd"
-    ],
-    "Reapers": [
-      "Voltage 5th rd",
-      "Mammoths 5th rd",
-      "Voltage S3 3rd rd",
-      "Vampires S2 1st rd",
-      "Mammoths S2 3rd rd",
-      "Voltage S2 3rd rd"
+      "Bandits S2 1st",
+      "Bandits S2 2nd",
+      "Bandits S2 3rd",
+      "Kitties S2 3rd",
+      "Bandits S2 4th",
+      "Voltage S2 4th",
+      "Bandits S2 5th",
+      "Phantoms S2 5th",
+      "Angels S2 6th",
+      "Bandits S2 6th",
+      "Bandits S3 1st",
+      "Bandits S3 2nd",
+      "Bandits S3 4th",
+      "Bandits S3 5th",
+      "Bandits S3 6th"
     ],
     "Angels": [
-      "Kitties 5th rd",
-      "Mammoths 4th rd",
-      "Voltage 6th rd"
+      "Voltage S2 3rd",
+      "Angels S2 5th",
+      "Kitties S2 5th",
+      "Angels S3 1st",
+      "Angels S3 2nd",
+      "Angels S3 3rd",
+      "Angels S3 4th",
+      "Angels S3 5th",
+      "Angels S3 6th"
+    ],
+    "Reapers": [
+      "Reapers S2 1st",
+      "Vampires S2 1st",
+      "Reapers S2 3rd",
+      "Mammoths S2 4th",
+      "Phantoms S2 4th",
+      "Reapers S2 4th",
+      "Mammoths S2 5th",
+      "Reapers S2 5th",
+      "Voltage S2 5th",
+      "Reapers S2 6th",
+      "Reapers S3 1st",
+      "Reapers S3 2nd",
+      "Bandits S3 3rd",
+      "Reapers S3 3rd",
+      "Voltage S3 3rd",
+      "Reapers S3 4th",
+      "Reapers S3 5th",
+      "Reapers S3 6th"
+    ],
+    "Mammoths": [
+      "Mammoths S2 1st",
+      "Mammoths S2 3rd",
+      "Mammoths S2 6th",
+      "Vampires S2 6th",
+      "Mammoths S3 1st",
+      "Mammoths S3 2nd",
+      "Mammoths S3 3rd",
+      "Mammoths S3 4th",
+      "Vampires S3 4th",
+      "Mammoths S3 5th",
+      "Phantoms S3 5th"
+    ],
+    "Voltage": [
+      "Kitties S2 1st",
+      "Voltage S2 1st",
+      "Phantoms S2 2nd",
+      "Reapers S2 2nd",
+      "Phantoms S2 3rd",
+      "Kitties S2 6th",
+      "Voltage S3 1st",
+      "Voltage S3 2nd",
+      "Phantoms S3 3rd",
+      "Phantoms S3 4th",
+      "Voltage S3 4th",
+      "Voltage S3 5th",
+      "Voltage S3 6th"
     ]
   },
   "draftBoard": [
@@ -2593,10 +2464,924 @@ window.RUL_STATIC_DATA = {
       {
         "week": "Rename",
         "type": "Username Change",
-        "from": "jet",
+        "from": "j3",
         "to": "jet",
-        "title": "@jet is now @jet"
+        "title": "@j3 is now @jet"
       }
     ]
+  },
+  "draftCapital": {
+    "updatedLabel": "Draft capital updated through current trades",
+    "seasons": [
+      "S2",
+      "S3"
+    ],
+    "rounds": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "teams": {
+      "Kitties": {
+        "S2": [
+          {
+            "season": "S2",
+            "round": 1,
+            "originalTeam": "Angels",
+            "owner": "Kitties",
+            "label": "Angels S2 1st",
+            "value": 100
+          },
+          {
+            "season": "S2",
+            "round": 1,
+            "originalTeam": "Phantoms",
+            "owner": "Kitties",
+            "label": "Phantoms S2 1st",
+            "value": 100
+          },
+          {
+            "season": "S2",
+            "round": 2,
+            "originalTeam": "Angels",
+            "owner": "Kitties",
+            "label": "Angels S2 2nd",
+            "value": 70
+          },
+          {
+            "season": "S2",
+            "round": 2,
+            "originalTeam": "Mammoths",
+            "owner": "Kitties",
+            "label": "Mammoths S2 2nd",
+            "value": 70
+          },
+          {
+            "season": "S2",
+            "round": 2,
+            "originalTeam": "Vampires",
+            "owner": "Kitties",
+            "label": "Vampires S2 2nd",
+            "value": 70
+          },
+          {
+            "season": "S2",
+            "round": 3,
+            "originalTeam": "Angels",
+            "owner": "Kitties",
+            "label": "Angels S2 3rd",
+            "value": 45
+          },
+          {
+            "season": "S2",
+            "round": 4,
+            "originalTeam": "Angels",
+            "owner": "Kitties",
+            "label": "Angels S2 4th",
+            "value": 28
+          },
+          {
+            "season": "S2",
+            "round": 4,
+            "originalTeam": "Kitties",
+            "owner": "Kitties",
+            "label": "Kitties S2 4th",
+            "value": 28
+          },
+          {
+            "season": "S2",
+            "round": 6,
+            "originalTeam": "Voltage",
+            "owner": "Kitties",
+            "label": "Voltage S2 6th",
+            "value": 8
+          }
+        ],
+        "S3": [
+          {
+            "season": "S3",
+            "round": 1,
+            "originalTeam": "Kitties",
+            "owner": "Kitties",
+            "label": "Kitties S3 1st",
+            "value": 100
+          },
+          {
+            "season": "S3",
+            "round": 2,
+            "originalTeam": "Kitties",
+            "owner": "Kitties",
+            "label": "Kitties S3 2nd",
+            "value": 70
+          },
+          {
+            "season": "S3",
+            "round": 3,
+            "originalTeam": "Kitties",
+            "owner": "Kitties",
+            "label": "Kitties S3 3rd",
+            "value": 45
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Kitties",
+            "owner": "Kitties",
+            "label": "Kitties S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 5,
+            "originalTeam": "Kitties",
+            "owner": "Kitties",
+            "label": "Kitties S3 5th",
+            "value": 16
+          },
+          {
+            "season": "S3",
+            "round": 6,
+            "originalTeam": "Kitties",
+            "owner": "Kitties",
+            "label": "Kitties S3 6th",
+            "value": 8
+          }
+        ]
+      },
+      "Phantoms": {
+        "S2": [],
+        "S3": [
+          {
+            "season": "S3",
+            "round": 1,
+            "originalTeam": "Phantoms",
+            "owner": "Phantoms",
+            "label": "Phantoms S3 1st",
+            "value": 100
+          },
+          {
+            "season": "S3",
+            "round": 2,
+            "originalTeam": "Phantoms",
+            "owner": "Phantoms",
+            "label": "Phantoms S3 2nd",
+            "value": 70
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Vampires",
+            "owner": "Phantoms",
+            "label": "Vampires S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 6,
+            "originalTeam": "Mammoths",
+            "owner": "Phantoms",
+            "label": "Mammoths S3 6th",
+            "value": 8
+          },
+          {
+            "season": "S3",
+            "round": 6,
+            "originalTeam": "Phantoms",
+            "owner": "Phantoms",
+            "label": "Phantoms S3 6th",
+            "value": 8
+          }
+        ]
+      },
+      "Vampires": {
+        "S2": [
+          {
+            "season": "S2",
+            "round": 2,
+            "originalTeam": "Kitties",
+            "owner": "Vampires",
+            "label": "Kitties S2 2nd",
+            "value": 70
+          },
+          {
+            "season": "S2",
+            "round": 2,
+            "originalTeam": "Voltage",
+            "owner": "Vampires",
+            "label": "Voltage S2 2nd",
+            "value": 70
+          },
+          {
+            "season": "S2",
+            "round": 3,
+            "originalTeam": "Vampires",
+            "owner": "Vampires",
+            "label": "Vampires S2 3rd",
+            "value": 45
+          },
+          {
+            "season": "S2",
+            "round": 4,
+            "originalTeam": "Vampires",
+            "owner": "Vampires",
+            "label": "Vampires S2 4th",
+            "value": 28
+          },
+          {
+            "season": "S2",
+            "round": 5,
+            "originalTeam": "Vampires",
+            "owner": "Vampires",
+            "label": "Vampires S2 5th",
+            "value": 16
+          },
+          {
+            "season": "S2",
+            "round": 6,
+            "originalTeam": "Phantoms",
+            "owner": "Vampires",
+            "label": "Phantoms S2 6th",
+            "value": 8
+          }
+        ],
+        "S3": [
+          {
+            "season": "S3",
+            "round": 1,
+            "originalTeam": "Vampires",
+            "owner": "Vampires",
+            "label": "Vampires S3 1st",
+            "value": 100
+          },
+          {
+            "season": "S3",
+            "round": 2,
+            "originalTeam": "Vampires",
+            "owner": "Vampires",
+            "label": "Vampires S3 2nd",
+            "value": 70
+          },
+          {
+            "season": "S3",
+            "round": 3,
+            "originalTeam": "Vampires",
+            "owner": "Vampires",
+            "label": "Vampires S3 3rd",
+            "value": 45
+          },
+          {
+            "season": "S3",
+            "round": 5,
+            "originalTeam": "Vampires",
+            "owner": "Vampires",
+            "label": "Vampires S3 5th",
+            "value": 16
+          },
+          {
+            "season": "S3",
+            "round": 6,
+            "originalTeam": "Vampires",
+            "owner": "Vampires",
+            "label": "Vampires S3 6th",
+            "value": 8
+          }
+        ]
+      },
+      "Bandits": {
+        "S2": [
+          {
+            "season": "S2",
+            "round": 1,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S2 1st",
+            "value": 100
+          },
+          {
+            "season": "S2",
+            "round": 2,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S2 2nd",
+            "value": 70
+          },
+          {
+            "season": "S2",
+            "round": 3,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S2 3rd",
+            "value": 45
+          },
+          {
+            "season": "S2",
+            "round": 3,
+            "originalTeam": "Kitties",
+            "owner": "Bandits",
+            "label": "Kitties S2 3rd",
+            "value": 45
+          },
+          {
+            "season": "S2",
+            "round": 4,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S2 4th",
+            "value": 28
+          },
+          {
+            "season": "S2",
+            "round": 4,
+            "originalTeam": "Voltage",
+            "owner": "Bandits",
+            "label": "Voltage S2 4th",
+            "value": 28
+          },
+          {
+            "season": "S2",
+            "round": 5,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S2 5th",
+            "value": 16
+          },
+          {
+            "season": "S2",
+            "round": 5,
+            "originalTeam": "Phantoms",
+            "owner": "Bandits",
+            "label": "Phantoms S2 5th",
+            "value": 16
+          },
+          {
+            "season": "S2",
+            "round": 6,
+            "originalTeam": "Angels",
+            "owner": "Bandits",
+            "label": "Angels S2 6th",
+            "value": 8
+          },
+          {
+            "season": "S2",
+            "round": 6,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S2 6th",
+            "value": 8
+          }
+        ],
+        "S3": [
+          {
+            "season": "S3",
+            "round": 1,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S3 1st",
+            "value": 100
+          },
+          {
+            "season": "S3",
+            "round": 2,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S3 2nd",
+            "value": 70
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 5,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S3 5th",
+            "value": 16
+          },
+          {
+            "season": "S3",
+            "round": 6,
+            "originalTeam": "Bandits",
+            "owner": "Bandits",
+            "label": "Bandits S3 6th",
+            "value": 8
+          }
+        ]
+      },
+      "Angels": {
+        "S2": [
+          {
+            "season": "S2",
+            "round": 3,
+            "originalTeam": "Voltage",
+            "owner": "Angels",
+            "label": "Voltage S2 3rd",
+            "value": 45
+          },
+          {
+            "season": "S2",
+            "round": 5,
+            "originalTeam": "Angels",
+            "owner": "Angels",
+            "label": "Angels S2 5th",
+            "value": 16
+          },
+          {
+            "season": "S2",
+            "round": 5,
+            "originalTeam": "Kitties",
+            "owner": "Angels",
+            "label": "Kitties S2 5th",
+            "value": 16
+          }
+        ],
+        "S3": [
+          {
+            "season": "S3",
+            "round": 1,
+            "originalTeam": "Angels",
+            "owner": "Angels",
+            "label": "Angels S3 1st",
+            "value": 100
+          },
+          {
+            "season": "S3",
+            "round": 2,
+            "originalTeam": "Angels",
+            "owner": "Angels",
+            "label": "Angels S3 2nd",
+            "value": 70
+          },
+          {
+            "season": "S3",
+            "round": 3,
+            "originalTeam": "Angels",
+            "owner": "Angels",
+            "label": "Angels S3 3rd",
+            "value": 45
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Angels",
+            "owner": "Angels",
+            "label": "Angels S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 5,
+            "originalTeam": "Angels",
+            "owner": "Angels",
+            "label": "Angels S3 5th",
+            "value": 16
+          },
+          {
+            "season": "S3",
+            "round": 6,
+            "originalTeam": "Angels",
+            "owner": "Angels",
+            "label": "Angels S3 6th",
+            "value": 8
+          }
+        ]
+      },
+      "Reapers": {
+        "S2": [
+          {
+            "season": "S2",
+            "round": 1,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S2 1st",
+            "value": 100
+          },
+          {
+            "season": "S2",
+            "round": 1,
+            "originalTeam": "Vampires",
+            "owner": "Reapers",
+            "label": "Vampires S2 1st",
+            "value": 100
+          },
+          {
+            "season": "S2",
+            "round": 3,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S2 3rd",
+            "value": 45
+          },
+          {
+            "season": "S2",
+            "round": 4,
+            "originalTeam": "Mammoths",
+            "owner": "Reapers",
+            "label": "Mammoths S2 4th",
+            "value": 28
+          },
+          {
+            "season": "S2",
+            "round": 4,
+            "originalTeam": "Phantoms",
+            "owner": "Reapers",
+            "label": "Phantoms S2 4th",
+            "value": 28
+          },
+          {
+            "season": "S2",
+            "round": 4,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S2 4th",
+            "value": 28
+          },
+          {
+            "season": "S2",
+            "round": 5,
+            "originalTeam": "Mammoths",
+            "owner": "Reapers",
+            "label": "Mammoths S2 5th",
+            "value": 16
+          },
+          {
+            "season": "S2",
+            "round": 5,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S2 5th",
+            "value": 16
+          },
+          {
+            "season": "S2",
+            "round": 5,
+            "originalTeam": "Voltage",
+            "owner": "Reapers",
+            "label": "Voltage S2 5th",
+            "value": 16
+          },
+          {
+            "season": "S2",
+            "round": 6,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S2 6th",
+            "value": 8
+          }
+        ],
+        "S3": [
+          {
+            "season": "S3",
+            "round": 1,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S3 1st",
+            "value": 100
+          },
+          {
+            "season": "S3",
+            "round": 2,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S3 2nd",
+            "value": 70
+          },
+          {
+            "season": "S3",
+            "round": 3,
+            "originalTeam": "Bandits",
+            "owner": "Reapers",
+            "label": "Bandits S3 3rd",
+            "value": 45
+          },
+          {
+            "season": "S3",
+            "round": 3,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S3 3rd",
+            "value": 45
+          },
+          {
+            "season": "S3",
+            "round": 3,
+            "originalTeam": "Voltage",
+            "owner": "Reapers",
+            "label": "Voltage S3 3rd",
+            "value": 45
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 5,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S3 5th",
+            "value": 16
+          },
+          {
+            "season": "S3",
+            "round": 6,
+            "originalTeam": "Reapers",
+            "owner": "Reapers",
+            "label": "Reapers S3 6th",
+            "value": 8
+          }
+        ]
+      },
+      "Mammoths": {
+        "S2": [
+          {
+            "season": "S2",
+            "round": 1,
+            "originalTeam": "Mammoths",
+            "owner": "Mammoths",
+            "label": "Mammoths S2 1st",
+            "value": 100
+          },
+          {
+            "season": "S2",
+            "round": 3,
+            "originalTeam": "Mammoths",
+            "owner": "Mammoths",
+            "label": "Mammoths S2 3rd",
+            "value": 45
+          },
+          {
+            "season": "S2",
+            "round": 6,
+            "originalTeam": "Mammoths",
+            "owner": "Mammoths",
+            "label": "Mammoths S2 6th",
+            "value": 8
+          },
+          {
+            "season": "S2",
+            "round": 6,
+            "originalTeam": "Vampires",
+            "owner": "Mammoths",
+            "label": "Vampires S2 6th",
+            "value": 8
+          }
+        ],
+        "S3": [
+          {
+            "season": "S3",
+            "round": 1,
+            "originalTeam": "Mammoths",
+            "owner": "Mammoths",
+            "label": "Mammoths S3 1st",
+            "value": 100
+          },
+          {
+            "season": "S3",
+            "round": 2,
+            "originalTeam": "Mammoths",
+            "owner": "Mammoths",
+            "label": "Mammoths S3 2nd",
+            "value": 70
+          },
+          {
+            "season": "S3",
+            "round": 3,
+            "originalTeam": "Mammoths",
+            "owner": "Mammoths",
+            "label": "Mammoths S3 3rd",
+            "value": 45
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Mammoths",
+            "owner": "Mammoths",
+            "label": "Mammoths S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Vampires",
+            "owner": "Mammoths",
+            "label": "Vampires S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 5,
+            "originalTeam": "Mammoths",
+            "owner": "Mammoths",
+            "label": "Mammoths S3 5th",
+            "value": 16
+          },
+          {
+            "season": "S3",
+            "round": 5,
+            "originalTeam": "Phantoms",
+            "owner": "Mammoths",
+            "label": "Phantoms S3 5th",
+            "value": 16
+          }
+        ]
+      },
+      "Voltage": {
+        "S2": [
+          {
+            "season": "S2",
+            "round": 1,
+            "originalTeam": "Kitties",
+            "owner": "Voltage",
+            "label": "Kitties S2 1st",
+            "value": 100
+          },
+          {
+            "season": "S2",
+            "round": 1,
+            "originalTeam": "Voltage",
+            "owner": "Voltage",
+            "label": "Voltage S2 1st",
+            "value": 100
+          },
+          {
+            "season": "S2",
+            "round": 2,
+            "originalTeam": "Phantoms",
+            "owner": "Voltage",
+            "label": "Phantoms S2 2nd",
+            "value": 70
+          },
+          {
+            "season": "S2",
+            "round": 2,
+            "originalTeam": "Reapers",
+            "owner": "Voltage",
+            "label": "Reapers S2 2nd",
+            "value": 70
+          },
+          {
+            "season": "S2",
+            "round": 3,
+            "originalTeam": "Phantoms",
+            "owner": "Voltage",
+            "label": "Phantoms S2 3rd",
+            "value": 45
+          },
+          {
+            "season": "S2",
+            "round": 6,
+            "originalTeam": "Kitties",
+            "owner": "Voltage",
+            "label": "Kitties S2 6th",
+            "value": 8
+          }
+        ],
+        "S3": [
+          {
+            "season": "S3",
+            "round": 1,
+            "originalTeam": "Voltage",
+            "owner": "Voltage",
+            "label": "Voltage S3 1st",
+            "value": 100
+          },
+          {
+            "season": "S3",
+            "round": 2,
+            "originalTeam": "Voltage",
+            "owner": "Voltage",
+            "label": "Voltage S3 2nd",
+            "value": 70
+          },
+          {
+            "season": "S3",
+            "round": 3,
+            "originalTeam": "Phantoms",
+            "owner": "Voltage",
+            "label": "Phantoms S3 3rd",
+            "value": 45
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Phantoms",
+            "owner": "Voltage",
+            "label": "Phantoms S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 4,
+            "originalTeam": "Voltage",
+            "owner": "Voltage",
+            "label": "Voltage S3 4th",
+            "value": 28
+          },
+          {
+            "season": "S3",
+            "round": 5,
+            "originalTeam": "Voltage",
+            "owner": "Voltage",
+            "label": "Voltage S3 5th",
+            "value": 16
+          },
+          {
+            "season": "S3",
+            "round": 6,
+            "originalTeam": "Voltage",
+            "owner": "Voltage",
+            "label": "Voltage S3 6th",
+            "value": 8
+          }
+        ]
+      }
+    },
+    "summary": {
+      "Kitties": {
+        "totalPicks": 15,
+        "s2Picks": 9,
+        "s3Picks": 6,
+        "firsts": 3,
+        "seconds": 4,
+        "premiumPicks": 7,
+        "valueScore": 786
+      },
+      "Phantoms": {
+        "totalPicks": 5,
+        "s2Picks": 0,
+        "s3Picks": 5,
+        "firsts": 1,
+        "seconds": 1,
+        "premiumPicks": 2,
+        "valueScore": 214
+      },
+      "Vampires": {
+        "totalPicks": 11,
+        "s2Picks": 6,
+        "s3Picks": 5,
+        "firsts": 1,
+        "seconds": 3,
+        "premiumPicks": 4,
+        "valueScore": 476
+      },
+      "Bandits": {
+        "totalPicks": 15,
+        "s2Picks": 10,
+        "s3Picks": 5,
+        "firsts": 2,
+        "seconds": 2,
+        "premiumPicks": 4,
+        "valueScore": 586
+      },
+      "Angels": {
+        "totalPicks": 9,
+        "s2Picks": 3,
+        "s3Picks": 6,
+        "firsts": 1,
+        "seconds": 1,
+        "premiumPicks": 2,
+        "valueScore": 344
+      },
+      "Reapers": {
+        "totalPicks": 18,
+        "s2Picks": 10,
+        "s3Picks": 8,
+        "firsts": 3,
+        "seconds": 1,
+        "premiumPicks": 4,
+        "valueScore": 742
+      },
+      "Mammoths": {
+        "totalPicks": 11,
+        "s2Picks": 4,
+        "s3Picks": 7,
+        "firsts": 2,
+        "seconds": 1,
+        "premiumPicks": 3,
+        "valueScore": 464
+      },
+      "Voltage": {
+        "totalPicks": 13,
+        "s2Picks": 6,
+        "s3Picks": 7,
+        "firsts": 3,
+        "seconds": 3,
+        "premiumPicks": 6,
+        "valueScore": 688
+      }
+    }
   }
 };
