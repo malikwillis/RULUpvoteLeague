@@ -130,7 +130,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "3-2",
+      "record": "4-2",
       "conferenceRecord": "1-1",
       "totalUpvotes": 15871,
       "roster": [
@@ -376,7 +376,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Reapers",
       "conference": "West",
-      "record": "0-5",
+      "record": "0-6",
       "conferenceRecord": "0-3",
       "totalUpvotes": 7621,
       "roster": [
@@ -1623,9 +1623,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Reapers",
       "type": "Non Conf",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 3256,
+      "teamBScore": 1191,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 1894,
+            "note": ""
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 1293,
+            "note": ""
+          },
+          {
+            "handle": "luca",
+            "upvotes": 1,
+            "note": ""
+          },
+          {
+            "handle": "mistermuyrico",
+            "upvotes": 68,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 1056,
+            "note": ""
+          },
+          {
+            "handle": "young",
+            "upvotes": 53,
+            "note": ""
+          },
+          {
+            "handle": "sugashow_",
+            "upvotes": 57,
+            "note": ""
+          },
+          {
+            "handle": "glazerofdrakemaye",
+            "upvotes": 25,
+            "note": ""
+          }
+        ],
+        "note": "Mammoths win by 2,065"
+      }
     },
     {
       "week": "Week 6",
