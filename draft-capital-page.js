@@ -43,7 +43,6 @@ loadLeagueData().then(originalData => {
 
   const root = document.getElementById('draftCapitalRoot') || document.querySelector('main') || document.body;
   const capital = normalizeCapital(data);
-  const standingsOrder = projectedBaseOrder(data);
   let selectedSeason = new URLSearchParams(location.search).get('season') || 'S2';
 
   root.innerHTML = `
@@ -56,7 +55,7 @@ loadLeagueData().then(originalData => {
       <div class="row">
         <span>
           <h2 class="card-title" id="projectedTitle"></h2>
-          <p class="muted">Projected by current standings. Worst team starts round 1, then the order snakes back the other way each round.</p>
+          <p class="muted">Projected from the current game results. When score entry updates records or final scores, this order recalculates from the newest saved data.</p>
         </span>
         <span class="pill">Snake Draft</span>
       </div>
@@ -110,6 +109,8 @@ loadLeagueData().then(originalData => {
   renderSeason();
 
   function renderSeason() {
+    const standingsOrder = projectedBaseOrder(data);
+
     document.querySelectorAll('[data-season]').forEach(button => {
       button.classList.toggle('active', button.dataset.season === selectedSeason);
     });
@@ -212,26 +213,85 @@ function buildSeasonTeams(capital, season) {
 }
 
 function projectedBaseOrder(data) {
-  const teams = (data.teams || []).map(team => {
-    const record = localParseRecord(team.record || '0-0');
-    const games = record.wins + record.losses;
-    const pct = games ? record.wins / games : 0;
+  const teamStats = {};
 
-    return {
+  (data.teams || []).forEach(team => {
+    teamStats[team.name] = {
       name: team.name,
-      wins: record.wins,
-      losses: record.losses,
-      pct,
-      totalUpvotes: Number(team.totalUpvotes || 0)
+      wins: 0,
+      losses: 0,
+      ties: 0,
+      gamesPlayed: 0,
+      pointsFor: 0,
+      pointsAgainst: 0,
+      fallbackRecord: team.record || '0-0',
+      fallbackUpvotes: Number(team.totalUpvotes || 0)
     };
   });
 
-  if (!teams.length) return RUL_DRAFT_FALLBACK.teams;
+  (data.games || []).forEach(game => {
+    if (!teamStats[game.teamA] || !teamStats[game.teamB]) return;
 
-  return teams.sort((a, b) => {
+    const status = String(game.note || '').trim().toLowerCase();
+    const aScore = Number(game.teamAScore || 0);
+    const bScore = Number(game.teamBScore || 0);
+    const hasScore = aScore !== 0 || bScore !== 0;
+    const isCountable = status === 'final' || status === 'live' || hasScore;
+
+    if (!isCountable || aScore === bScore) return;
+
+    const a = teamStats[game.teamA];
+    const b = teamStats[game.teamB];
+
+    a.gamesPlayed += 1;
+    b.gamesPlayed += 1;
+
+    a.pointsFor += aScore;
+    a.pointsAgainst += bScore;
+
+    b.pointsFor += bScore;
+    b.pointsAgainst += aScore;
+
+    if (aScore > bScore) {
+      a.wins += 1;
+      b.losses += 1;
+    } else {
+      b.wins += 1;
+      a.losses += 1;
+    }
+  });
+
+  const rows = Object.values(teamStats).map(team => {
+    if (team.gamesPlayed === 0) {
+      const fallback = localParseRecord(team.fallbackRecord);
+      const fallbackGames = fallback.wins + fallback.losses;
+
+      return {
+        ...team,
+        wins: fallback.wins,
+        losses: fallback.losses,
+        gamesPlayed: fallbackGames,
+        pct: fallbackGames ? fallback.wins / fallbackGames : 0,
+        pointsFor: team.fallbackUpvotes,
+        pointDiff: 0
+      };
+    }
+
+    return {
+      ...team,
+      pct: team.gamesPlayed ? team.wins / team.gamesPlayed : 0,
+      pointDiff: team.pointsFor - team.pointsAgainst
+    };
+  });
+
+  if (!rows.length) return RUL_DRAFT_FALLBACK.teams;
+
+  return rows.sort((a, b) => {
     return a.pct - b.pct
+      || a.wins - b.wins
       || b.losses - a.losses
-      || a.totalUpvotes - b.totalUpvotes
+      || a.pointDiff - b.pointDiff
+      || a.pointsFor - b.pointsFor
       || a.name.localeCompare(b.name);
   }).map(team => team.name);
 }
