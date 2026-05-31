@@ -267,8 +267,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Vampires",
       "conference": "West",
-      "record": "5-2",
-      "conferenceRecord": "3-1",
+      "record": "5-3",
+      "conferenceRecord": "3-2",
       "totalUpvotes": 17998,
       "roster": [
         {
@@ -436,8 +436,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Angels",
       "conference": "West",
-      "record": "3-4",
-      "conferenceRecord": "1-2",
+      "record": "4-4",
+      "conferenceRecord": "2-2",
       "totalUpvotes": 17638,
       "roster": [
         {
@@ -1965,9 +1965,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Angels",
       "type": "Conf West",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 1501,
+      "teamBScore": 2191,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "tase",
+            "upvotes": 1431,
+            "note": ""
+          },
+          {
+            "handle": "cowan",
+            "upvotes": 25,
+            "note": ""
+          },
+          {
+            "handle": "burden_",
+            "upvotes": 35,
+            "note": ""
+          },
+          {
+            "handle": "levandro",
+            "upvotes": 10,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "67fan",
+            "upvotes": 1639,
+            "note": ""
+          },
+          {
+            "handle": "damian",
+            "upvotes": 242,
+            "note": ""
+          },
+          {
+            "handle": "prodraiders",
+            "upvotes": 66,
+            "note": ""
+          },
+          {
+            "handle": "tripleg",
+            "upvotes": 244,
+            "note": ""
+          }
+        ],
+        "note": "Angels win by 690"
+      }
     },
     {
       "week": "Week 8",
