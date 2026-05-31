@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 7",
+    "updatedLabel": "Updated through Week 8",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -13,8 +13,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Kitties",
       "conference": "East",
-      "record": "4-2",
-      "conferenceRecord": "3-0",
+      "record": "5-2",
+      "conferenceRecord": "4-0",
       "totalUpvotes": 25030,
       "roster": [
         {
@@ -59,8 +59,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Voltage",
       "conference": "East",
-      "record": "2-4",
-      "conferenceRecord": "0-3",
+      "record": "2-5",
+      "conferenceRecord": "0-4",
       "totalUpvotes": 13864,
       "roster": [
         {
@@ -1908,9 +1908,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Kitties",
       "teamB": "Voltage",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 2250,
+      "teamBScore": 1558,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "gfkmoney",
+            "upvotes": 463,
+            "note": ""
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 395,
+            "note": ""
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 938,
+            "note": ""
+          },
+          {
+            "handle": "buxton_",
+            "upvotes": 454,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "ceedeelambfan",
+            "upvotes": 614,
+            "note": ""
+          },
+          {
+            "handle": "wilbus",
+            "upvotes": 311,
+            "note": ""
+          },
+          {
+            "handle": "masedog5111",
+            "upvotes": 328,
+            "note": ""
+          },
+          {
+            "handle": "akalegendd",
+            "upvotes": 305,
+            "note": ""
+          }
+        ],
+        "note": "Kitties win by 692"
+      }
     },
     {
       "week": "Week 8",
