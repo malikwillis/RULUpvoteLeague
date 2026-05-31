@@ -318,8 +318,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Bandits",
       "conference": "West",
-      "record": "6-1",
-      "conferenceRecord": "3-0",
+      "record": "7-1",
+      "conferenceRecord": "4-0",
       "totalUpvotes": 22445,
       "roster": [
         {
@@ -376,8 +376,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Reapers",
       "conference": "West",
-      "record": "0-7",
-      "conferenceRecord": "0-4",
+      "record": "0-8",
+      "conferenceRecord": "0-5",
       "totalUpvotes": 7621,
       "roster": [
         {
@@ -2022,9 +2022,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Bandits",
       "teamB": "Reapers",
       "type": "Conf West",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 5592,
+      "teamBScore": 1263,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "superbowl",
+            "upvotes": 2290,
+            "note": ""
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 328,
+            "note": ""
+          },
+          {
+            "handle": "jet",
+            "upvotes": 937,
+            "note": ""
+          },
+          {
+            "handle": "mclean26",
+            "upvotes": 2037,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 765,
+            "note": ""
+          },
+          {
+            "handle": "sugashow_",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "glazerofdrakemaye",
+            "upvotes": 9,
+            "note": ""
+          },
+          {
+            "handle": "young",
+            "upvotes": 489,
+            "note": ""
+          }
+        ],
+        "note": "Bandits win by 4,329"
+      }
     },
     {
       "week": "Week 9",
