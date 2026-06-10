@@ -25,6 +25,7 @@ function applySavedTheme() {
 function toggleRulTheme() {
   const current = document.documentElement.getAttribute('data-theme') || 'dark';
   const next = current === 'dark' ? 'light' : 'dark';
+
   document.documentElement.setAttribute('data-theme', next);
   localStorage.setItem('RUL_THEME', next);
 
@@ -61,14 +62,12 @@ function pageHeader(data, activePage, eyebrow, title, subtitle) {
   const theme = document.documentElement.getAttribute('data-theme') || 'dark';
 
   header.innerHTML = `
-    <div class="rkl-topbar">
+    <div class="rul-topbar">
       <button class="theme-toggle" type="button" onclick="toggleRulTheme()" aria-label="Toggle theme">${theme === 'dark' ? '☀️' : '🌙'}</button>
     </div>
 
     <section class="rul-hero">
-      <div class="rul-logo-wrap">
-        <img class="rul-logo-img" src="rul-logo.png" alt="Real Upvote League logo">
-      </div>
+      <div class="rul-wordmark">RUL</div>
 
       <div class="eyebrow">${escapeHtml(eyebrow || league.homeEyebrow || 'Real Upvote League')}</div>
       <h1>${escapeHtml(title || league.name || 'Real Upvote League')}</h1>

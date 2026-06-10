@@ -23,17 +23,19 @@ loadLeagueData().then(originalData => {
   const finals = games.filter(game => homeGameStatus(game) === 'Final');
   const upcoming = games.filter(game => homeGameStatus(game) === 'Upcoming');
   const topPlayers = [...players].sort((a, b) => b.upvotes - a.upvotes).slice(0, 8);
+  const standings = buildHomeStandings(teams).slice(0, 5);
 
   root.innerHTML = `
     <section class="card home-hero-card">
-      <div class="label">Loading current season...</div>
+      <div class="label">Current Season</div>
       <h2 class="card-title">${escapeHtml(data.league?.season || 'Season 1')}</h2>
       <p class="muted">This site is a work in progress. Historical data and league tools will keep being added.</p>
 
       <div class="home-actions" style="margin-top:18px">
-        <a class="btn active" href="standings.html">Open Standings</a>
+        <a class="btn active" href="standings.html">Standings</a>
         <a class="btn" href="draft-capital.html">Draft Capital</a>
         <a class="btn" href="live.html">Live Scores</a>
+        <a class="btn" href="stats.html">Stats</a>
       </div>
     </section>
 
@@ -62,11 +64,33 @@ loadLeagueData().then(originalData => {
             <h2 class="card-title">${liveGames.length ? 'Live Now' : 'Next Games'}</h2>
             <p class="muted">${fmt(finals.length)} finals · ${fmt(upcoming.length)} upcoming</p>
           </span>
-          <a class="btn" href="games.html">Open</a>
+          <a class="btn" href="games.html">Games</a>
         </div>
         ${(liveGames.length ? liveGames : upcoming.slice(0, 5)).map(renderGame).join('') || '<div class="empty">No games listed.</div>'}
       </article>
 
+      <article class="card">
+        <div class="home-section-title">
+          <span>
+            <h2 class="card-title">Top Standings</h2>
+            <p class="muted">Current record leaders.</p>
+          </span>
+          <a class="btn" href="standings.html">Open</a>
+        </div>
+        ${standings.map((team, index) => `
+          <div class="trend-row">
+            <span class="rank-badge">${index + 1}</span>
+            <span>
+              <strong>${teamLink(team.name)}</strong><br>
+              <span class="muted">${escapeHtml(team.conference || '')}</span>
+            </span>
+            <strong>${escapeHtml(team.record || '0-0')}</strong>
+          </div>
+        `).join('') || '<div class="empty">No standings listed.</div>'}
+      </article>
+    </section>
+
+    <section class="grid two home-section">
       <article class="card">
         <div class="home-section-title">
           <span>
@@ -86,16 +110,26 @@ loadLeagueData().then(originalData => {
           </div>
         `).join('') || '<div class="empty">No stats listed.</div>'}
       </article>
-    </section>
 
-    <section class="card home-section">
-      <div class="home-section-title">
-        <span>
-          <h2 class="card-title">League History</h2>
-          <p class="muted">Historical data, draft pages, game logs, transactions, standings, and records are built into the RUL hub.</p>
-        </span>
-        <a class="btn" href="transactions.html">Transactions</a>
-      </div>
+      <article class="card">
+        <div class="home-section-title">
+          <span>
+            <h2 class="card-title">League History</h2>
+            <p class="muted">Historical data, draft pages, game logs, transactions, standings, and records are built into the RUL hub.</p>
+          </span>
+          <a class="btn" href="transactions.html">Transactions</a>
+        </div>
+        <div class="grid two">
+          <div class="mini-card">
+            <div class="label">Teams</div>
+            <div class="kpi">${fmt(teams.length)}</div>
+          </div>
+          <div class="mini-card">
+            <div class="label">Players</div>
+            <div class="kpi">${fmt(players.length)}</div>
+          </div>
+        </div>
+      </article>
     </section>
   `;
 }).catch(error => {
@@ -154,4 +188,21 @@ function buildHomePlayers(data) {
       upvotes: Number(player.upvotes || 0)
     }));
   });
+}
+
+function buildHomeStandings(teams) {
+  return [...(teams || [])].sort((a, b) => {
+    const ar = parseHomeRecord(a.record);
+    const br = parseHomeRecord(b.record);
+    const ap = ar.games ? ar.wins / ar.games : 0;
+    const bp = br.games ? br.wins / br.games : 0;
+    return bp - ap || br.wins - ar.wins || Number(b.totalUpvotes || 0) - Number(a.totalUpvotes || 0);
+  });
+}
+
+function parseHomeRecord(record) {
+  const match = String(record || '0-0').match(/(\d+)\s*-\s*(\d+)/);
+  const wins = match ? Number(match[1]) : 0;
+  const losses = match ? Number(match[2]) : 0;
+  return { wins, losses, games: wins + losses };
 }
