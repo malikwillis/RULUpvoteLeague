@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 10",
+    "updatedLabel": "Updated through Week 11",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -13,7 +13,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Kitties",
       "conference": "East",
-      "record": "7-2",
+      "record": "8-2",
       "conferenceRecord": "6-0",
       "totalUpvotes": 25030,
       "roster": [
@@ -376,7 +376,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Reapers",
       "conference": "West",
-      "record": "0-9",
+      "record": "0-10",
       "conferenceRecord": "0-6",
       "totalUpvotes": 7621,
       "roster": [
@@ -2421,9 +2421,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Kitties",
       "teamB": "Reapers",
       "type": "Non Conf",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 9981,
+      "teamBScore": 884,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "bryceyoungformvp",
+            "upvotes": 5742,
+            "note": ""
+          },
+          {
+            "handle": "gfkmoney",
+            "upvotes": 2218,
+            "note": ""
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 1297,
+            "note": ""
+          },
+          {
+            "handle": "msgbrunson",
+            "upvotes": 724,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 592,
+            "note": ""
+          },
+          {
+            "handle": "young",
+            "upvotes": 126,
+            "note": ""
+          },
+          {
+            "handle": "sugashow_",
+            "upvotes": 23,
+            "note": ""
+          },
+          {
+            "handle": "glazerofdrakemaye",
+            "upvotes": 143,
+            "note": ""
+          }
+        ],
+        "note": "Kitties win by 9,097"
+      }
     },
     {
       "week": "Week 11",
