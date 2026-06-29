@@ -267,8 +267,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Vampires",
       "conference": "West",
-      "record": "5-3",
-      "conferenceRecord": "3-2",
+      "record": "5-4",
+      "conferenceRecord": "3-3",
       "totalUpvotes": 17998,
       "roster": [
         {
@@ -318,8 +318,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Bandits",
       "conference": "West",
-      "record": "7-1",
-      "conferenceRecord": "4-0",
+      "record": "8-1",
+      "conferenceRecord": "5-0",
       "totalUpvotes": 22445,
       "roster": [
         {
@@ -2307,9 +2307,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Vampires",
       "teamB": "Bandits",
       "type": "Conf West",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 85,
+      "teamBScore": 4526,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "tase",
+            "upvotes": 79,
+            "note": ""
+          },
+          {
+            "handle": "burden_",
+            "upvotes": 4,
+            "note": ""
+          },
+          {
+            "handle": "levandro",
+            "upvotes": 1,
+            "note": ""
+          },
+          {
+            "handle": "arachnid",
+            "upvotes": 1,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "superbowl",
+            "upvotes": 264,
+            "note": ""
+          },
+          {
+            "handle": "mclean26",
+            "upvotes": 1879,
+            "note": ""
+          },
+          {
+            "handle": "jet",
+            "upvotes": 2351,
+            "note": ""
+          },
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 32,
+            "note": ""
+          }
+        ],
+        "note": "Bandits win by 4,441"
+      }
     },
     {
       "week": "Week 10",
