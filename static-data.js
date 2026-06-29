@@ -59,8 +59,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Voltage",
       "conference": "East",
-      "record": "2-5",
-      "conferenceRecord": "0-4",
+      "record": "2-6",
+      "conferenceRecord": "0-5",
       "totalUpvotes": 13864,
       "roster": [
         {
@@ -130,8 +130,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "5-2",
-      "conferenceRecord": "2-1",
+      "record": "6-2",
+      "conferenceRecord": "3-1",
       "totalUpvotes": 15871,
       "roster": [
         {
@@ -2136,9 +2136,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Voltage",
       "teamB": "Mammoths",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 289,
+      "teamBScore": 3720,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "ceedeelambfan",
+            "upvotes": 87,
+            "note": ""
+          },
+          {
+            "handle": "flock.ravens",
+            "upvotes": 8,
+            "note": ""
+          },
+          {
+            "handle": "akalegendd",
+            "upvotes": 78,
+            "note": ""
+          },
+          {
+            "handle": "masedog5111",
+            "upvotes": 116,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 2311,
+            "note": ""
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 848,
+            "note": ""
+          },
+          {
+            "handle": "taad",
+            "upvotes": 561,
+            "note": ""
+          },
+          {
+            "handle": "luca",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "note": "Mammoths win by 3,431"
+      }
     },
     {
       "week": "Week 9",
