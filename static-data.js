@@ -376,8 +376,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Reapers",
       "conference": "West",
-      "record": "0-8",
-      "conferenceRecord": "0-5",
+      "record": "0-9",
+      "conferenceRecord": "0-6",
       "totalUpvotes": 7621,
       "roster": [
         {
@@ -436,8 +436,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Angels",
       "conference": "West",
-      "record": "4-4",
-      "conferenceRecord": "2-2",
+      "record": "5-4",
+      "conferenceRecord": "3-2",
       "totalUpvotes": 17638,
       "roster": [
         {
@@ -2193,9 +2193,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Reapers",
       "teamB": "Angels",
       "type": "Conf West",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 2657,
+      "teamBScore": 3988,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "derikqueenfan",
+            "upvotes": 2064,
+            "note": ""
+          },
+          {
+            "handle": "young",
+            "upvotes": 54,
+            "note": ""
+          },
+          {
+            "handle": "sugashow_",
+            "upvotes": 1,
+            "note": ""
+          },
+          {
+            "handle": "glazerofdrakemaye",
+            "upvotes": 538,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "67fan",
+            "upvotes": 2093,
+            "note": ""
+          },
+          {
+            "handle": "kenny",
+            "upvotes": 1238,
+            "note": ""
+          },
+          {
+            "handle": "prodraiders",
+            "upvotes": 241,
+            "note": ""
+          },
+          {
+            "handle": "tripleg",
+            "upvotes": 416,
+            "note": ""
+          }
+        ],
+        "note": "Angels win by 1,331"
+      }
     },
     {
       "week": "Week 10",
