@@ -59,8 +59,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Voltage",
       "conference": "East",
-      "record": "2-6",
-      "conferenceRecord": "0-5",
+      "record": "2-7",
+      "conferenceRecord": "0-6",
       "totalUpvotes": 13864,
       "roster": [
         {
@@ -186,8 +186,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "2-6",
-      "conferenceRecord": "1-3",
+      "record": "3-6",
+      "conferenceRecord": "2-3",
       "totalUpvotes": 13894,
       "roster": [
         {
@@ -2364,9 +2364,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Voltage",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": -11,
+      "teamBScore": 1422,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "wilbus",
+            "upvotes": 12,
+            "note": ""
+          },
+          {
+            "handle": "masedog5111",
+            "upvotes": 13,
+            "note": ""
+          },
+          {
+            "handle": "akalegendd",
+            "upvotes": 64,
+            "note": ""
+          },
+          {
+            "handle": "wembyglazer9",
+            "upvotes": -100,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 1351,
+            "note": ""
+          },
+          {
+            "handle": "jaylen",
+            "upvotes": 8,
+            "note": ""
+          },
+          {
+            "handle": "mbell123",
+            "upvotes": 53,
+            "note": ""
+          },
+          {
+            "handle": "richer",
+            "upvotes": 10,
+            "note": ""
+          }
+        ],
+        "note": "Phantoms win by 1,433"
+      }
     },
     {
       "week": "Week 11",
