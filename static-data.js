@@ -59,7 +59,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Voltage",
       "conference": "East",
-      "record": "2-7",
+      "record": "2-8",
       "conferenceRecord": "0-6",
       "totalUpvotes": 13864,
       "roster": [
@@ -267,7 +267,7 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Vampires",
       "conference": "West",
-      "record": "5-4",
+      "record": "6-4",
       "conferenceRecord": "3-3",
       "totalUpvotes": 17998,
       "roster": [
@@ -2478,9 +2478,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Voltage",
       "teamB": "Vampires",
       "type": "Non Conf",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 1,
+      "teamBScore": 78,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "wilbus",
+            "upvotes": 89,
+            "note": ""
+          },
+          {
+            "handle": "masedog5111",
+            "upvotes": 11,
+            "note": ""
+          },
+          {
+            "handle": "akalegendd",
+            "upvotes": -100,
+            "note": ""
+          },
+          {
+            "handle": "wembyglazer9",
+            "upvotes": 1,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "arachnid",
+            "upvotes": 56,
+            "note": ""
+          },
+          {
+            "handle": "cowan",
+            "upvotes": 0,
+            "note": ""
+          },
+          {
+            "handle": "burden_",
+            "upvotes": 22,
+            "note": ""
+          },
+          {
+            "handle": "levandro",
+            "upvotes": 0,
+            "note": ""
+          }
+        ],
+        "note": "Vampires win by 77"
+      }
     },
     {
       "week": "Week 11",
