@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 8",
+    "updatedLabel": "Updated through Week 9",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -13,8 +13,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Kitties",
       "conference": "East",
-      "record": "5-2",
-      "conferenceRecord": "4-0",
+      "record": "6-2",
+      "conferenceRecord": "5-0",
       "totalUpvotes": 25030,
       "roster": [
         {
@@ -186,8 +186,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "2-5",
-      "conferenceRecord": "1-2",
+      "record": "2-6",
+      "conferenceRecord": "1-3",
       "totalUpvotes": 13894,
       "roster": [
         {
@@ -2079,9 +2079,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Kitties",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 1919,
+      "teamBScore": 1017,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "gfkmoney",
+            "upvotes": 384,
+            "note": ""
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 669,
+            "note": ""
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 801,
+            "note": ""
+          },
+          {
+            "handle": "buxton_",
+            "upvotes": 65,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 641,
+            "note": ""
+          },
+          {
+            "handle": "george",
+            "upvotes": 26,
+            "note": ""
+          },
+          {
+            "handle": "breens",
+            "upvotes": 330,
+            "note": ""
+          },
+          {
+            "handle": "jaylen",
+            "upvotes": 20,
+            "note": ""
+          }
+        ],
+        "note": "Kitties win by 902"
+      }
     },
     {
       "week": "Week 9",
