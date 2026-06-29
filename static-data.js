@@ -318,8 +318,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Bandits",
       "conference": "West",
-      "record": "8-1",
-      "conferenceRecord": "5-0",
+      "record": "9-1",
+      "conferenceRecord": "6-0",
       "totalUpvotes": 22445,
       "roster": [
         {
@@ -436,8 +436,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Angels",
       "conference": "West",
-      "record": "5-4",
-      "conferenceRecord": "3-2",
+      "record": "5-5",
+      "conferenceRecord": "3-3",
       "totalUpvotes": 17638,
       "roster": [
         {
@@ -2592,9 +2592,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Angels",
       "teamB": "Bandits",
       "type": "Conf West",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 1499,
+      "teamBScore": 2197,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "67fan",
+            "upvotes": 252,
+            "note": ""
+          },
+          {
+            "handle": "kenny",
+            "upvotes": 520,
+            "note": ""
+          },
+          {
+            "handle": "tripleg",
+            "upvotes": 313,
+            "note": ""
+          },
+          {
+            "handle": "damian",
+            "upvotes": 414,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "trentgrishamdadstrength",
+            "upvotes": 43,
+            "note": ""
+          },
+          {
+            "handle": "mclean26",
+            "upvotes": 929,
+            "note": ""
+          },
+          {
+            "handle": "superbowl",
+            "upvotes": 986,
+            "note": ""
+          },
+          {
+            "handle": "jet",
+            "upvotes": 239,
+            "note": ""
+          }
+        ],
+        "note": "Bandits win by 698"
+      }
     }
   ],
   "futurePicks": {
