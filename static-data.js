@@ -130,8 +130,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "6-3",
-      "conferenceRecord": "3-2",
+      "record": "6-4",
+      "conferenceRecord": "3-3",
       "totalUpvotes": 15871,
       "roster": [
         {
@@ -186,8 +186,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Phantoms",
       "conference": "East",
-      "record": "3-6",
-      "conferenceRecord": "2-3",
+      "record": "4-6",
+      "conferenceRecord": "3-3",
       "totalUpvotes": 13894,
       "roster": [
         {
@@ -2535,9 +2535,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Mammoths",
       "teamB": "Phantoms",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 1199,
+      "teamBScore": 2449,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 882,
+            "note": ""
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 38,
+            "note": ""
+          },
+          {
+            "handle": "mistermuyrico",
+            "upvotes": 41,
+            "note": ""
+          },
+          {
+            "handle": "taad",
+            "upvotes": 238,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "kenunderrated",
+            "upvotes": 178,
+            "note": ""
+          },
+          {
+            "handle": "breens",
+            "upvotes": 2108,
+            "note": ""
+          },
+          {
+            "handle": "george",
+            "upvotes": 162,
+            "note": ""
+          },
+          {
+            "handle": "richer",
+            "upvotes": 1,
+            "note": ""
+          }
+        ],
+        "note": "Phantoms win by 1,250"
+      }
     },
     {
       "week": "Week 11",
