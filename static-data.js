@@ -3,7 +3,7 @@ window.RUL_STATIC_DATA = {
     "name": "Real Upvote League",
     "shortName": "RUL",
     "season": "Season 1",
-    "updatedLabel": "Updated through Week 9",
+    "updatedLabel": "Updated through Week 10",
     "homeEyebrow": "Official RUL Home Page",
     "portalLabel": "Upvote League Portal",
     "madeBy": "@malikwillis",
@@ -13,8 +13,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Kitties",
       "conference": "East",
-      "record": "6-2",
-      "conferenceRecord": "5-0",
+      "record": "7-2",
+      "conferenceRecord": "6-0",
       "totalUpvotes": 25030,
       "roster": [
         {
@@ -130,8 +130,8 @@ window.RUL_STATIC_DATA = {
     {
       "name": "Mammoths",
       "conference": "East",
-      "record": "6-2",
-      "conferenceRecord": "3-1",
+      "record": "6-3",
+      "conferenceRecord": "3-2",
       "totalUpvotes": 15871,
       "roster": [
         {
@@ -2250,9 +2250,56 @@ window.RUL_STATIC_DATA = {
       "teamA": "Kitties",
       "teamB": "Mammoths",
       "type": "Conf East",
-      "teamAScore": 0,
-      "teamBScore": 0,
-      "note": "Upcoming"
+      "teamAScore": 8776,
+      "teamBScore": 5006,
+      "note": "Final",
+      "boxScore": {
+        "teamA": [
+          {
+            "handle": "bryceyoungformvp",
+            "upvotes": 3413,
+            "note": ""
+          },
+          {
+            "handle": "gfkmoney",
+            "upvotes": 2271,
+            "note": ""
+          },
+          {
+            "handle": "supaboiiii",
+            "upvotes": 1952,
+            "note": ""
+          },
+          {
+            "handle": "cardinalsred123",
+            "upvotes": 1140,
+            "note": ""
+          }
+        ],
+        "teamB": [
+          {
+            "handle": "realsabrinacarpenter",
+            "upvotes": 2425,
+            "note": ""
+          },
+          {
+            "handle": "andthatsallshewrote",
+            "upvotes": 1290,
+            "note": ""
+          },
+          {
+            "handle": "mistermuyrico",
+            "upvotes": 57,
+            "note": ""
+          },
+          {
+            "handle": "taad",
+            "upvotes": 1234,
+            "note": ""
+          }
+        ],
+        "note": "Kitties win by 3,770"
+      }
     },
     {
       "week": "Week 10",
