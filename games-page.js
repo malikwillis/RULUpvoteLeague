@@ -1,156 +1,76 @@
-loadLeagueData().then(originalData => {
-  const saved = localStorage.getItem('RUL_WORKING_DATA');
-  const data = saved ? JSON.parse(saved) : originalData;
-
-  pageHeader(data, 'games.html', 'Game', 'Center', 'Browse every matchup and open full game pages');
+window.RUL_NO_AUTO_RELOAD=false;
+loadLeagueData().then(data=>{
+  pageHeader(data,'games.html','League','Schedule','Regular season and playoff schedule, clearly separated');
   pageFooter(data);
 
-  const root = $('#gamesRoot') || document.querySelector('main') || document.body;
-  let currentWeek = '';
-  let currentStatus = '';
+  const root=document.getElementById('scheduleRoot');
+  const regular=data.games||[];
+  const playoffs=data.playoffs||{};
+  const playoffGames=playoffs.schedule||[];
+  const weeks=[...new Set(regular.map(game=>game.week).filter(Boolean))];
+  let active='all';
 
-  const weeks = [...new Set((data.games || []).map(game => game.week).filter(Boolean))]
-    .sort((a, b) => weekNumber(a) - weekNumber(b));
-
-  root.innerHTML = `
+  root.innerHTML=`
     <section class="card">
-      <div class="row">
-        <span>
-          <h2 class="card-title">RUL Game Center</h2>
-          <p class="muted">Open any matchup for full score, box score, top player, game notes, and matchup breakdown.</p>
-        </span>
-        <span class="pill">${fmt((data.games || []).length)} Games</span>
-      </div>
-
-      <div class="game-filter-row" style="margin-top:14px">
-        <select id="weekFilter">
-          <option value="">All weeks</option>
-          ${weeks.map(week => `<option value="${escapeHtml(week)}">${escapeHtml(week)}</option>`).join('')}
+      <div class="section-header"><span><div class="label">Schedule Center</div><h2>RUL Schedule</h2><p class="muted">Regular-season games and commissioner-managed playoff games are intentionally kept separate. Playoff scheduling does not alter existing league stats.</p></span><a class="btn primary" href="playoffs.html">Manage Playoffs</a></div>
+      <div class="toolbar">
+        <select id="scheduleFilter">
+          <option value="all">All regular season games</option>
+          <option value="live">Live games</option>
+          <option value="upcoming">Upcoming games</option>
+          <option value="final">Final games</option>
+          ${weeks.map(week=>`<option value="${rulEsc(week)}">${rulEsc(week)}</option>`).join('')}
         </select>
-
-        <select id="statusFilter">
-          <option value="">All statuses</option>
-          <option value="Live">Live</option>
-          <option value="Upcoming">Upcoming</option>
-          <option value="Final">Final</option>
-        </select>
+        <input id="scheduleSearch" placeholder="Search team">
       </div>
     </section>
 
-    <section id="gamesList" class="game-two-grid" style="margin-top:16px"></section>
+    <section class="grid two section">
+      <article class="card"><div class="label">Regular Season</div><div class="kpi">${rulFmt(regular.length)}</div><p class="muted">Existing schedule entries</p></article>
+      <article class="card"><div class="label">Playoff Games</div><div class="kpi">${rulFmt(playoffGames.length)}</div><p class="muted">${playoffs.initialized?'Saved in the separate playoff schedule':'No playoff schedule built yet'}</p></article>
+    </section>
+
+    <section class="card section">
+      <div class="section-header"><span><h2>Playoff Schedule</h2><p class="muted">Managed in the Playoffs page. These games do not alter player stats or regular standings.</p></span><a class="btn small" href="playoffs.html">Open Playoffs</a></div>
+      <div id="playoffSchedule"></div>
+    </section>
+
+    <section class="card section">
+      <div class="section-header"><span><h2>Regular Season Schedule</h2><p class="muted">Your existing games exactly as saved.</p></span></div>
+      <div id="regularSchedule"></div>
+    </section>
   `;
 
-  $('#weekFilter')?.addEventListener('change', event => {
-    currentWeek = event.target.value || '';
-    renderGames();
-  });
-
-  $('#statusFilter')?.addEventListener('change', event => {
-    currentStatus = event.target.value || '';
-    renderGames();
-  });
-
-  renderGames();
-
-  function renderGames() {
-    let games = data.games || [];
-
-    games = games.filter(game => {
-      const matchesWeek = !currentWeek || game.week === currentWeek;
-      const matchesStatus = !currentStatus || gameStatus(game) === currentStatus;
-      return matchesWeek && matchesStatus;
+  const render=()=>{
+    const term=String(document.getElementById('scheduleSearch').value||'').toLowerCase().trim();
+    const filter=document.getElementById('scheduleFilter').value;
+    const filtered=regular.filter(game=>{
+      const note=String(game.note||'').toLowerCase();
+      const match=!term||String(game.teamA||'').toLowerCase().includes(term)||String(game.teamB||'').toLowerCase().includes(term);
+      const kind=filter==='all'
+        || (filter==='live'&&note==='live')
+        || (filter==='final'&&note==='final')
+        || (filter==='upcoming'&&note!=='final'&&note!=='live')
+        || filter===String(game.week||'');
+      return match&&kind;
     });
+    document.getElementById('regularSchedule').innerHTML=filtered.length?filtered.map(renderGameCard).join(''):'<div class="empty">No regular-season games match that filter.</div>';
+  };
 
-    games = [...games].sort((a, b) => weekNumber(a.week) - weekNumber(b.week));
+  document.getElementById('playoffSchedule').innerHTML=playoffGames.length
+    ? playoffGames.map(rulPlayoffScheduleCard).join('')
+    : '<div class="empty">No playoff games scheduled. Select playoff teams and create the schedule in Playoffs.</div>';
 
-    $('#gamesList').innerHTML = games.length ? games.map(renderGameCard).join('') : `
-      <article class="card">
-        <h2>No games found</h2>
-        <p class="muted">Change the filters and try again.</p>
-      </article>
-    `;
-  }
-}).catch(error => {
-  console.error('Games page failed:', error);
-  const root = $('#gamesRoot') || document.querySelector('main') || document.body;
-  root.innerHTML = `
-    <section class="card">
-      <h2>Games page failed to load</h2>
-      <p class="muted">${escapeHtml(error.message || 'Check games-page.js and static-data.js.')}</p>
-    </section>
-  `;
+  document.getElementById('scheduleFilter').addEventListener('change',render);
+  document.getElementById('scheduleSearch').addEventListener('input',render);
+  render();
 });
 
-function renderGameCard(game) {
-  const status = gameStatus(game);
-  const a = Number(game.teamAScore || 0);
-  const b = Number(game.teamBScore || 0);
-  const winner = getWinner(game);
-  const margin = Math.abs(a - b);
-  const top = topPlayerInGame(game);
-
-  return `
-    <a class="card game-card-link" href="${gameUrl(game)}">
-      <div class="row">
-        <span>
-          <strong>${escapeHtml(game.teamA)} vs ${escapeHtml(game.teamB)}</strong><br>
-          <span class="muted">${escapeHtml(game.week || '')} · ${escapeHtml(game.date || '')} · ${escapeHtml(game.type || '')}</span>
-        </span>
-        <span class="pill">${escapeHtml(status)}</span>
-      </div>
-
-      <div class="score-strip" style="margin-top:14px">
-        <span>
-          <strong>${escapeHtml(game.teamA)}</strong><br>
-          <span class="game-mini-score">${fmt(a)}</span>
-        </span>
-
-        <span class="muted">${winner ? `${escapeHtml(winner)} by ${fmt(margin)}` : status === 'Upcoming' ? 'Not played' : 'Tied'}</span>
-
-        <span style="text-align:right">
-          <strong>${escapeHtml(game.teamB)}</strong><br>
-          <span class="game-mini-score">${fmt(b)}</span>
-        </span>
-      </div>
-
-      ${top ? `<p class="muted">Top player: @${escapeHtml(cleanHandle(top.handle))} · ${fmt(top.upvotes)}</p>` : '<p class="muted">No box score entered yet.</p>'}
-    </a>
-  `;
+function rulPlayoffScheduleCard(game){
+  const done=String(game.status||'').toLowerCase()==='complete';
+  const a=Number(game.teamAScore||0), b=Number(game.teamBScore||0);
+  return `<article class="live-row-item"><div class="live-matchup"><div><div class="team-name ${done&&a>b?'winner':''}">${rulTeamLink(game.teamA||'TBD')}</div><div class="team-score">${done?rulFmt(a):'—'}</div></div><div><div class="vs">${rulEsc(game.stage||'Playoffs')}</div><div class="diff">${rulEsc(game.date||'TBD')}</div></div><div style="text-align:right"><div class="team-name ${done&&b>a?'winner':''}">${rulTeamLink(game.teamB||'TBD')}</div><div class="team-score">${done?rulFmt(b):'—'}</div></div></div><div class="projection"><div class="proj-label">${rulEsc(game.label||'Playoff matchup')} · ${rulEsc(game.status||'Scheduled')}</div><div class="bar-wrap"><div class="bar-fill" style="width:${done?Math.round(Math.max(a,b)/Math.max(1,a+b)*100):50}%"></div></div></div></article>`;
 }
-
-function gameUrl(game) {
-  return `game.html?week=${encodeURIComponent(game.week || '')}&teamA=${encodeURIComponent(game.teamA || '')}&teamB=${encodeURIComponent(game.teamB || '')}`;
-}
-
-function gameStatus(game) {
-  const note = String(game.note || '').trim().toLowerCase();
-  if (note === 'final') return 'Final';
-  if (note === 'live') return 'Live';
-  return 'Upcoming';
-}
-
-function getWinner(game) {
-  if (gameStatus(game) !== 'Final' && gameStatus(game) !== 'Live') return null;
-  const a = Number(game.teamAScore || 0);
-  const b = Number(game.teamBScore || 0);
-  if (a === b) return null;
-  return a > b ? game.teamA : game.teamB;
-}
-
-function topPlayerInGame(game) {
-  const players = [
-    ...(game.boxScore?.teamA || []),
-    ...(game.boxScore?.teamB || [])
-  ];
-
-  if (!players.length) return null;
-
-  return players
-    .map(player => ({ ...player, handle: cleanHandle(player.handle), upvotes: Number(player.upvotes || 0) }))
-    .sort((a, b) => Number(b.upvotes || 0) - Number(a.upvotes || 0))[0];
-}
-
-function weekNumber(week) {
-  const match = String(week || '').match(/\d+/);
-  return match ? Number(match[0]) : 999;
-}
+function rulEsc(value){return typeof escapeHtml==='function'?escapeHtml(value):String(value??'');}
+function rulFmt(value){return typeof fmt==='function'?fmt(value):Number(value||0).toLocaleString();}
+function rulTeamLink(name){return typeof teamLink==='function'?teamLink(name):rulEsc(name);}
