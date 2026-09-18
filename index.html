@@ -1,23 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Real Upvote League</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800;900;1000&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#10120f">
+  <meta name="description" content="Real Upvote League — teams, game scores, and player stats.">
+  <title>RUL · League Central</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23d6f343'/%3E%3Cpath d='M18 44V20h18q12 0 12 10 0 7-7 9l8 5H36l-8-7v7zm10-16v4h8q3 0 3-2t-3-2z' fill='%23151714'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
 </head>
 <body>
-<main class="shell">
-  <section id="homeRoot"></section>
-</main>
-
-<script src="static-data.js"></script>
-<script src="sheet-config.js"></script>
-<script src="utils.js"></script>
-<script src="data-service.js"></script>
-<script src="layout.js"></script>
-<script src="home-page.js"></script>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="RUL home"><span class="brand-mark">R</span><span><span class="brand-name">RUL<span class="brand-dot">.</span></span><span class="brand-sub">REAL UPVOTE LEAGUE</span></span></a>
+      <div class="season-tag"><span class="season-indicator"></span> NEW SEASON</div>
+      <nav aria-label="Main navigation" id="navigation"></nav>
+      <div class="sidebar-bottom"><div class="league-wordmark">EVERY<br>UPVOTE<br>COUNTS<span>.</span></div><p>8 teams. One league.</p><a href="https://realupvoteleague.com" target="_blank" rel="noreferrer">Current live site ↗</a></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div class="breadcrumb">LEAGUE HQ <span>/</span> <strong id="crumb">OVERVIEW</strong></div><div class="top-actions"><span class="preview-badge"><span></span> Local preview · saved on this device</span><a class="button secondary small" id="account-link" href="#commissioner">Commissioner login</a><button type="button" class="button ghost small" id="export-all">Export season report ↓</button></div></header>
+      <main id="main" tabindex="-1"></main>
+      <footer class="site-footer"><span>REAL UPVOTE LEAGUE</span><span>New season · 62 players · Ready for the next chapter</span></footer>
+    </div>
+  </div>
+  <dialog id="modal" class="modal"></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

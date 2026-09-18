@@ -1,0 +1,9 @@
+node_modules
+public
+.rul-data
+.env
+.env.*
+
+# Retire legacy write endpoints in this deployment.
+api/*
+!api/rul.js

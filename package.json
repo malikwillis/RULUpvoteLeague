@@ -1,0 +1,12 @@
+{
+  "name": "rul-redesign-preview",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "firebase-admin": "14.4.0"
+  }
+}
