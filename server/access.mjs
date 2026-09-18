@@ -50,18 +50,50 @@ const TOKEN_VERIFICATION_ERROR_CODES = new Set([
   'app/invalid-credential',
   'app/network-error',
   'app/network-timeout',
-  'ERR_MODULE_NOT_FOUND'
+  'ERR_MODULE_NOT_FOUND',
+  'MODULE_NOT_FOUND',
+  'ERR_PACKAGE_PATH_NOT_EXPORTED',
+  'ERR_PACKAGE_IMPORT_NOT_DEFINED',
+  'ERR_REQUIRE_ESM',
+  'ERR_REQUIRE_ASYNC_MODULE',
+  'ERR_UNSUPPORTED_DIR_IMPORT',
+  'ERR_UNSUPPORTED_ESM_URL_SCHEME',
+  'ERR_UNKNOWN_FILE_EXTENSION',
+  'ERR_INVALID_PACKAGE_CONFIG',
+  'ERR_INVALID_PACKAGE_TARGET',
+  'ERR_INVALID_MODULE_SPECIFIER',
+  'ERR_INVALID_ARG_TYPE',
+  'ERR_DLOPEN_FAILED',
+  'ENOENT',
+  'EACCES',
+  'ENOTFOUND',
+  'ETIMEDOUT',
+  'ECONNRESET'
+]);
+const TOKEN_VERIFICATION_ERROR_NAMES = new Set([
+  'Error', 'TypeError', 'SyntaxError', 'ReferenceError', 'RangeError',
+  'FirebaseAuthError', 'FirebaseAppError'
 ]);
 
 export async function verifyGoogleToken(token) {
+  let stage = 'loading-auth';
   try {
     const { getAuth } = await import('firebase-admin/auth');
+    stage = 'initializing-app';
+    const app = await getAdminApp();
+    stage = 'initializing-auth';
+    const auth = getAuth(app);
+    stage = 'verifying-token';
     // A configured server checks revocation as well as signature, project, issuer and expiry.
-    return await getAuth(await getAdminApp()).verifyIdToken(token, Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON));
+    return await auth.verifyIdToken(token, Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON));
   } catch (error) {
     if (error instanceof HttpError) throw error;
-    // Log only known diagnostic codes; SDK messages can contain sensitive details.
-    console.error(TOKEN_VERIFICATION_ERROR_CODES.has(error?.code) ? error.code : 'auth/unknown-error');
+    // Every value is a local enum. Never log SDK messages, stacks, tokens, or identity.
+    console.error(JSON.stringify({
+      stage,
+      code: TOKEN_VERIFICATION_ERROR_CODES.has(error?.code) ? error.code : 'auth/unknown-error',
+      name: TOKEN_VERIFICATION_ERROR_NAMES.has(error?.name) ? error.name : 'UnknownError'
+    }));
     throw new HttpError(401, 'Your sign-in could not be verified. Sign in again.');
   }
 }
