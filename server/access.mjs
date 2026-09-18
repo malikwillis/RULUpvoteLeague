@@ -31,6 +31,28 @@ export async function getAdminApp() {
   return adminApp;
 }
 
+const TOKEN_VERIFICATION_ERROR_CODES = new Set([
+  'auth/argument-error',
+  'auth/certificate-fetch-failed',
+  'auth/id-token-expired',
+  'auth/id-token-revoked',
+  'auth/insufficient-permission',
+  'auth/internal-error',
+  'auth/invalid-credential',
+  'auth/invalid-id-token',
+  'auth/invalid-project-id',
+  'auth/project-not-found',
+  'auth/tenant-id-mismatch',
+  'auth/user-disabled',
+  'auth/user-not-found',
+  'app/internal-error',
+  'app/invalid-app-options',
+  'app/invalid-credential',
+  'app/network-error',
+  'app/network-timeout',
+  'ERR_MODULE_NOT_FOUND'
+]);
+
 export async function verifyGoogleToken(token) {
   try {
     const { getAuth } = await import('firebase-admin/auth');
@@ -38,6 +60,8 @@ export async function verifyGoogleToken(token) {
     return await getAuth(await getAdminApp()).verifyIdToken(token, Boolean(process.env.FIREBASE_SERVICE_ACCOUNT_JSON));
   } catch (error) {
     if (error instanceof HttpError) throw error;
+    // Log only known diagnostic codes; SDK messages can contain sensitive details.
+    console.error(TOKEN_VERIFICATION_ERROR_CODES.has(error?.code) ? error.code : 'auth/unknown-error');
     throw new HttpError(401, 'Your sign-in could not be verified. Sign in again.');
   }
 }
