@@ -227,7 +227,14 @@ export function playerStats(games) {
       row.games += 1; row.total += score.score; row.best = row.best === null ? score.score : Math.max(row.best, score.score); row.last = score.score;
     }
   }
-  return [...stats.values()].map(row => ({ ...row, average: row.games ? row.total / row.games : 0 }));
+  const rows = [...stats.values()].map(row => ({ ...row, average: row.games ? row.total / row.games : 0 }));
+  const qualified = rows.filter(row => row.games >= 2 && getPlayer(row.playerId)?.active !== false).sort((a, b) => a.average - b.average);
+  const replacementAverage = qualified.length >= 4 ? qualified[Math.floor((qualified.length - 1) * 0.25)].average : null;
+  const margins = finalized(games).map(game => Math.abs(teamTotal(game, game.homeTeamId) - teamTotal(game, game.awayTeamId))).filter(margin => margin > 0).sort((a, b) => a - b);
+  const typicalWinMargin = margins.length ? margins[Math.floor(margins.length / 2)] : null;
+  return rows.map(row => ({ ...row, replacementAverage, typicalWinMargin,
+    war: row.games && replacementAverage !== null && typicalWinMargin ? (row.total - replacementAverage * row.games) / typicalWinMargin : null
+  }));
 }
 
 export function standings(games) {
