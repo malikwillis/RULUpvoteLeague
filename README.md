@@ -1,6 +1,6 @@
 # RUL redesign
 
-Working local website with Google sign-in, commissioner approvals, season results, team draft capital, and a trade desk. This folder has not been published to realupvoteleague.com.
+RUL website with Google sign-in, commissioner approvals, shareable team pages, season results, draft capital, and a trade desk. Production: https://realupvoteleague.com.
 
 ## Start
 
@@ -10,12 +10,14 @@ League changes save on this computer in `.rul-data/season.json`, not in browser 
 
 ## Access
 
-- The verified Google account **jmebben18@gmail.com** is the commissioner.
-- Other Google accounts see **Waiting for commissioner approval**. Their verified account request appears in the commissioner's **GM approvals** list.
+- The verified Google account **jmebben18@gmail.com** is the permanent league owner and commissioner.
+- Other Google accounts see **Waiting for commissioner approval**. Their verified account request appears in the commissioner's **Account approvals** list.
 - Select a team and choose **Approve & assign**. Only one account can manage each team. Remove an existing assignment before replacing it.
-- Managers can choose **Check approval status** or sign in again after approval.
+- The league owner can choose **Make commissioner** for any account that has signed in. Delegated commissioner access can be removed later and cannot remove or replace the permanent owner.
+- Managers can choose **Refresh access** or sign in again after approval.
 - Assigned managers can submit exactly four players from their own team's current roster. They cannot edit scores, approve accounts, or complete trades.
 - The commissioner can change scores, manage every lineup, approve or revoke GM assignments, and complete trades.
+- Each team has a shareable page at `#team/team-name` with its record, roster statistics, draft capital, and recent results. Every player has a shareable page at `#player/player-id` with season stats, RUL WAR, and game history. RUL WAR estimates upvotes above a replacement scorer, divided by the median winning margin; its baseline uses the bottom quartile of active scorers with two or more games, and it appears after at least four qualify.
 - The server verifies Google identity and permissions on every write. Roles sent by a browser are not trusted. Pending accounts have no editing access. Approval emails are visible only to the commissioner.
 
 The displayed GM handles supplied with the rosters are separate from Google access assignments.

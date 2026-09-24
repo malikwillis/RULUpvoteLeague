@@ -4,7 +4,7 @@ let firebaseAuth;
 let sdk;
 let initPromise;
 let config = null;
-let actor = { role: 'guest', uid: null, email: null, teamId: null };
+let actor = { role: 'guest', uid: null, email: null, teamId: null, isOwner: false };
 let state = { revision: 0, games: [], lineups: {} };
 let ready = false;
 let error = '';
@@ -62,7 +62,7 @@ export async function initializeAccess() {
       sdk.onIdTokenChanged(firebaseAuth, async user => {
         ready = false;
         // Immediately remove the previous account's privileges during any account transition.
-        actor = {role: 'guest', uid: null, email: null, teamId: null};
+        actor = {role: 'guest', uid: null, email: null, teamId: null, isOwner: false};
         state = {...state, games: state.games.filter(game => game.status === 'final')};
         emit('auth');
         try {
@@ -99,7 +99,7 @@ export async function signIn() {
 }
 export async function signOut() {
   if (firebaseAuth) await sdk.signOut(firebaseAuth);
-  actor = {role: 'guest', uid: null, email: null, teamId: null};
+  actor = {role: 'guest', uid: null, email: null, teamId: null, isOwner: false};
   state = {...state, games: state.games.filter(game => game.status === 'final')};
   emit('auth');
 }
@@ -112,6 +112,12 @@ export async function checkApproval() {
 export async function approveGM(uid, teamId) {
   if(!isCommissioner())throw new Error('Commissioner access is required.');
   state=await request('state',{action:'approve-gm',uid,teamId,accessRevision:state.accessRevision||0});
+  emit('state');
+}
+
+export async function setCommissioner(uid, enabled) {
+  if(!isCommissioner() || access().actor.isOwner !== true)throw new Error('Only the league owner can grant commissioner access.');
+  state=await request('state',{action:'set-commissioner',uid,enabled,accessRevision:state.accessRevision||0});
   emit('state');
 }
 

@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs",
-    "start": "node server.mjs"
+    "start": "node server.mjs",
+    "test": "node --test access-control.test.mjs"
   },
   "dependencies": {
     "firebase-admin": "13.10.0"
