@@ -8,7 +8,7 @@ export function parseTradeText(text, state) {
   const errors=[];const transfers=[];const participants=new Set();let recipient=null;
   if(typeof text!=='string'||!text.trim())return {errors:['Paste a trade first.'],transfers:[]};
   if(text.length>20000)return {errors:['Paste one trade at a time, up to 20,000 characters.'],transfers:[]};
-  const normalized=clean(text).replace(/(?:—{2,}|~{2,})/g,'\n').replace(/\b([A-Za-z]+)\s+(?:receives?|recieves?|gets?|acquires?)\s*:/gi,'\n$1 receives:\n').replace(/\s+-\s*(?=@|[A-Za-z])/g,'\n');
+  const normalized=clean(text).replace(/(?:—{2,}|~{2,})/g,'\n').replace(/\b([A-Za-z]+)[ \t]+(?:receives?|recieves?|gets?|acquires?)[ \t]*:?[ \t]*/gi,'\n$1 receives:\n').replace(/\s+-\s*(?=@|[A-Za-z])/g,'\n');
   const lines=normalized.split(/\r?\n|;/).flatMap(line=>line.split(/\s+(?=@)/)).map(s=>s.trim().replace(/^[-•]\s*/, '')).filter(Boolean);
   function add(kind,id,fromTeamId){
     if(!fromTeamId||!getTeam(fromTeamId)){errors.push(`No current owner found for ${id}.`);return;}
