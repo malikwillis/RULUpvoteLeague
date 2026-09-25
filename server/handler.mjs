@@ -1,4 +1,4 @@
-import { authorize, requireCommissioner, requireLineupAccess, HttpError } from './access.mjs';
+import { authorize, resolveStoredRole, requireCommissioner, requireOwnerCommissioner, requireLineupAccess, HttpError } from './access.mjs';
 import { FIREBASE_CLIENT_CONFIG } from './config.mjs';
 import { createFirestoreStore, sharedStorageReady } from './store.mjs';
 import { validateGame } from '../core.js';
@@ -12,7 +12,7 @@ const send = (res, status, body) => {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' });
   res.end(JSON.stringify(body));
 };
-const publicState = (state, actor) => ({revision: state.revision, games: actor.role === 'commissioner' ? state.games : state.games.filter(g => g.status === 'final'), lineups: state.lineups, rosters: state.rosters, picks: state.picks, trades: state.trades, ...(actor.role==='commissioner'?{accessRevision:state.accessRevision||0,accessRequests:state.accessRequests||{},gmAssignments:state.gmAssignments||{}}:{})});
+const publicState = (state, actor) => ({revision: state.revision, games: actor.role === 'commissioner' ? state.games : state.games.filter(g => g.status === 'final'), lineups: state.lineups, rosters: state.rosters, picks: state.picks, trades: state.trades, ...(actor.role==='commissioner'?{accessRevision:state.accessRevision||0,accessRequests:state.accessRequests||{},gmAssignments:state.gmAssignments||{},commissionerAssignments:state.commissionerAssignments||{}}:{})});
 async function bodyOf(req) {
   if (req.body !== undefined) {
     if (JSON.stringify(req.body).length > 100000) throw new HttpError(413, 'This entry is too large.');
@@ -26,20 +26,39 @@ async function bodyOf(req) {
 export function applyChange(state, body, actor) {
   if (!body || typeof body !== 'object' || Array.isArray(body)) throw new HttpError(400, 'Invalid entry.');
   // Authorize the requested action before examining revision or stored records.
+  if (body.action === 'set-commissioner') {
+    requireOwnerCommissioner(actor);
+    if (body.accessRevision !== (state.accessRevision||0)) throw new HttpError(409, 'Account approvals changed. Refresh before trying again.');
+    if (typeof body.uid !== 'string' || !Object.hasOwn(state.accessRequests||{},body.uid)) throw new HttpError(400, 'Select an account that has requested access.');
+    if (typeof body.enabled !== 'boolean') throw new HttpError(400, 'Choose whether this account should have commissioner access.');
+    const next=structuredClone(state);
+    next.gmAssignments??={};
+    next.commissionerAssignments??={};
+    delete next.gmAssignments[body.uid];
+    if(body.enabled)next.commissionerAssignments[body.uid]=true;else delete next.commissionerAssignments[body.uid];
+    next.accessRequests[body.uid]={...next.accessRequests[body.uid],status:body.enabled?'commissioner':'pending',teamId:null,updatedAt:new Date().toISOString()};
+    next.accessRevision=(state.accessRevision||0)+1;
+    return next;
+  }
   if (body.action === 'approve-gm') {
     requireCommissioner(actor);
     if (body.accessRevision !== (state.accessRevision||0)) throw new HttpError(409, 'Account approvals changed. Refresh before trying again.');
     if (typeof body.uid !== 'string' || !Object.hasOwn(state.accessRequests||{},body.uid)) throw new HttpError(400, 'Select an account that has requested access.');
     if (body.teamId !== null && !getTeam(body.teamId)) throw new HttpError(400, 'Choose a valid team.');
+    // Assigning a GM also removes commissioner status, so it needs the same
+    // owner-only permission as an explicit commissioner revocation.
+    if (state.commissionerAssignments?.[body.uid] === true) requireOwnerCommissioner(actor);
     if (body.teamId && Object.entries(state.gmAssignments||{}).some(([uid,team])=>uid!==body.uid&&team===body.teamId)) throw new HttpError(409, 'That team already has a GM. Remove the existing assignment first.');
     const next=structuredClone(state);
     next.gmAssignments??={};
+    next.commissionerAssignments??={};
+    delete next.commissionerAssignments[body.uid];
     if(body.teamId)next.gmAssignments[body.uid]=body.teamId;else delete next.gmAssignments[body.uid];
     next.accessRequests[body.uid]={...next.accessRequests[body.uid],status:body.teamId?'approved':'pending',teamId:body.teamId,updatedAt:new Date().toISOString()};
     next.accessRevision=(state.accessRevision||0)+1;
     return next;
   }
-  if (['save-game','apply-trade'].includes(body.action)) requireCommissioner(actor);
+  if (['save-game','delete-game','apply-trade'].includes(body.action)) requireCommissioner(actor);
   else if (body.action === 'save-lineup') requireLineupAccess(actor, body.lineup?.teamId);
   else throw new HttpError(400, 'Unknown action.');
   if (!Number.isSafeInteger(body.revision) || body.revision !== state.revision) throw new HttpError(409, 'League data changed in another window. Reload the latest data before saving; your entry is still here.');
@@ -59,6 +78,11 @@ export function applyChange(state, body, actor) {
     // Keep pre-trade game rosters immutable, including older saved previews.
     for(const game of next.games)game.rosterSnapshot??=Object.fromEntries(game.scores.map(row=>[row.playerId,row.teamId]));
     next.trades.push({id:randomUUID(),title:parsed.participants.map(id=>getTeam(id).name).join(' / '),text:body.text,transfers:parsed.transfers,createdAt:new Date().toISOString(),historical:false});
+  } else if (body.action === 'delete-game') {
+    const existing = next.games.find(game => game.id === body.id);
+    if (!existing) throw new HttpError(404, 'Game not found. Refresh the results and try again.');
+    next.games = next.games.filter(game => game.id !== body.id);
+    next.deletedGames = [...(next.deletedGames || []), {...existing, deletedAt: new Date().toISOString()}];
   } else if (body.action === 'save-game') {
     const raw = body.game;
     if (!raw || typeof raw !== 'object' || !Array.isArray(raw.scores) || raw.scores.length > 62 || typeof raw.id !== 'string' || !/^[a-zA-Z0-9-]{1,80}$/.test(raw.id)) throw new HttpError(400, 'Invalid game.');
@@ -67,7 +91,9 @@ export function applyChange(state, body, actor) {
     game.rosterSnapshot = previous?.rosterSnapshot && previous.homeTeamId === game.homeTeamId && previous.awayTeamId === game.awayTeamId ? previous.rosterSnapshot : {...state.rosters};
     if (previous?.sourceNote) game.sourceNote = previous.sourceNote;
     const errors = validateGame(game);
-    if (next.games.some(g => g.id !== game.id && g.week === game.week && g.date === game.date && [g.homeTeamId, g.awayTeamId].sort().join('|') === [game.homeTeamId, game.awayTeamId].sort().join('|'))) errors.push('This matchup already has a result. Edit that result instead.');
+    const sameTeams = g => [g.homeTeamId, g.awayTeamId].sort().join('|') === [game.homeTeamId, game.awayTeamId].sort().join('|');
+    if (!getWeekMatchups(game.week).some(sameTeams)) errors.push(`This matchup is not scheduled for Week ${game.week}. Choose the scheduled week before saving.`);
+    if (next.games.some(g => g.id !== game.id && g.week === game.week && sameTeams(g))) errors.push('This matchup already has a result for that week. Edit the existing game instead.');
     if (errors.length) throw new HttpError(400, errors.join(' '));
     if (next.games.length >= 200 && !next.games.some(g => g.id === game.id)) throw new HttpError(400, 'The season game limit has been reached.');
     next.games = next.games.filter(g => g.id !== game.id).concat(game);
@@ -90,38 +116,36 @@ export function createHandler({store = createFirestoreStore(), verify, assignmen
       const resource = url.searchParams.get('resource') || 'state';
       if (req.method === 'GET' && resource === 'config') return send(res, 200, {firebase: FIREBASE_CLIENT_CONFIG, storage: local ? 'local' : 'shared', storageReady: local || sharedStorageReady()});
       if (!['GET', 'POST'].includes(req.method)) throw new HttpError(405, 'Method not allowed.');
-      let actor = await authorize(req.headers, verify, {});
+      let actor = await authorize(req.headers, verify, {}, {});
       const current = await store.read();
-      const assignedTeam=(assignments||current.gmAssignments||{})[actor.uid];
-      if(actor.role==='pending'&&getTeam(assignedTeam))actor={...actor,role:'gm',teamId:assignedTeam};
+      actor=resolveStoredRole(actor,assignments||current.gmAssignments||{},current.commissionerAssignments||{});
       if (req.method === 'GET' && resource === 'session') return send(res, 200, {actor});
       if (req.method === 'GET' && resource === 'state') return send(res, 200, publicState(current, actor));
       if (req.method === 'POST' && resource === 'join') {
         if(actor.role==='guest')throw new HttpError(401,'Sign in with Google first.');
-        if(actor.role==='pending')await store.update(state=>{
+        let joinedState = current;
+        if(actor.role==='pending')joinedState=await store.update(state=>{
           if(Object.hasOwn(state.accessRequests||{},actor.uid))return state;
           if(Object.keys(state.accessRequests||{}).length>=200)throw new HttpError(429,'The account request limit has been reached. Contact the commissioner.');
           return {...state,accessRevision:(state.accessRevision||0)+1,accessRequests:{...state.accessRequests,[actor.uid]:{uid:actor.uid,email:actor.email,status:'pending',teamId:null,requestedAt:new Date().toISOString()}}};
         });
-        return send(res,200,{actor});
+        return send(res,200,{actor:resolveStoredRole(actor,assignments||joinedState.gmAssignments||{},joinedState.commissionerAssignments||{})});
       }
       if (req.method !== 'POST' || resource !== 'state') throw new HttpError(404, 'Not found.');
       if (!['commissioner', 'gm'].includes(actor.role)) throw new HttpError(actor.role === 'guest' ? 401 : 403, 'Sign in with an account that has editing permission.');
       if (!/^application\/json(?:\s*;|$)/i.test(req.headers['content-type'] || '')) throw new HttpError(415, 'Use a JSON request.');
       const body = await bodyOf(req);
       // Reject wrong-team and score writes before opening the store transaction.
-      if (['save-game','approve-gm','apply-trade'].includes(body?.action)) requireCommissioner(actor);
+      if (body?.action === 'set-commissioner') requireOwnerCommissioner(actor);
+      else if (['save-game','delete-game','approve-gm','apply-trade'].includes(body?.action)) requireCommissioner(actor);
       if (body?.action === 'save-lineup') requireLineupAccess(actor, body.lineup?.teamId);
       const state = await store.update(current => {
         // Recheck assignments inside the transaction so a concurrent revocation takes effect.
-        let currentActor = actor;
-        if(actor.role === 'gm') {
-          const teamId = (assignments || current.gmAssignments || {})[actor.uid];
-          currentActor = {...actor, role:getTeam(teamId)?'gm':'pending', teamId:getTeam(teamId)?teamId:null};
-        }
+        const currentActor = resolveStoredRole(actor,assignments||current.gmAssignments||{},current.commissionerAssignments||{});
         return applyChange(current, body, currentActor);
       });
-      return send(res, 200, publicState(state, actor));
+      const updatedActor = resolveStoredRole(actor,assignments||state.gmAssignments||{},state.commissionerAssignments||{});
+      return send(res, 200, publicState(state, updatedActor));
     } catch (error) {
       if (!(error instanceof HttpError)) console.error('RUL request failed:', error.code || error.name);
       send(res, error.status || 503, {error: error.status ? error.message : 'The league service is unavailable. Your changes have not been saved.'});
