@@ -40,6 +40,11 @@ export async function saveLeagueGame(game) {
   state = await request('state', {action: 'save-game', revision: state.revision, game});
   emit('state');
 }
+export async function deleteLeagueGame(id) {
+  if (!isCommissioner()) throw new Error('Commissioner sign-in is required.');
+  state = await request('state', {action: 'delete-game', revision: state.revision, id});
+  emit('state');
+}
 export async function saveLeagueLineup(lineup) {
   if (!canSubmitLineups()) throw new Error('Sign in with an assigned GM account.');
   state = await request('state', {action: 'save-lineup', revision: state.revision, lineup});

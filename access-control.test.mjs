@@ -3,10 +3,12 @@ import assert from 'node:assert/strict';
 import { roleForIdentity, resolveStoredRole } from './server/access.mjs';
 import { createHandler, applyChange } from './server/handler.mjs';
 import { emptyState } from './server/store.mjs';
+import { getScheduledGame, matchScheduledResult } from './schedule.js';
+import { standings } from './core.js';
 
 const identity = (email = 'jmebben18@gmail.com', uid = 'owner') => ({uid, email, email_verified: true, firebase: {sign_in_provider: 'google.com'}});
 const owner = roleForIdentity(identity());
-const game = {id:'commissioner-test',week:4,date:'2026-09-24',homeTeamId:'dragons',awayTeamId:'wolverines',status:'final',scores:[{playerId:'dragons-01',teamId:'dragons',score:100},{playerId:'wolverines-01',teamId:'wolverines',score:50}]};
+const game = {id:'commissioner-test',week:4,date:'2026-09-24',homeTeamId:'bandits',awayTeamId:'dragons',status:'final',scores:[{playerId:'bandits-01',teamId:'bandits',score:100},{playerId:'dragons-01',teamId:'dragons',score:50}]};
 
 test('the permanent owner and delegated commissioners are distinct', () => {
   assert.equal(owner.role, 'commissioner');
@@ -113,6 +115,34 @@ test('revocation during a write is checked again inside the transaction', async 
   assert.equal(result.status, 403);
   assert.equal(stored.games.some(saved=>saved.id===game.id), false);
   assert.equal(stored.revision, 0);
+});
+
+test('posted finals match their scheduled week even when the actual date changed', () => {
+  const fixture = getScheduledGame('2026-w3-02');
+  const posted = { ...fixture, date: '2026-09-20', status: 'final' };
+  assert.equal(matchScheduledResult(fixture, [posted]), posted);
+  assert.equal(matchScheduledResult(fixture, [{ ...posted, week: 1 }]), undefined);
+});
+
+test('score saves reject the wrong week and a duplicate matchup on another date', () => {
+  assert.throws(() => applyChange(emptyState(), {action:'save-game',revision:0,game:{...game,week:1}}, owner), {status:400});
+  const saved = applyChange(emptyState(), {action:'save-game',revision:0,game}, owner);
+  assert.throws(() => applyChange(saved, {action:'save-game',revision:1,game:{...game,id:'duplicate-date',date:'2026-09-25'}}, owner), {status:400});
+  assert.equal(saved.games.length, 10);
+});
+
+test('commissioner can remove an accidental game without losing its backup', () => {
+  const state = emptyState();
+  const extra = {...state.games.find(g => g.id === '2026-w3-01'),id:'extra-dragons-supersonics',week:1,date:'2026-09-20'};
+  state.games.push(extra);
+  const before = standings(state.games);
+  assert.throws(() => applyChange(state,{action:'delete-game',revision:0,id:extra.id},{role:'gm',teamId:'dragons'}),{status:403});
+  const next = applyChange(state,{action:'delete-game',revision:0,id:extra.id},owner);
+  assert.equal(next.games.length, state.games.length-1);
+  assert.equal(next.deletedGames[0].id, extra.id);
+  assert.equal(next.revision, 1);
+  assert.notDeepEqual(standings(next.games), before);
+  assert.deepEqual(standings(next.games), standings(emptyState().games));
 });
 
 test('join refreshes a role granted while the request is in progress', async () => {

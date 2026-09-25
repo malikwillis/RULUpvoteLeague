@@ -52,10 +52,10 @@ export const SPECIAL_EVENTS = [
 export const getScheduledGame = id => SCHEDULE.find(fixture => fixture.id === id);
 export const getWeekMatchups = week => SCHEDULE.filter(fixture => fixture.week === Number(week));
 
-/** Match entered results regardless of which team was entered first. */
+/** Match the scheduled week and teams even when a final was posted on another date. */
 export function matchScheduledResult(fixture, games) {
   if (!fixture?.homeTeamId || !fixture?.awayTeamId || !Array.isArray(games)) return undefined;
-  return games.find(game => game && game.week === fixture.week && game.date === fixture.date && (
+  return games.find(game => game && game.week === fixture.week && (
     (game.homeTeamId === fixture.homeTeamId && game.awayTeamId === fixture.awayTeamId)
     || (game.homeTeamId === fixture.awayTeamId && game.awayTeamId === fixture.homeTeamId)
   ));
