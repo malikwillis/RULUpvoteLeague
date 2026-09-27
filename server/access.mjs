@@ -5,14 +5,20 @@ export class HttpError extends Error {
   constructor(status, message) { super(message); this.status = status; }
 }
 
-export function roleForIdentity(identity, gmAssignments = {}) {
+export function resolveStoredRole(actor, gmAssignments = {}, commissionerAssignments = {}) {
+  if (!actor?.uid) return { role: 'guest', uid: null, email: null, teamId: null, isOwner: false };
+  const isOwner = actor.email === COMMISSIONER_EMAIL;
+  if (isOwner || commissionerAssignments[actor.uid] === true) return { ...actor, role: 'commissioner', teamId: null, isOwner };
+  const teamId = Object.hasOwn(gmAssignments, actor.uid) ? gmAssignments[actor.uid] : null;
+  return { ...actor, role: getTeam(teamId) ? 'gm' : 'pending', teamId: getTeam(teamId) ? teamId : null, isOwner: false };
+}
+
+export function roleForIdentity(identity, gmAssignments = {}, commissionerAssignments = {}) {
   if (!identity?.uid || identity.email_verified !== true || identity.firebase?.sign_in_provider !== 'google.com') {
     throw new HttpError(403, 'Sign in with a verified Google account.');
   }
   const email = String(identity.email || '').trim().toLowerCase();
-  if (email === COMMISSIONER_EMAIL) return { role: 'commissioner', uid: identity.uid, email, teamId: null };
-  const teamId = Object.hasOwn(gmAssignments, identity.uid) ? gmAssignments[identity.uid] : null;
-  return { role: getTeam(teamId) ? 'gm' : 'pending', uid: identity.uid, email, teamId: getTeam(teamId) ? teamId : null };
+  return resolveStoredRole({ role: 'pending', uid: identity.uid, email, teamId: null, isOwner: false }, gmAssignments, commissionerAssignments);
 }
 
 let adminApp;
@@ -98,20 +104,25 @@ export async function verifyGoogleToken(token) {
   }
 }
 
-export async function authorize(headers, verify = verifyGoogleToken, assignments = null) {
+export async function authorize(headers, verify = verifyGoogleToken, assignments = null, commissionerAssignments = null) {
   const value = headers.authorization || '';
-  if (!value) return { role: 'guest', uid: null, email: null, teamId: null };
+  if (!value) return { role: 'guest', uid: null, email: null, teamId: null, isOwner: false };
   const match = /^Bearer ([^\s]{1,16000})$/.exec(value);
   if (!match) throw new HttpError(401, 'A valid sign-in is required.');
   if (assignments === null) {
     try { assignments = JSON.parse(process.env.RUL_GM_ASSIGNMENTS || '{}'); } catch { throw new HttpError(503, 'Team access configuration needs attention.'); }
     if (!assignments || typeof assignments !== 'object' || Array.isArray(assignments)) throw new HttpError(503, 'Team access configuration needs attention.');
   }
-  return roleForIdentity(await verify(match[1]), assignments);
+  if (commissionerAssignments === null) commissionerAssignments = {};
+  if (!commissionerAssignments || typeof commissionerAssignments !== 'object' || Array.isArray(commissionerAssignments)) throw new HttpError(503, 'Commissioner access configuration needs attention.');
+  return roleForIdentity(await verify(match[1]), assignments, commissionerAssignments);
 }
 
 export function requireCommissioner(actor) {
   if (actor.role !== 'commissioner') throw new HttpError(actor.role === 'guest' ? 401 : 403, 'Only the commissioner can change league scores and data.');
+}
+export function requireOwnerCommissioner(actor) {
+  if (actor.role !== 'commissioner' || actor.isOwner !== true) throw new HttpError(actor.role === 'guest' ? 401 : 403, 'Only the league owner can change commissioner access.');
 }
 export function requireLineupAccess(actor, teamId) {
   if (actor.role !== 'commissioner' && !(actor.role === 'gm' && actor.teamId === teamId)) {
